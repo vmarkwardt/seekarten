@@ -12,6 +12,17 @@
   },
   "props": [
     {
+      "key": "src/AreaLink.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AreaLink",
+          "methods": [],
+          "actualName": "AreaLink"
+        }
+      ]
+    },
+    {
       "key": "src/App.js",
       "value": [
         {
