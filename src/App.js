@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 
 function App() {
@@ -22,5 +22,6 @@ function App() {
     </div>
   );
 }
-
+//<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+//<link rel="shortcut icon" href="https://sts-winterhude.de/sites/default/files/wir_logo_3.png" type="image/png">
 export default App;
