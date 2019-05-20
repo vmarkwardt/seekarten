@@ -3,20 +3,21 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const StyledLink = styled.button`
+  color: ${(props) => props.btnColor || 'turquoise'};
   display: inline-block;
-  color: turquoise;
-  font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid turquoise;
+  border: 2px solid
+    ${(props) => (props.btnColor ? props.btnColor : 'turquoise')};
   border-radius: 3px;
   display: block;
   text-decoration: none;
 `;
 
-export default function AreaLink({ name }) {
+export default function AreaLink({ name, btnColor }) {
+  console.log(name, btnColor);
   return (
-    <StyledLink as="a" href="/" name>
+    <StyledLink as="a" href="/">
       {name}
     </StyledLink>
   );
