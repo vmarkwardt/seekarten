@@ -16,8 +16,9 @@ function App() {
         />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Helmet>
-      <header className="App-header" />
-      <p>Seekarten</p>
+      <header className="App-header">
+        <h1>Seekarten</h1>
+      </header>
       <AreaLink name="Ich" />
       <AreaLink name="Wir" />
       <AreaLink name="Welt" />
