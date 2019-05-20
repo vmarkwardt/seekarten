@@ -32,17 +32,6 @@
       ]
     },
     {
-      "key": "src/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
       "key": "src/GlobalStyle.js",
       "value": [
         {
@@ -52,9 +41,39 @@
           "actualName": "GlobalSyle"
         }
       ]
+    },
+    {
+      "key": "src/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
     }
   ],
   "entries": [
+    {
+      "key": "index.mdx",
+      "value": {
+        "name": "Start here",
+        "route": "/",
+        "id": "91149a4106ab27ef746308b41227aca8",
+        "filepath": "index.mdx",
+        "link": "",
+        "slug": "index",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "start-of-styleguide",
+            "depth": 1,
+            "value": "Start of StyleGuide"
+          }
+        ]
+      }
+    },
     {
       "key": "src/AreaLink.mdx",
       "value": {
