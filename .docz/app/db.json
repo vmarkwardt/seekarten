@@ -41,6 +41,17 @@
           "actualName": "App"
         }
       ]
+    },
+    {
+      "key": "src/GlobalStyle.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "GlobalSyle",
+          "methods": [],
+          "actualName": "GlobalSyle"
+        }
+      ]
     }
   ],
   "entries": [

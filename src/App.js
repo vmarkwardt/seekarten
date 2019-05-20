@@ -1,11 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import GlobalSyle from './GlobalStyle';
 import AreaLink from './AreaLink';
-//import '../favicon.ico';
 
 function App() {
   return (
     <div className="App">
+      <GlobalSyle />
       <Helmet>
         <meta charSet="utf-8" />
         <title>Seekarten</title>
