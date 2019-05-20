@@ -12,37 +12,6 @@
   },
   "props": [
     {
-      "key": "src/AreaLink.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AreaLink",
-          "methods": [],
-          "actualName": "AreaLink",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/GlobalStyle.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "GlobalSyle",
-          "methods": [],
-          "actualName": "GlobalSyle"
-        }
-      ]
-    },
-    {
       "key": "src/App.js",
       "value": [
         {
