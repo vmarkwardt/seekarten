@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from './logo.png';
 import { Helmet } from 'react-helmet';
+import AreaLink from './AreaLink';
+//import '../favicon.ico';
 
 function App() {
   return (
@@ -12,26 +13,13 @@ function App() {
           href="https://fonts.googleapis.com/css?family=Roboto"
           rel="stylesheet"
         />
-        <link
-          rel="shortcut icon"
-          href="https://sts-winterhude.de/sites/default/files/wir_logo_3.png"
-          type="image/png"
-        />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Helmet>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header" />
+      <p>Seekarten</p>
+      <AreaLink name="Ich" />
+      <AreaLink name="Wir" />
+      <AreaLink name="Welt" />
     </div>
   );
 }

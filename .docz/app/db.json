@@ -18,7 +18,16 @@
           "description": "",
           "displayName": "AreaLink",
           "methods": [],
-          "actualName": "AreaLink"
+          "actualName": "AreaLink",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
         }
       ]
     },
@@ -34,5 +43,25 @@
       ]
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "key": "src/AreaLink.mdx",
+      "value": {
+        "name": "AreaLink",
+        "id": "3d0dc30fef39317324dc65f606aaeabe",
+        "filepath": "src/AreaLink.mdx",
+        "link": "",
+        "slug": "src-area-link",
+        "route": "/src-area-link",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "arealink",
+            "depth": 1,
+            "value": "AreaLink"
+          }
+        ]
+      }
+    }
+  ]
 }
