@@ -11,12 +11,12 @@ const StyledGlobalSyle = createGlobalStyle`
   } 
 
   body {
+    background: white;
+    color: darkslategray;
+    font-family: roboto, sans-serif;
     margin: 0;
     padding: 5px;
     width:100vw;
-    font-family: roboto, sans-serif;
-    color: darkslategray;
-    background: white;
   }
 `;
 
