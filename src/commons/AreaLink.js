@@ -17,7 +17,7 @@ const StyledLink = styled.button`
 export default function AreaLink({ name, btnColor }) {
   console.log(name, btnColor);
   return (
-    <StyledLink as="a" href="/">
+    <StyledLink as="a" href="/" btnColor={btnColor}>
       {name}
     </StyledLink>
   );
