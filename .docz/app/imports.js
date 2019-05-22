@@ -5,4 +5,12 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-commons-area-link" */ 'src/commons/AreaLink.mdx'
     ),
+  'src/categoryPage/Category.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-category-page-category" */ 'src/categoryPage/Category.mdx'
+    ),
+  'src/categoryPage/Skill.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-category-page-skill" */ 'src/categoryPage/Skill.mdx'
+    ),
 }
