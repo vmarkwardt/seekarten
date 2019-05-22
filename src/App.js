@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { BrowserRouter, Route, NavLink } from 'react-router-dom'
-import GlobalSyle from './commons/GlobalStyle'
+import GlobalStyle from './commons/GlobalStyle'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
 import mockData from './mockdata'
 import ChartPage from './mapPage/ChartPage'
@@ -18,7 +18,7 @@ function App() {
     skillIndex,
     progress,
   }) {
-    
+
     const chartListCopy = [...chartList]
 
     chartListCopy[chartIndex].categories[categoryIndex].skillList[
@@ -35,7 +35,7 @@ function App() {
   const Navigation = styled.nav``
   return (
     <div className="App">
-      <GlobalSyle />
+      <GlobalStyle />
       <Helmet>
         <meta charSet="utf-8" />
         <title>Seekarten</title>
