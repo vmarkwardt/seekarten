@@ -14,11 +14,14 @@ const StyledCategory = styled.li`
   }
 `
 
-export default function Category({ name, skillList }) {
+export default function Category({ name, skillList, onProgressChange }) {
   return (
     <StyledCategory key={name}>
       <h3>{name}</h3>
-      <SkillList skillList={skillList} />
+      <SkillList
+        skillList={skillList}
+        onProgressChange={props => onProgressChange({ ...props, category:name })}
+      />
     </StyledCategory>
   )
 }

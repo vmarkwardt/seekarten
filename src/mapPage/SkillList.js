@@ -9,11 +9,16 @@ const StyledSkillList = styled.ul`
   padding: 5px;
 `
 
-export default function SkillList({ skillList }) {
+export default function SkillList({ skillList, onProgressChange }) {
   return (
     <StyledSkillList>
       {skillList.map(skill => (
-        <Skill key={skill.name} name={skill.name} progress={skill.progress} />
+        <Skill
+          key={skill.name}
+          name={skill.name}
+          progress={skill.progress}
+          onProgressChange={onProgressChange}
+        />
       ))}
     </StyledSkillList>
   )

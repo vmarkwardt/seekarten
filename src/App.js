@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { BrowserRouter, Route } from 'react-router-dom'
 import GlobalSyle from './commons/GlobalStyle'
@@ -7,7 +7,22 @@ import mockData from './mockdata'
 import MapPage from './mapPage/MapPage'
 
 function App() {
-  const mapList = mockData.mapList
+  const [mapList, setMapList] = useState(mockData.mapList || [])
+
+  function handleProgressChange({ title, category, skillName, progress }) {
+    const mapListCopy = [...mapList]
+    const mapIndex = mapListCopy.map(map => map.title).indexOf(title)
+    const categoryList = mapListCopy[mapIndex].categories
+    const categoryIndex = categoryList.map(item => item.name).indexOf(category)
+    const skillList = categoryList[categoryIndex].skillList
+    const skillIndex = skillList.map(skill => skill.name).indexOf(skillName)
+
+    mapListCopy[mapIndex].categories[categoryIndex].skillList[
+      skillIndex
+    ].progress = Number(progress)
+
+    setMapList(mapListCopy)
+  }
 
   return (
     <div className="App">
@@ -31,6 +46,7 @@ function App() {
               <MapPage
                 title={item.title}
                 categoryList={item.categories}
+                onProgressChange={handleProgressChange}
                 {...props}
               />
             )}

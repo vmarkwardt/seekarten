@@ -19,8 +19,9 @@ export default function Slider({ progress, onProgressChange }) {
       type="range"
       min="0"
       max="100"
+      step="10"
       value={progress}
-      onChange={onProgressChange}
+      onChange={event => onProgressChange(event.target.value)}
     />
   )
 }
