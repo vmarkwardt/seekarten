@@ -7,7 +7,10 @@ import CategoryPage from './commons/categoryPage/CategoryPage'
 import mockCategory from './mockdata'
 
 function App() {
-  const mockCategoryList = mockCategory.subcategories
+  console.log(mockCategory)
+  const mockCategoryList = mockCategory.categoryList[0].subcategories
+  const title = mockCategory.categoryList[0].category
+  console.log(title)
 
   return (
     <div className="App">
@@ -26,7 +29,11 @@ function App() {
           <Route
             path="/seekarten"
             render={props => (
-              <CategoryPage categoryList={mockCategoryList} {...props} />
+              <CategoryPage
+                title={title}
+                categoryList={mockCategoryList}
+                {...props}
+              />
             )}
           />
           <Route path="/" component={PageAreaOverview} />

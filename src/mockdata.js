@@ -1,22 +1,75 @@
 const mockCategory = {
-  category: 'Ich',
-  subcategories: [
+  categoryList: [
     {
-      name: 'Organisation',
-      skillList: [
-        { name: 'Arbeitshaltung' },
-        { name: 'Pünktlichkeit' },
-        { name: 'Zeitmanagement' },
-        { name: 'Projekte planen' },
+      category: 'Ich',
+      subcategories: [
+        {
+          name: 'Organisation',
+          skillList: [
+            { name: 'Arbeitshaltung', progress: 70 },
+            { name: 'Pünktlichkeit', progress: 80 },
+            { name: 'Zeitmanagement', progress: 30 },
+            { name: 'Projekte planen', progress: 40 },
+          ],
+        },
+        {
+          name: 'Texte verstehen',
+          skillList: [
+            {
+              name: 'Sinnerfassend lesen',
+              progress: 80,
+            },
+            { name: 'Texte interpretieren', progress: 80 },
+          ],
+        },
       ],
     },
     {
-      name: 'Texte verstehen',
-      skillList: [
+      category: 'Wir',
+      subcategories: [
         {
-          name: 'Sinnerfassend lesen',
+          name: 'Organisation',
+          skillList: [
+            { name: 'Arbeitshaltung', progress: 70 },
+            { name: 'Pünktlichkeit', progress: 80 },
+            { name: 'Zeitmanagement', progress: 30 },
+            { name: 'Projekte planen', progress: 40 },
+          ],
         },
-        { name: 'Texte interpretieren' },
+        {
+          name: 'Texte verstehen',
+          skillList: [
+            {
+              name: 'Sinnerfassend lesen',
+              progress: 80,
+            },
+            { name: 'Texte interpretieren', progress: 80 },
+          ],
+        },
+      ],
+    },
+    {
+      category: 'Welt',
+      subcategories: [
+        {
+          name: 'Organisation',
+          skillList: [
+            { name: 'Arbeitshaltung', progress: 70 },
+            { name: 'Pünktlichkeit', progress: 80 },
+            { name: 'Zeitmanagement', progress: 30 },
+            { name: 'Projekte planen', progress: 40 },
+          ],
+        },
+        {
+          name: 'Texte verstehen',
+          skillList: [
+            {
+              name: 'Sinnerfassend lesen',
+              progress: 80,
+            },
+            { name: 'Texte interpretieren', progress: 80 },
+          ],
+        },
       ],
     },
   ],
