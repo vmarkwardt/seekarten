@@ -34,7 +34,7 @@ const mockData = {
         {
           name: 'Kooperation',
           skillList: [
-            { name: 'Absprach', progress: 70 },
+            { name: 'Absprache', progress: 70 },
             {
               name: 'test',
               progress: 80,
