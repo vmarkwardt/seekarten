@@ -20,7 +20,6 @@ const Skill = styled.li`
 export default function CategoryPage(props) {
   const title = props.title || ''
   const categoryList = props.categoryList || []
-  console.log(props)
 
   return (
     <main>
