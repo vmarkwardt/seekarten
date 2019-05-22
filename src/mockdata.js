@@ -1,8 +1,8 @@
-const mockCategory = {
-  categoryList: [
+const mockData = {
+  mapList: [
     {
-      category: 'Ich',
-      subcategories: [
+      title: 'Ich',
+      categories: [
         {
           name: 'Organisation',
           skillList: [
@@ -25,8 +25,8 @@ const mockCategory = {
       ],
     },
     {
-      category: 'Wir',
-      subcategories: [
+      title: 'Wir',
+      categories: [
         {
           name: 'Kommunikation',
           skillList: [{ name: 'Konflikt klären', progress: 80 }],
@@ -44,8 +44,8 @@ const mockCategory = {
       ],
     },
     {
-      category: 'Welt',
-      subcategories: [
+      title: 'Welt',
+      categories: [
         {
           name: 'Mathe',
           skillList: [
@@ -70,4 +70,4 @@ const mockCategory = {
   ],
 }
 
-export default mockCategory
+export default mockData

@@ -3,11 +3,12 @@ import { Helmet } from 'react-helmet'
 import { BrowserRouter, Route } from 'react-router-dom'
 import GlobalSyle from './commons/GlobalStyle'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
-import CategoryPage from './commons/categoryPage/CategoryPage'
-import mockCategory from './mockdata'
+import mockData from './mockdata'
+import MapPage from './mapPage/MapPage'
 
 function App() {
-  const categoryList = mockCategory.categoryList
+  const mapList = mockData.mapList
+  console.log(mapList)
 
   return (
     <div className="App">
@@ -23,14 +24,14 @@ function App() {
       </Helmet>
       <BrowserRouter>
         <Route path="/" component={PageAreaOverview} />
-        {categoryList.map(category => (
+        {mapList.map(item => (
           <Route
-            key={category.category}
-            path={'/' + category.category.toLowerCase()}
+            key={item.title}
+            path={'/' + item.title.toLowerCase()}
             render={props => (
-              <CategoryPage
-                title={category.category}
-                categoryList={category.subcategories}
+              <MapPage
+                title={item.title}
+                categoryList={item.categories}
                 {...props}
               />
             )}
