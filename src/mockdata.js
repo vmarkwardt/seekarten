@@ -50,7 +50,7 @@ const mockData = {
           name: 'Mathe',
           skillList: [
             { name: 'Bruchrechnen', progress: 70 },
-            { name: 'Pünktlichkeit', progress: 80 },
+            { name: 'Dreisatz', progress: 80 },
             { name: 'Zeitmanagement', progress: 30 },
             { name: 'Projekte planen', progress: 40 },
           ],

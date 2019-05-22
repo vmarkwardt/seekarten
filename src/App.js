@@ -8,7 +8,6 @@ import MapPage from './mapPage/MapPage'
 
 function App() {
   const mapList = mockData.mapList
-  console.log(mapList)
 
   return (
     <div className="App">
