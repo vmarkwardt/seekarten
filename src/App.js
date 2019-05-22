@@ -7,7 +7,6 @@ import CategoryPage from './commons/categoryPage/CategoryPage'
 import mockCategory from './mockdata'
 
 function App() {
-  console.log(mockCategory.categoryList)
   const categoryList = mockCategory.categoryList
 
   return (

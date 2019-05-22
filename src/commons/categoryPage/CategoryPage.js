@@ -30,7 +30,9 @@ export default function CategoryPage(props) {
             <h3>{category.name}</h3>
             <ul>
               {category.skillList.map(skill => (
-                <Skill key={skill.name}>{skill.name}</Skill>
+                <Skill key={skill.name}>
+                  {skill.name} {skill.progress + '%'}
+                </Skill>
               ))}
             </ul>
           </Category>
