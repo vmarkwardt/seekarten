@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import GlobalSyle from './GlobalStyle';
-import AreaLink from './AreaLink';
+import { BrowserRouter, Route } from 'react-router-dom';
+import GlobalSyle from './commons/GlobalStyle';
+import PageAreaOverview from './areaOverview/PageAreaOverview';
 
 function App() {
   return (
@@ -16,12 +17,9 @@ function App() {
         />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Helmet>
-      <header className="App-header">
-        <h1>Seekarten</h1>
-      </header>
-      <AreaLink name="Ich" />
-      <AreaLink name="Wir" />
-      <AreaLink name="Welt" />
+      <BrowserRouter>
+        <Route path="/" component={PageAreaOverview} />
+      </BrowserRouter>
     </div>
   );
 }

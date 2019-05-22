@@ -12,6 +12,17 @@
   },
   "props": [
     {
+      "key": "src/areaOverview/PageAreaOverview.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "PageAreaOverview",
+          "methods": [],
+          "actualName": "PageAreaOverview"
+        }
+      ]
+    },
+    {
       "key": "src/App.js",
       "value": [
         {
@@ -44,14 +55,14 @@
       }
     },
     {
-      "key": "src/AreaLink.mdx",
+      "key": "src/commons/AreaLink.mdx",
       "value": {
         "name": "AreaLink",
-        "id": "3d0dc30fef39317324dc65f606aaeabe",
-        "filepath": "src/AreaLink.mdx",
+        "id": "ea5001c2a2063015361e2974fba2a015",
+        "filepath": "src/commons/AreaLink.mdx",
         "link": "",
-        "slug": "src-area-link",
-        "route": "/src-area-link",
+        "slug": "src-commons-area-link",
+        "route": "/src-commons-area-link",
         "menu": "",
         "headings": [
           {

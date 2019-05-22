@@ -1,8 +1,8 @@
 export const imports = {
   'index.mdx': () =>
     import(/* webpackPrefetch: true, webpackChunkName: "index" */ 'index.mdx'),
-  'src/AreaLink.mdx': () =>
+  'src/commons/AreaLink.mdx': () =>
     import(
-      /* webpackPrefetch: true, webpackChunkName: "src-area-link" */ 'src/AreaLink.mdx'
+      /* webpackPrefetch: true, webpackChunkName: "src-commons-area-link" */ 'src/commons/AreaLink.mdx'
     ),
 }
