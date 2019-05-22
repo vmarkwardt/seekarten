@@ -9,7 +9,7 @@ const StyledCategory = styled.li`
   padding: 5px;
 
   & > h3 {
-    background: #2a9d8f;
+    background: #b6e1dd;
     padding: 5px;
   }
 `
@@ -20,7 +20,9 @@ export default function Category({ name, skillList, onProgressChange }) {
       <h3>{name}</h3>
       <SkillList
         skillList={skillList}
-        onProgressChange={props => onProgressChange({ ...props, category:name })}
+        onProgressChange={props =>
+          onProgressChange({ ...props, category: name })
+        }
       />
     </StyledCategory>
   )

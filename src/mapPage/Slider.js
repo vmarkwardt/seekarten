@@ -2,15 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledSlider = styled.input`
+  border-radius: 5px;
+  height: 15px;
   margin: 5px;
   padding: 5px;
-  width: 50%;
-  height: 15px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
   opacity: 0.7;
+  outline: none;
   transition: opacity 0.15s ease-in-out;
+  width: 50%;
 `
 
 export default function Slider({ progress, onProgressChange }) {
