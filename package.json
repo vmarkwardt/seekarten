@@ -1,6 +1,10 @@
 {
   "name": "seekarten",
   "version": "0.1.0",
+  "author": {
+    "name": "Vanessa Markwardt",
+    "url": "https://github.com/vmarkwardt/seekarten"
+  },
   "private": true,
   "dependencies": {
     "@craco/craco": "^5.2.1",
@@ -22,7 +26,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "docz:build": "docz build",
+    "craco": "craco start"
   },
   "eslintConfig": {
     "extends": "react-app"
