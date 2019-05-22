@@ -23,26 +23,6 @@
       ]
     },
     {
-      "key": "src/commons/AreaLink.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AreaLink",
-          "methods": [],
-          "actualName": "AreaLink",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/commons/GlobalStyle.js",
       "value": [
         {
@@ -138,48 +118,13 @@
       ]
     },
     {
-      "key": "src/mapPage/SkillList.js",
+      "key": "src/commons/AreaLink.js",
       "value": [
         {
           "description": "",
-          "displayName": "SkillList",
+          "displayName": "AreaLink",
           "methods": [],
-          "actualName": "SkillList",
-          "props": {
-            "skillList": {
-              "type": {
-                "name": "array"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "[]",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/mapPage/MapPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MapPage",
-          "methods": [],
-          "actualName": "MapPage"
-        }
-      ]
-    },
-    {
-      "key": "src/mapPage/Skill.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Skill",
-          "methods": [],
-          "actualName": "Skill",
+          "actualName": "AreaLink",
           "props": {
             "name": {
               "type": {
@@ -187,19 +132,19 @@
               },
               "required": true,
               "description": ""
-            },
-            "progress": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "0",
-                "computed": false
-              }
             }
           }
+        }
+      ]
+    },
+    {
+      "key": "src/mapPage/ChartPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ChartPage",
+          "methods": [],
+          "actualName": "ChartPage"
         }
       ]
     },
@@ -211,48 +156,6 @@
           "displayName": "App",
           "methods": [],
           "actualName": "App"
-        }
-      ]
-    },
-    {
-      "key": "src/mapPage/Category.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Category",
-          "methods": [],
-          "actualName": "Category",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "skillList": {
-              "type": {
-                "name": "array"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "[]",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/mapPage/Slider.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Slider",
-          "methods": [],
-          "actualName": "Slider"
         }
       ]
     }

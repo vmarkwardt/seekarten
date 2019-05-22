@@ -1,7 +1,7 @@
 import React from 'react'
 import Category from './Category'
 
-export default function MapPage({ title, categoryList, onProgressChange }) {
+export default function ChartPage({ title, categoryList, onProgressChange }) {
   return (
     <main>
       <h2>Seekarte: {title}</h2>

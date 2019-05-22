@@ -4,32 +4,32 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import GlobalSyle from './commons/GlobalStyle'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
 import mockData from './mockdata'
-import MapPage from './mapPage/MapPage'
+import ChartPage from './mapPage/ChartPage'
 import { setLocal, getLocal } from './utils'
 
 function App() {
-  const [mapList, setMapList] = useState(
-    getLocal('mapList') || mockData.mapList || []
+  const [chartList, setchartList] = useState(
+    getLocal('chartList') || mockData.chartList || []
   )
 
   function handleProgressChange({ title, category, skillName, progress }) {
-    const mapListCopy = [...mapList]
-    const mapIndex = mapListCopy.map(map => map.title).indexOf(title)
-    const categoryList = mapListCopy[mapIndex].categories
+    const chartListCopy = [...chartList]
+    const chartIndex = chartListCopy.map(map => map.title).indexOf(title)
+    const categoryList = chartListCopy[chartIndex].categories
     const categoryIndex = categoryList.map(item => item.name).indexOf(category)
     const skillList = categoryList[categoryIndex].skillList
     const skillIndex = skillList.map(skill => skill.name).indexOf(skillName)
 
-    mapListCopy[mapIndex].categories[categoryIndex].skillList[
+    chartListCopy[chartIndex].categories[categoryIndex].skillList[
       skillIndex
     ].progress = Number(progress)
 
-    setMapList(mapListCopy)
+    setchartList(chartListCopy)
   }
 
   useEffect(() => {
-    setLocal('mapList', mapList)
-  }, [mapList])
+    setLocal('chartList', chartList)
+  }, [chartList])
 
   return (
     <div className="App">
@@ -44,15 +44,16 @@ function App() {
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Helmet>
       <BrowserRouter>
+      
         <Route path="/" component={PageAreaOverview} />
-        {mapList.map(item => (
+        {chartList.map(chart => (
           <Route
-            key={item.title}
-            path={'/' + item.title.toLowerCase()}
+            key={chart.title}
+            path={'/' + chart.title.toLowerCase()}
             render={props => (
-              <MapPage
-                title={item.title}
-                categoryList={item.categories}
+              <ChartPage
+                title={chart.title}
+                categoryList={chart.categories}
                 onProgressChange={handleProgressChange}
                 {...props}
               />
