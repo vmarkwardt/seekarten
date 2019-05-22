@@ -8,7 +8,6 @@ import mockCategory from './mockdata'
 
 function App() {
   const mockCategoryList = mockCategory.subcategories
-  console.log(mockCategoryList)
 
   return (
     <div className="App">
