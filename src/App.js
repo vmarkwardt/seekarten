@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { BrowserRouter, Route } from 'react-router-dom'
 import GlobalSyle from './commons/GlobalStyle'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
 import mockData from './mockdata'
 import MapPage from './mapPage/MapPage'
+import { setLocal, getLocal } from './utils'
 
 function App() {
-  const [mapList, setMapList] = useState(mockData.mapList || [])
+  const [mapList, setMapList] = useState(
+    getLocal('mapList') || mockData.mapList || []
+  )
 
   function handleProgressChange({ title, category, skillName, progress }) {
     const mapListCopy = [...mapList]
@@ -23,6 +26,10 @@ function App() {
 
     setMapList(mapListCopy)
   }
+
+  useEffect(() => {
+    setLocal('mapList', mapList)
+  }, [mapList])
 
   return (
     <div className="App">

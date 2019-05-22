@@ -235,17 +235,6 @@
       ]
     },
     {
-      "key": "src/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
       "key": "src/mapPage/Slider.js",
       "value": [
         {
@@ -253,6 +242,17 @@
           "displayName": "Slider",
           "methods": [],
           "actualName": "Slider"
+        }
+      ]
+    },
+    {
+      "key": "src/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
         }
       ]
     }
