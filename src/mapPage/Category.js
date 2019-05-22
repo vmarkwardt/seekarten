@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Skill from './Skill'
+import SkillList from './SkillList'
 
 const StyledCategory = styled.li`
   list-style-type: none;
@@ -9,20 +9,21 @@ const StyledCategory = styled.li`
   padding: 5px;
 
   & > h3 {
-    background: #2a9d8f;
+    background: #b6e1dd;
     padding: 5px;
   }
 `
 
-export default function Category({ name, skillList }) {
+export default function Category({ name, skillList, onProgressChange }) {
   return (
     <StyledCategory key={name}>
       <h3>{name}</h3>
-      <ul>
-        {skillList.map(skill => (
-          <Skill key={skill.name} name={skill.name} progress={skill.progress} />
-        ))}
-      </ul>
+      <SkillList
+        skillList={skillList}
+        onProgressChange={props =>
+          onProgressChange({ ...props, category: name })
+        }
+      />
     </StyledCategory>
   )
 }

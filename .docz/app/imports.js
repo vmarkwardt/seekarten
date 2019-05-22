@@ -5,12 +5,16 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-commons-area-link" */ 'src/commons/AreaLink.mdx'
     ),
-  'src/categoryPage/Category.mdx': () =>
+  'src/mapPage/Category.mdx': () =>
     import(
-      /* webpackPrefetch: true, webpackChunkName: "src-category-page-category" */ 'src/categoryPage/Category.mdx'
+      /* webpackPrefetch: true, webpackChunkName: "src-map-page-category" */ 'src/mapPage/Category.mdx'
     ),
-  'src/categoryPage/Skill.mdx': () =>
+  'src/mapPage/Skill.mdx': () =>
     import(
-      /* webpackPrefetch: true, webpackChunkName: "src-category-page-skill" */ 'src/categoryPage/Skill.mdx'
+      /* webpackPrefetch: true, webpackChunkName: "src-map-page-skill" */ 'src/mapPage/Skill.mdx'
+    ),
+  'src/mapPage/SkillList.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-map-page-skill-list" */ 'src/mapPage/SkillList.mdx'
     ),
 }

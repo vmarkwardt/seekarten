@@ -1,7 +1,7 @@
 import React from 'react'
 import Category from './Category'
 
-export default function MapPage({ title, categoryList }) {
+export default function MapPage({ title, categoryList, onProgressChange }) {
   return (
     <main>
       <h2>Seekarte: {title}</h2>
@@ -11,6 +11,7 @@ export default function MapPage({ title, categoryList }) {
             key={category.name}
             name={category.name}
             skillList={category.skillList}
+            onProgressChange={props => onProgressChange({ ...props, title })}
           />
         ))}
       </ul>

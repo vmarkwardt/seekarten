@@ -138,6 +138,30 @@
       ]
     },
     {
+      "key": "src/mapPage/SkillList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SkillList",
+          "methods": [],
+          "actualName": "SkillList",
+          "props": {
+            "skillList": {
+              "type": {
+                "name": "array"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "[]",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src/mapPage/MapPage.js",
       "value": [
         {
@@ -149,6 +173,37 @@
       ]
     },
     {
+      "key": "src/mapPage/Skill.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Skill",
+          "methods": [],
+          "actualName": "Skill",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "progress": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "0",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src/App.js",
       "value": [
         {
@@ -156,6 +211,48 @@
           "displayName": "App",
           "methods": [],
           "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/mapPage/Category.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Category",
+          "methods": [],
+          "actualName": "Category",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "skillList": {
+              "type": {
+                "name": "array"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "[]",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/mapPage/Slider.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Slider",
+          "methods": [],
+          "actualName": "Slider"
         }
       ]
     }
@@ -200,13 +297,13 @@
       }
     },
     {
-      "key": "src/categoryPage/Category.mdx",
+      "key": "src/mapPage/Category.mdx",
       "value": {
-        "id": "2b89ad04c53a03d5b894e4848eae81a2",
-        "filepath": "src/categoryPage/Category.mdx",
+        "id": "57053336d5cc90519f889392ec25e3ad",
+        "filepath": "src/mapPage/Category.mdx",
         "link": "",
-        "slug": "src-category-page-category",
-        "route": "/src-category-page-category",
+        "slug": "src-map-page-category",
+        "route": "/src-map-page-category",
         "name": "Category",
         "menu": "",
         "headings": [
@@ -219,13 +316,13 @@
       }
     },
     {
-      "key": "src/categoryPage/Skill.mdx",
+      "key": "src/mapPage/Skill.mdx",
       "value": {
-        "id": "da9292695beac7d9b95ed38651a843e2",
-        "filepath": "src/categoryPage/Skill.mdx",
+        "id": "0df9ee4f390acd172041fd00e9d0072d",
+        "filepath": "src/mapPage/Skill.mdx",
         "link": "",
-        "slug": "src-category-page-skill",
-        "route": "/src-category-page-skill",
+        "slug": "src-map-page-skill",
+        "route": "/src-map-page-skill",
         "name": "Skill",
         "menu": "",
         "headings": [
@@ -233,6 +330,25 @@
             "slug": "skill",
             "depth": 1,
             "value": "Skill"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/mapPage/SkillList.mdx",
+      "value": {
+        "id": "90de9749f4e63f8e9b7dfa579f7e9df2",
+        "filepath": "src/mapPage/SkillList.mdx",
+        "link": "",
+        "slug": "src-map-page-skill-list",
+        "route": "/src-map-page-skill-list",
+        "name": "Skill list",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "skilllist",
+            "depth": 1,
+            "value": "SkillList"
           }
         ]
       }

@@ -34,7 +34,7 @@ const mockData = {
         {
           name: 'Kooperation',
           skillList: [
-            { name: 'Absprach', progress: 70 },
+            { name: 'Absprache', progress: 70 },
             {
               name: 'test',
               progress: 80,
@@ -50,7 +50,7 @@ const mockData = {
           name: 'Mathe',
           skillList: [
             { name: 'Bruchrechnen', progress: 70 },
-            { name: 'Pünktlichkeit', progress: 80 },
+            { name: 'Dreisatz', progress: 80 },
             { name: 'Zeitmanagement', progress: 30 },
             { name: 'Projekte planen', progress: 40 },
           ],
