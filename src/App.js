@@ -1,14 +1,12 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import GlobalSyle from './commons/GlobalStyle'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
 import CategoryPage from './commons/categoryPage/CategoryPage'
 import mockCategory from './mockdata'
 
 function App() {
-  const mockCategoryList = mockCategory.categoryList[0].subcategories
-  const title = mockCategory.categoryList[0].category
   console.log(mockCategory.categoryList)
   const categoryList = mockCategory.categoryList
 
@@ -25,22 +23,20 @@ function App() {
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Helmet>
       <BrowserRouter>
-        <Switch>
-          {categoryList.map(category => (
-            <Route
-              key={title}
-              path={'/' + category.category.toLowerCase()}
-              render={props => (
-                <CategoryPage
-                  title={title}
-                  categoryList={mockCategoryList}
-                  {...props}
-                />
-              )}
-            />
-          ))}
-          <Route path="/" component={PageAreaOverview} />
-        </Switch>
+        <Route path="/" component={PageAreaOverview} />
+        {categoryList.map(category => (
+          <Route
+            key={category.category}
+            path={'/' + category.category.toLowerCase()}
+            render={props => (
+              <CategoryPage
+                title={category.category}
+                categoryList={category.subcategories}
+                {...props}
+              />
+            )}
+          />
+        ))}
       </BrowserRouter>
     </div>
   )

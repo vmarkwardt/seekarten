@@ -28,22 +28,17 @@ const mockCategory = {
       category: 'Wir',
       subcategories: [
         {
-          name: 'Organisation',
-          skillList: [
-            { name: 'Arbeitshaltung', progress: 70 },
-            { name: 'Pünktlichkeit', progress: 80 },
-            { name: 'Zeitmanagement', progress: 30 },
-            { name: 'Projekte planen', progress: 40 },
-          ],
+          name: 'Kommunikation',
+          skillList: [{ name: 'Konflikt klären', progress: 80 }],
         },
         {
-          name: 'Texte verstehen',
+          name: 'Kooperation',
           skillList: [
+            { name: 'Absprach', progress: 70 },
             {
-              name: 'Sinnerfassend lesen',
+              name: 'test',
               progress: 80,
             },
-            { name: 'Texte interpretieren', progress: 80 },
           ],
         },
       ],
@@ -52,16 +47,16 @@ const mockCategory = {
       category: 'Welt',
       subcategories: [
         {
-          name: 'Organisation',
+          name: 'Mathe',
           skillList: [
-            { name: 'Arbeitshaltung', progress: 70 },
+            { name: 'Bruchrechnen', progress: 70 },
             { name: 'Pünktlichkeit', progress: 80 },
             { name: 'Zeitmanagement', progress: 30 },
             { name: 'Projekte planen', progress: 40 },
           ],
         },
         {
-          name: 'Texte verstehen',
+          name: 'Deutsch',
           skillList: [
             {
               name: 'Sinnerfassend lesen',
