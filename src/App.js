@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, NavLink } from 'react-router-dom'
 import GlobalSyle from './commons/GlobalStyle'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
 import mockData from './mockdata'
 import ChartPage from './mapPage/ChartPage'
 import { setLocal, getLocal } from './utils'
+import styled from 'styled-components'
 
 function App() {
-  const [chartList, setchartList] = useState(
-    getLocal('chartList') || mockData.chartList || []
-  )
+  const [chartList, setchartList] = useState(mockData.chartList || [])
+  //getLocal('chartList') ||
 
-  function handleProgressChange({ title, category, skillName, progress }) {
+  function handleProgressChange({
+    chartIndex,
+    categoryIndex,
+    skillIndex,
+    progress,
+  }) {
+    
     const chartListCopy = [...chartList]
-    const chartIndex = chartListCopy.map(map => map.title).indexOf(title)
-    const categoryList = chartListCopy[chartIndex].categories
-    const categoryIndex = categoryList.map(item => item.name).indexOf(category)
-    const skillList = categoryList[categoryIndex].skillList
-    const skillIndex = skillList.map(skill => skill.name).indexOf(skillName)
 
     chartListCopy[chartIndex].categories[categoryIndex].skillList[
       skillIndex
@@ -31,6 +32,7 @@ function App() {
     setLocal('chartList', chartList)
   }, [chartList])
 
+  const Navigation = styled.nav``
   return (
     <div className="App">
       <GlobalSyle />
@@ -44,9 +46,17 @@ function App() {
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Helmet>
       <BrowserRouter>
-      
+        <Navigation>
+          {' '}
+          NAvigaion
+          {chartList.map((chart, index) => (
+            <NavLink title={chart.title} to={'/' + chart.title.toLowerCase()} />
+          ))}
+          Nav ENde
+        </Navigation>
         <Route path="/" component={PageAreaOverview} />
-        {chartList.map(chart => (
+        {console.log(chartList)}
+        {chartList.map((chart, index) => (
           <Route
             key={chart.title}
             path={'/' + chart.title.toLowerCase()}
@@ -54,7 +64,9 @@ function App() {
               <ChartPage
                 title={chart.title}
                 categoryList={chart.categories}
-                onProgressChange={handleProgressChange}
+                onProgressChange={params =>
+                  handleProgressChange({ ...params, chartIndex: index })
+                }
                 {...props}
               />
             )}

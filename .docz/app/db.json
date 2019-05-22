@@ -12,13 +12,33 @@
   },
   "props": [
     {
-      "key": "src/areaOverview/PageAreaOverview.js",
+      "key": "src/App.js",
       "value": [
         {
           "description": "",
-          "displayName": "PageAreaOverview",
+          "displayName": "App",
           "methods": [],
-          "actualName": "PageAreaOverview"
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/commons/AreaLink.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AreaLink",
+          "methods": [],
+          "actualName": "AreaLink",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
         }
       ]
     },
@@ -34,38 +54,7 @@
       ]
     },
     {
-      "key": "src/categoryPage/Skill.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Skill",
-          "methods": [],
-          "actualName": "Skill",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "progress": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "0",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/categoryPage/Category.js",
+      "key": "src/mapPage/Category.js",
       "value": [
         {
           "description": "",
@@ -96,48 +85,6 @@
       ]
     },
     {
-      "key": "src/categoryPage/CategoryPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CategoryPage",
-          "methods": [],
-          "actualName": "CategoryPage"
-        }
-      ]
-    },
-    {
-      "key": "src/mapPage/mapPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MapPage",
-          "methods": [],
-          "actualName": "MapPage"
-        }
-      ]
-    },
-    {
-      "key": "src/commons/AreaLink.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AreaLink",
-          "methods": [],
-          "actualName": "AreaLink",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/mapPage/ChartPage.js",
       "value": [
         {
@@ -149,13 +96,79 @@
       ]
     },
     {
-      "key": "src/App.js",
+      "key": "src/mapPage/Skill.js",
       "value": [
         {
           "description": "",
-          "displayName": "App",
+          "displayName": "Skill",
           "methods": [],
-          "actualName": "App"
+          "actualName": "Skill",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "progress": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "0",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/mapPage/SkillList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SkillList",
+          "methods": [],
+          "actualName": "SkillList",
+          "props": {
+            "skillList": {
+              "type": {
+                "name": "array"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "[]",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/areaOverview/PageAreaOverview.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "PageAreaOverview",
+          "methods": [],
+          "actualName": "PageAreaOverview"
+        }
+      ]
+    },
+    {
+      "key": "src/mapPage/Slider.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Slider",
+          "methods": [],
+          "actualName": "Slider"
         }
       ]
     }
