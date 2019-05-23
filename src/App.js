@@ -9,8 +9,9 @@ import { setLocal, getLocal } from './utils'
 import styled from 'styled-components'
 
 function App() {
-  const [chartList, setchartList] = useState(mockData.chartList || [])
-  //getLocal('chartList') ||
+  const [chartList, setchartList] = useState(
+    getLocal('chartList') || mockData.chartList || []
+  )
 
   function handleProgressChange({
     chartIndex,
@@ -18,7 +19,6 @@ function App() {
     skillIndex,
     progress,
   }) {
-
     const chartListCopy = [...chartList]
 
     chartListCopy[chartIndex].categories[categoryIndex].skillList[
@@ -47,10 +47,13 @@ function App() {
       </Helmet>
       <BrowserRouter>
         <Navigation>
-          {' '}
           NAvigaion
-          {chartList.map((chart, index) => (
-            <NavLink title={chart.title} to={'/' + chart.title.toLowerCase()} />
+          <NavLink to="/">Posts</NavLink>
+          {chartList.map(chart => (
+            <NavLink
+              title={chart.title}
+              to={'/' + chart.title.toLowerCase()}
+            />
           ))}
           Nav ENde
         </Navigation>
