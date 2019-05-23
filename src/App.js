@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import { BrowserRouter, Route, NavLink } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import GlobalStyle from './commons/GlobalStyle'
+import Header from './header/Header'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
 import mockData from './mockdata'
 import ChartPage from './mapPage/ChartPage'
 import { setLocal, getLocal } from './utils'
-import styled from 'styled-components'
 
 function App() {
   const [chartList, setchartList] = useState(
@@ -32,10 +32,8 @@ function App() {
     setLocal('chartList', chartList)
   }, [chartList])
 
-  const Navigation = styled.nav``
   return (
     <div className="App">
-      <GlobalStyle />
       <Helmet>
         <meta charSet="utf-8" />
         <title>Seekarten</title>
@@ -45,36 +43,29 @@ function App() {
         />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Helmet>
+      <GlobalStyle />
       <BrowserRouter>
-        <Navigation>
-          NAvigaion
-          <NavLink to="/">Posts</NavLink>
-          {chartList.map(chart => (
-            <NavLink
-              title={chart.title}
-              to={'/' + chart.title.toLowerCase()}
+        <Header />
+
+        <Switch>
+          {chartList.map((chart, index) => (
+            <Route
+              key={chart.title}
+              path={'/' + chart.title.toLowerCase()}
+              render={props => (
+                <ChartPage
+                  title={chart.title}
+                  categoryList={chart.categories}
+                  onProgressChange={params =>
+                    handleProgressChange({ ...params, chartIndex: index })
+                  }
+                  {...props}
+                />
+              )}
             />
           ))}
-          Nav ENde
-        </Navigation>
-        <Route path="/" component={PageAreaOverview} />
-        {console.log(chartList)}
-        {chartList.map((chart, index) => (
-          <Route
-            key={chart.title}
-            path={'/' + chart.title.toLowerCase()}
-            render={props => (
-              <ChartPage
-                title={chart.title}
-                categoryList={chart.categories}
-                onProgressChange={params =>
-                  handleProgressChange({ ...params, chartIndex: index })
-                }
-                {...props}
-              />
-            )}
-          />
-        ))}
+          <Route path="/" component={PageAreaOverview} />
+        </Switch>
       </BrowserRouter>
     </div>
   )
