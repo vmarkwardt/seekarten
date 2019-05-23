@@ -5,7 +5,7 @@ import GlobalStyle from './commons/GlobalStyle'
 import Header from './header/Header'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
 import mockData from './mockdata'
-import ChartPage from './mapPage/ChartPage'
+import ChartPage from './chartPage/ChartPage'
 import { setLocal, getLocal } from './utils'
 
 function App() {
