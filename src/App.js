@@ -32,6 +32,21 @@ function App() {
     setLocal('chartList', chartList)
   }, [chartList])
 
+  const navLinkList = [
+    {
+      name: 'Ich',
+      color: '#e76f51',
+    },
+    {
+      name: 'Wir',
+      color: '#f4a261',
+    },
+    {
+      name: 'Welt',
+      color: '#2a9d8f',
+    },
+  ]
+
   return (
     <div className="App">
       <Helmet>
@@ -45,8 +60,7 @@ function App() {
       </Helmet>
       <GlobalStyle />
       <BrowserRouter>
-        <Header />
-
+        <Header linkList={navLinkList} />
         <Switch>
           {chartList.map((chart, index) => (
             <Route

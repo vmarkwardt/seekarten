@@ -12,16 +12,19 @@ const Navigation = styled.nav`
   justify-content: center;
 `
 
-function Header() {
+// <NavLink exact to="/" name={'Home'} btnColor={''} />
+function Header({ linkList }) {
   return (
     <StyledHeader>
       <Navigation>
-        <NavLink exact to="/" activeClassName="active">
-          Home
-        </NavLink>
-        <NavLink to="/ich">Ich</NavLink>
-        <NavLink to="/wir">Wir</NavLink>
-        <NavLink to="/welt">Welt</NavLink>
+        {linkList.map(link => (
+          <NavLink
+            to={'/' + link.name.toLowerCase()}
+            name={link.name}
+            btnColor={link.color}
+            key={link.name}
+          />
+        ))}
       </Navigation>
     </StyledHeader>
   )
@@ -30,6 +33,10 @@ function Header() {
 export default Header
 
 /*
+
+      ###########
+ <NavLink to="/wir">Wir</NavLink>
+        <NavLink to="/welt">Welt</NavLink>
         <Navigation>
           NAvigaion
           <NavLink to="/" activeClassName="selected">
