@@ -26,3 +26,4 @@ export default function NavLink({ name, btnColor, to }) {
     </StyledNavLink>
   )
 }
+//<StyledNavLink to={to} btnColor={btnColor || '#2a9d8f'}>
