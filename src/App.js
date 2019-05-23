@@ -9,7 +9,7 @@ import ChartPage from './chartPage/ChartPage'
 import { setLocal, getLocal } from './utils'
 
 function App() {
-  const [chartList, setchartList] = useState(
+  const [chartList, setChartList] = useState(
     getLocal('chartList') || mockData.chartList || []
   )
 
@@ -20,26 +20,24 @@ function App() {
     progress,
   }) {
     const chartListCopy = [...chartList]
+    const skill =
+      chartListCopy[chartIndex].categories[categoryIndex].skillList[skillIndex]
 
     // update progress
-    chartListCopy[chartIndex].categories[categoryIndex].skillList[
-      skillIndex
-    ].progress = Number(progress)
+    skill.progress = Number(progress)
 
     // update changeDate
-    if (
-      chartListCopy[chartIndex].categories[categoryIndex].skillList[skillIndex]
-        .changeHistory
-    ) {
-      chartListCopy[chartIndex].categories[categoryIndex].skillList[
-        skillIndex
-      ].changeHistory.push({ dat: Date(), progress: Number(progress) })
+    if (skill.changeHistory) {
+      skill.changeHistory.push({
+        changeDate: Date.now(),
+        progress: Number(progress),
+      })
     } else {
-      chartListCopy[chartIndex].categories[categoryIndex].skillList[
-        skillIndex
-      ].changeHistory = [{ dat: Date.now(), progress: Number(progress) }]
+      skill.changeHistory = [
+        { changeDate: Date.now(), progress: Number(progress) },
+      ]
     }
-    setchartList(chartListCopy)
+    setChartList(chartListCopy)
   }
 
   useEffect(() => {

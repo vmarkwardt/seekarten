@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 
 const StyledNavLink = styled(RRDNavlink)`
   background: #b6e1dd;
-  color: ${props => props.btnColor || '#2a9d8f'};
-  border: 2px solid ${props => props.btnColor || '#2a9d8f'};
+  color: ${props => props.btncolor || '#2a9d8f'};
+  border: 2px solid ${props => props.btncolor || '#2a9d8f'};
   border-radius: 3px;
   text-decoration: none;
   margin: 1em;
@@ -22,7 +22,7 @@ const StyledNavLink = styled(RRDNavlink)`
 `
 export default function NavLink({ name, btnColor, to }) {
   return (
-    <StyledNavLink to={to} btnColor={btnColor || '#2a9d8f'}>
+    <StyledNavLink to={to} btncolor={btnColor || '#2a9d8f'}>
       {name || 'Home'}
     </StyledNavLink>
   )
