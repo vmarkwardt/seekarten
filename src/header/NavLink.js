@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink as RRDNavlink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const StyledNavLink = styled(RRDNavlink)`
   background: #b6e1dd;
@@ -26,4 +27,9 @@ export default function NavLink({ name, btnColor, to }) {
     </StyledNavLink>
   )
 }
-//<StyledNavLink to={to} btnColor={btnColor || '#2a9d8f'}>
+
+NavLink.propTypes = {
+  name: PropTypes.string.isRequired,
+  btnColor: PropTypes.string,
+  to: PropTypes.string.isRequired,
+}

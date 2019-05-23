@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import NavLink from './NavLink'
+import PropTypes from 'prop-types'
 
 const StyledHeader = styled.header`
   background: #b6e1dd;
@@ -32,19 +33,6 @@ function Header({ linkList }) {
 
 export default Header
 
-/*
-
-      ###########
- <NavLink to="/wir">Wir</NavLink>
-        <NavLink to="/welt">Welt</NavLink>
-        <Navigation>
-          NAvigaion
-          <NavLink to="/" activeClassName="selected">
-            Seekarten
-          </NavLink>
-          {chartList.map(chart => (
-            <NavLink title={chart.title} to={'/' + chart.title.toLowerCase()} />
-          ))}
-          Nav ENde
-        </Navigation>
-        */
+Header.propTypes = {
+  linkList: PropTypes.array.isRequired,
+}
