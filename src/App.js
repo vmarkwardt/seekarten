@@ -27,7 +27,6 @@ function App() {
     ].progress = Number(progress)
 
     // update changeDate
-    debugger
     if (
       chartListCopy[chartIndex].categories[categoryIndex].skillList[skillIndex]
         .changeHistory
