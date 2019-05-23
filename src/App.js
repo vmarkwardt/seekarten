@@ -21,10 +21,25 @@ function App() {
   }) {
     const chartListCopy = [...chartList]
 
+    // update progress
     chartListCopy[chartIndex].categories[categoryIndex].skillList[
       skillIndex
     ].progress = Number(progress)
 
+    // update changeDate
+    debugger
+    if (
+      chartListCopy[chartIndex].categories[categoryIndex].skillList[skillIndex]
+        .changeHistory
+    ) {
+      chartListCopy[chartIndex].categories[categoryIndex].skillList[
+        skillIndex
+      ].changeHistory.push({ dat: Date(), progress: Number(progress) })
+    } else {
+      chartListCopy[chartIndex].categories[categoryIndex].skillList[
+        skillIndex
+      ].changeHistory = [{ dat: Date.now(), progress: Number(progress) }]
+    }
     setchartList(chartListCopy)
   }
 
