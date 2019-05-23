@@ -1,7 +1,7 @@
-import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import React from 'react'
+import { createGlobalStyle } from 'styled-components'
 
-const StyledGlobalSyle = createGlobalStyle`
+const StyledGlobalStyle = createGlobalStyle`
   
   *{
 
@@ -18,8 +18,8 @@ const StyledGlobalSyle = createGlobalStyle`
     padding: 5px;
     width:100vw;
   }
-`;
+`
 
-export default function GlobalSyle() {
-  return <StyledGlobalSyle />;
+export default function GlobalStyle() {
+  return <StyledGlobalStyle />
 }

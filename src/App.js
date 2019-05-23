@@ -1,39 +1,54 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import { BrowserRouter, Route } from 'react-router-dom'
-import GlobalSyle from './commons/GlobalStyle'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import GlobalStyle from './commons/GlobalStyle'
+import Header from './header/Header'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
 import mockData from './mockdata'
-import MapPage from './mapPage/MapPage'
+import ChartPage from './chartPage/ChartPage'
 import { setLocal, getLocal } from './utils'
 
 function App() {
-  const [mapList, setMapList] = useState(
-    getLocal('mapList') || mockData.mapList || []
+  const [chartList, setchartList] = useState(
+    getLocal('chartList') || mockData.chartList || []
   )
 
-  function handleProgressChange({ title, category, skillName, progress }) {
-    const mapListCopy = [...mapList]
-    const mapIndex = mapListCopy.map(map => map.title).indexOf(title)
-    const categoryList = mapListCopy[mapIndex].categories
-    const categoryIndex = categoryList.map(item => item.name).indexOf(category)
-    const skillList = categoryList[categoryIndex].skillList
-    const skillIndex = skillList.map(skill => skill.name).indexOf(skillName)
+  function handleProgressChange({
+    chartIndex,
+    categoryIndex,
+    skillIndex,
+    progress,
+  }) {
+    const chartListCopy = [...chartList]
 
-    mapListCopy[mapIndex].categories[categoryIndex].skillList[
+    chartListCopy[chartIndex].categories[categoryIndex].skillList[
       skillIndex
     ].progress = Number(progress)
 
-    setMapList(mapListCopy)
+    setchartList(chartListCopy)
   }
 
   useEffect(() => {
-    setLocal('mapList', mapList)
-  }, [mapList])
+    setLocal('chartList', chartList)
+  }, [chartList])
+
+  const navLinkList = [
+    {
+      name: 'Ich',
+      color: '#e76f51',
+    },
+    {
+      name: 'Wir',
+      color: '#f4a261',
+    },
+    {
+      name: 'Welt',
+      color: '#2a9d8f',
+    },
+  ]
 
   return (
     <div className="App">
-      <GlobalSyle />
       <Helmet>
         <meta charSet="utf-8" />
         <title>Seekarten</title>
@@ -43,22 +58,28 @@ function App() {
         />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Helmet>
+      <GlobalStyle />
       <BrowserRouter>
-        <Route path="/" component={PageAreaOverview} />
-        {mapList.map(item => (
-          <Route
-            key={item.title}
-            path={'/' + item.title.toLowerCase()}
-            render={props => (
-              <MapPage
-                title={item.title}
-                categoryList={item.categories}
-                onProgressChange={handleProgressChange}
-                {...props}
-              />
-            )}
-          />
-        ))}
+        <Header linkList={navLinkList} />
+        <Switch>
+          {chartList.map((chart, index) => (
+            <Route
+              key={chart.title}
+              path={'/' + chart.title.toLowerCase()}
+              render={props => (
+                <ChartPage
+                  title={chart.title}
+                  categoryList={chart.categories}
+                  onProgressChange={params =>
+                    handleProgressChange({ ...params, chartIndex: index })
+                  }
+                  {...props}
+                />
+              )}
+            />
+          ))}
+          <Route path="/" component={PageAreaOverview} />
+        </Switch>
       </BrowserRouter>
     </div>
   )

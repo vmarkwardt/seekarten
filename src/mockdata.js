@@ -1,5 +1,5 @@
 const mockData = {
-  mapList: [
+  chartList: [
     {
       title: 'Ich',
       categories: [

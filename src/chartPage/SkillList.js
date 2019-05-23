@@ -12,12 +12,14 @@ const StyledSkillList = styled.ul`
 export default function SkillList({ skillList, onProgressChange }) {
   return (
     <StyledSkillList>
-      {skillList.map(skill => (
+      {skillList.map((skill, index) => (
         <Skill
           key={skill.name}
           name={skill.name}
           progress={skill.progress}
-          onProgressChange={onProgressChange}
+          onProgressChange={params =>
+            onProgressChange({ ...params, skillIndex: index })
+          }
         />
       ))}
     </StyledSkillList>
