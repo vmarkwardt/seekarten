@@ -18,11 +18,24 @@ export default function FormCertificate() {
 
   function handleOnSubmit(event) {
     event.preventDefault()
-    
+    /*
+     function handleFormSubmit(newEntry, history) {
+    setNewsList([newEntry, ...newsList]);
+    history.push('/');
+  }
+
+  <Route
+              path="/create"
+              render={props => (
+                <CreatePage
+                  onFormSubmit={handleFormSubmit}
+                  history={props.history}
+                />
+    */
   }
 
   return (
-    <form>
+    <form onSubmit={handleOnSubmit}>
       <label>
         Titel:
         <input
@@ -54,7 +67,7 @@ export default function FormCertificate() {
           onChange={handleCommentOnChange}
         />
       </label>
-      <button type="submit" onClick={handleOnSubmit} />
+      <button type="submit" />
     </form>
   )
 }
