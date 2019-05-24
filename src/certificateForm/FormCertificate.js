@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { getISODate } from '../utils'
 import styled from 'styled-components'
 import ButtonSubmit from '../commons/ButtonSubmit'
+import InputText from '../commons/InputText'
+import InputDate from '../commons/InputDate'
 
 const StyledForm = styled.form`
   display: grid;
@@ -14,6 +16,7 @@ export default function FormCertificate({ onFormSubmit, history }) {
   const [certificate, setCertificate] = useState({})
 
   function handleInputOnChange(key, value) {
+    console.log(key, value)
     const param = {}
     param[key] = value
     setCertificate({ ...certificate, ...param })
@@ -22,42 +25,24 @@ export default function FormCertificate({ onFormSubmit, history }) {
   function handleOnSubmit(event) {
     event.preventDefault()
     onFormSubmit(certificate, history)
-    //console.log('Certificate', certificate)
-    /*
-    function handleFormSubmit(newEntry, history) {
-    setNewsList([newEntry, ...newsList]);
-    history.push('/');
-  }
-
-  <Route
-              path="/create"
-              render={props => (
-                <CreatePage
-                  onFormSubmit={handleFormSubmit}
-                  history={props.history}
-                />
-    */
   }
 
   return (
     <StyledForm onSubmit={handleOnSubmit}>
       <label htmlFor="title">Titel:</label>
-      <input
-        type="text"
+      <InputText
         name="title"
         onChange={event => handleInputOnChange('title', event.target.value)}
-        required
+        required={true}
       />
       <label htmlFor={'subject'}>Fach / Thema:</label>
-      <input
-        type="text"
+      <InputText
         name="subject"
         onChange={event => handleInputOnChange('subject', event.target.value)}
-        required
+        required={true}
       />
       <label htmlFor="date">Datum:</label>
-      <input
-        type="date"
+      <InputDate
         value={today}
         name="date"
         onChange={event => handleInputOnChange('date', event.target.value)}
@@ -69,7 +54,7 @@ export default function FormCertificate({ onFormSubmit, history }) {
         cols="33"
         onChange={event => handleInputOnChange('comment', event.target.value)}
       />
-      <ButtonSubmit type="submit">Speichern</ButtonSubmit>
+      <ButtonSubmit text={'Speichern'} />
     </StyledForm>
   )
 }
