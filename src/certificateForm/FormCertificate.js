@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { getISODate } from '../utils'
 import styled from 'styled-components'
+import ButtonSubmit from '../commons/ButtonSubmit'
 
 const StyledForm = styled.form`
   display: grid;
@@ -67,7 +68,8 @@ export default function FormCertificate() {
         cols="33"
         onChange={event => handleInputOnChange('comment', event.target.value)}
       />
-      <button type="submit">Speichern</button>
     </StyledForm>
   )
 }
+
+//{/* <ButtonSubmit type="submit">Speichern</ButtonSubmit> */}

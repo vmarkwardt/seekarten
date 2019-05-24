@@ -1,9 +1,9 @@
 {
-  "name": "your-project-name",
+  "name": "seekarten",
   "version": "0.1.0",
   "author": {
-    "name": "your name",
-    "email": "your@email.de",
+    "name": "Vanessa Markwardt",
+    "email": "vmarkwardt@web.de",
     "url": "https://your-domain.de"
   },
   "private": true,
