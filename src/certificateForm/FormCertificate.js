@@ -39,15 +39,13 @@ export default function FormCertificate() {
 
   return (
     <StyledForm onSubmit={handleOnSubmit}>
-      <label>
-        Titel:
-        <input
-          type="text"
-          name="title"
-          onChange={event => handleInputOnChange('title', event.target.value)}
-          required
-        />
-      </label>
+      <label for="title">Titel:</label>
+      <input
+        type="text"
+        name="title"
+        onChange={event => handleInputOnChange('title', event.target.value)}
+        required
+      />
       <label for={'subject'}>Fach / Thema:</label>
       <input
         type="text"
@@ -55,25 +53,21 @@ export default function FormCertificate() {
         onChange={event => handleInputOnChange('subject', event.target.value)}
         required
       />
-      <label>
-        Datum:
-        <input
-          type="date"
-          value={today}
-          name="date"
-          onChange={event => handleInputOnChange('date', event.target.value)}
-        />
-      </label>
-      <label>
-        Bemerkung:
-        <textarea
-          name="comment"
-          rows="5"
-          cols="33"
-          onChange={event => handleInputOnChange('comment', event.target.value)}
-        />
-      </label>
-      <button type="submit" />
+      <label for="date">Datum:</label>
+      <input
+        type="date"
+        value={today}
+        name="date"
+        onChange={event => handleInputOnChange('date', event.target.value)}
+      />
+      <label for="comment">Bemerkung:</label>
+      <textarea
+        name="comment"
+        rows="5"
+        cols="33"
+        onChange={event => handleInputOnChange('comment', event.target.value)}
+      />
+      <button type="submit">Speichern</button>
     </StyledForm>
   )
 }
