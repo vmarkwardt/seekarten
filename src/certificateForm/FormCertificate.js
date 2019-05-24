@@ -9,7 +9,7 @@ const StyledForm = styled.form`
   grid-template-columns: 1fr 3fr;
 `
 
-export default function FormCertificate() {
+export default function FormCertificate({ onFormSubmit, history }) {
   const today = getISODate(new Date()) // needs format: YYYY-MM-DD
   const [certificate, setCertificate] = useState({})
 
@@ -21,9 +21,10 @@ export default function FormCertificate() {
 
   function handleOnSubmit(event) {
     event.preventDefault()
-    console.log('Certificate', certificate)
+    onFormSubmit(certificate, history)
+    //console.log('Certificate', certificate)
     /*
-     function handleFormSubmit(newEntry, history) {
+    function handleFormSubmit(newEntry, history) {
     setNewsList([newEntry, ...newsList]);
     history.push('/');
   }
@@ -40,36 +41,35 @@ export default function FormCertificate() {
 
   return (
     <StyledForm onSubmit={handleOnSubmit}>
-      <label for="title">Titel:</label>
+      <label htmlFor="title">Titel:</label>
       <input
         type="text"
         name="title"
         onChange={event => handleInputOnChange('title', event.target.value)}
         required
       />
-      <label for={'subject'}>Fach / Thema:</label>
+      <label htmlFor={'subject'}>Fach / Thema:</label>
       <input
         type="text"
         name="subject"
         onChange={event => handleInputOnChange('subject', event.target.value)}
         required
       />
-      <label for="date">Datum:</label>
+      <label htmlFor="date">Datum:</label>
       <input
         type="date"
         value={today}
         name="date"
         onChange={event => handleInputOnChange('date', event.target.value)}
       />
-      <label for="comment">Bemerkung:</label>
+      <label htmlFor="comment">Bemerkung:</label>
       <textarea
         name="comment"
         rows="5"
         cols="33"
         onChange={event => handleInputOnChange('comment', event.target.value)}
       />
+      <ButtonSubmit type="submit">Speichern</ButtonSubmit>
     </StyledForm>
   )
 }
-
-//{/* <ButtonSubmit type="submit">Speichern</ButtonSubmit> */}

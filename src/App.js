@@ -14,6 +14,8 @@ function App() {
     getLocal('chartList') || mockData.chartList || []
   )
 
+  const [certificateList, setCertificateList] = useState([])
+
   function handleProgressChange({
     chartIndex,
     categoryIndex,
@@ -40,6 +42,16 @@ function App() {
     }
     setChartList(chartListCopy)
   }
+
+  function handleFormCertificateSubmit(newEntry, history) {
+    setCertificateList([newEntry, ...certificateList])
+
+    history.push('/')
+  }
+
+  useEffect(() => {
+    setLocal('certificateList', certificateList)
+  }, [certificateList])
 
   useEffect(() => {
     setLocal('chartList', chartList)
@@ -91,7 +103,15 @@ function App() {
               )}
             />
           ))}
-          <Route path={'/certificate'} component={CertificateFormPage} />
+          <Route
+            path={'/certificate'}
+            render={props => (
+              <CertificateFormPage
+                onFormSubmit={handleFormCertificateSubmit}
+                {...props}
+              />
+            )}
+          />
           <Route path="/" component={PageAreaOverview} />
         </Switch>
       </BrowserRouter>
