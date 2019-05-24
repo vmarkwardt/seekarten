@@ -7,6 +7,7 @@ import PageAreaOverview from './areaOverview/PageAreaOverview'
 import mockData from './mockdata'
 import ChartPage from './chartPage/ChartPage'
 import { setLocal, getLocal } from './utils'
+import CertificateFormPage from './certificateForm/CertificateFormPage'
 
 function App() {
   const [chartList, setChartList] = useState(
@@ -90,6 +91,7 @@ function App() {
               )}
             />
           ))}
+          <Route path={'/certificate'} component={CertificateFormPage} />
           <Route path="/" component={PageAreaOverview} />
         </Switch>
       </BrowserRouter>
