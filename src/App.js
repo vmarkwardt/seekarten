@@ -7,9 +7,10 @@ import PageAreaOverview from './areaOverview/PageAreaOverview'
 import mockData from './mockdata'
 import ChartPage from './chartPage/ChartPage'
 import { setLocal, getLocal } from './utils'
+import CertificateFormPage from './certificateForm/CertificateFormPage'
 
 function App() {
-  const [chartList, setchartList] = useState(
+  const [chartList, setChartList] = useState(
     getLocal('chartList') || mockData.chartList || []
   )
 
@@ -20,27 +21,24 @@ function App() {
     progress,
   }) {
     const chartListCopy = [...chartList]
+    const skill =
+      chartListCopy[chartIndex].categories[categoryIndex].skillList[skillIndex]
 
     // update progress
-    chartListCopy[chartIndex].categories[categoryIndex].skillList[
-      skillIndex
-    ].progress = Number(progress)
+    skill.progress = Number(progress)
 
     // update changeDate
-    debugger
-    if (
-      chartListCopy[chartIndex].categories[categoryIndex].skillList[skillIndex]
-        .changeHistory
-    ) {
-      chartListCopy[chartIndex].categories[categoryIndex].skillList[
-        skillIndex
-      ].changeHistory.push({ dat: Date(), progress: Number(progress) })
+    if (skill.changeHistory) {
+      skill.changeHistory.push({
+        changeDate: Date.now(),
+        progress: Number(progress),
+      })
     } else {
-      chartListCopy[chartIndex].categories[categoryIndex].skillList[
-        skillIndex
-      ].changeHistory = [{ dat: Date.now(), progress: Number(progress) }]
+      skill.changeHistory = [
+        { changeDate: Date.now(), progress: Number(progress) },
+      ]
     }
-    setchartList(chartListCopy)
+    setChartList(chartListCopy)
   }
 
   useEffect(() => {
@@ -93,6 +91,7 @@ function App() {
               )}
             />
           ))}
+          <Route path={'/certificate'} component={CertificateFormPage} />
           <Route path="/" component={PageAreaOverview} />
         </Switch>
       </BrowserRouter>

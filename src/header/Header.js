@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const StyledHeader = styled.header`
   background: #b6e1dd;
-  padding: 20px;
+  padding: 5px;
 `
 
 const Navigation = styled.nav`

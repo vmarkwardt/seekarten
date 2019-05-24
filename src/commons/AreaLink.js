@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const StyledLink = styled.button`
-  border: 2px solid ${props => (props.btnColor ? props.btnColor : 'turquoise')};
+  border: 2px solid ${props => (props.btnColor ? props.btnColor : '#2a9d8f')};
   border-radius: 3px;
-  color: ${props => props.btnColor || 'turquoise'};
+  color: ${props => props.btnColor || '#2a9d8f'};
   display: inline-block;
   margin: 1em;
   padding: 0.25em 1em;

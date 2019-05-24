@@ -1,17 +1,20 @@
 import React from 'react'
 import Category from './Category'
+import { H2 } from '../commons/headings'
 
 export default function ChartPage({ title, categoryList, onProgressChange }) {
   return (
     <main>
-      <h2>Seekarte: {title}</h2>
+      <H2 title={'Seekarte: ' + title} />
       <ul>
         {categoryList.map((category, index) => (
           <Category
             key={category.name}
             name={category.name}
             skillList={category.skillList}
-            onProgressChange={props => onProgressChange({ ...props, categoryIndex:index })}
+            onProgressChange={props =>
+              onProgressChange({ ...props, categoryIndex: index })
+            }
           />
         ))}
       </ul>
