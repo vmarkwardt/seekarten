@@ -1,23 +1,26 @@
 import React, { useState } from 'react'
 import { getISODate } from '../utils'
+import styled from 'styled-components'
+
+const StyledForm = styled.form`
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 3fr;
+`
 
 export default function FormCertificate() {
-  const today = getISODate(new Date())
+  const today = getISODate(new Date()) // needs format: YYYY-MM-DD
   const [certificate, setCertificate] = useState({})
 
-  function handleTitleOnChange(event) {
-    setCertificate({ title: event.target.value })
-  }
-
-  function handleDateOnChange(event) {
-    setCertificate({ date: event.target.value })
-  }
-  function handleCommentOnChange(event) {
-    setCertificate({ comment: event.target.value })
+  function handleInputOnChange(key, value) {
+    const param = {}
+    param[key] = value
+    setCertificate({ ...certificate, ...param })
   }
 
   function handleOnSubmit(event) {
     event.preventDefault()
+    console.log('Certificate', certificate)
     /*
      function handleFormSubmit(newEntry, history) {
     setNewsList([newEntry, ...newsList]);
@@ -35,27 +38,30 @@ export default function FormCertificate() {
   }
 
   return (
-    <form onSubmit={handleOnSubmit}>
+    <StyledForm onSubmit={handleOnSubmit}>
       <label>
         Titel:
         <input
           type="text"
-          onChange={handleTitleOnChange}
           name="title"
+          onChange={event => handleInputOnChange('title', event.target.value)}
           required
         />
       </label>
-      <label>
-        Fach / Thema:
-        <input type="text" name="subject" required />
-      </label>
+      <label for={'subject'}>Fach / Thema:</label>
+      <input
+        type="text"
+        name="subject"
+        onChange={event => handleInputOnChange('subject', event.target.value)}
+        required
+      />
       <label>
         Datum:
         <input
           type="date"
-          value={today} //YYYY-MM-DD
-          onChange={handleDateOnChange}
+          value={today}
           name="date"
+          onChange={event => handleInputOnChange('date', event.target.value)}
         />
       </label>
       <label>
@@ -64,10 +70,10 @@ export default function FormCertificate() {
           name="comment"
           rows="5"
           cols="33"
-          onChange={handleCommentOnChange}
+          onChange={event => handleInputOnChange('comment', event.target.value)}
         />
       </label>
       <button type="submit" />
-    </form>
+    </StyledForm>
   )
 }
