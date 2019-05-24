@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { getISODate } from '../utils'
+
 import styled from 'styled-components'
 import ButtonSubmit from '../commons/ButtonSubmit'
 import InputText from '../commons/InputText'
@@ -12,7 +12,6 @@ const StyledForm = styled.form`
 `
 
 export default function FormCertificate({ onFormSubmit, history }) {
-  const today = getISODate(new Date()) // needs format: YYYY-MM-DD
   const [certificate, setCertificate] = useState({})
 
   function handleInputOnChange(key, value) {
@@ -43,7 +42,6 @@ export default function FormCertificate({ onFormSubmit, history }) {
       />
       <label htmlFor="date">Datum:</label>
       <InputDate
-        value={today}
         name="date"
         onChange={event => handleInputOnChange('date', event.target.value)}
       />

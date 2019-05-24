@@ -10,6 +10,8 @@ export function getLocal(name) {
   }
 }
 
+// returns Date in Format: YYYY-MM-DD
+// useful vor <input type="date"> ->  in order to set value, which expects this format
 export function getISODate(date) {
   return date.toISOString().substring(0, 10)
 }

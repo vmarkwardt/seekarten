@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'propTypes'
+import PropTypes from 'prop-types'
 
 const StyledInput = styled.input`
   padding: 5px;
