@@ -15,7 +15,9 @@ function App() {
     getLocal('chartList') || mockData.chartList || []
   )
 
-  const [certificateList, setCertificateList] = useState([])
+  const [certificateList, setCertificateList] = useState(
+    getLocal('certificateList') || []
+  )
 
   function handleProgressChange({
     chartIndex,
@@ -45,17 +47,9 @@ function App() {
   }
 
   function handleFormCertificateSubmit(newEntry, history) {
-    console.log(newEntry)
-    const copy = certificateList.slice()
-    console.log(copy)
-    copy.push(newEntry)
-    console.log(copy)
-
-    // setCertificateList([newEntry, ...certificateList])
-    setCertificateList(copy)
+    setCertificateList([newEntry, ...certificateList])
 
     history.push('/certificateList')
-    console.log(certificateList)
   }
 
   useEffect(() => {
