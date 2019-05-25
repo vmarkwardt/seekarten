@@ -13,12 +13,10 @@ const StyledForm = styled.form`
 `
 
 export default function FormCertificate({ onFormSubmit, history }) {
-  const [certificate, setCertificate] = useState({})
+  const [certificate, setCertificate] = useState({
+    date: getISODate(new Date()),
+  })
 
-  //save DefaultValue in state, in order to be able to send it later via submit
-  useEffect(() => {
-    setCertificate({ ...certificate, date: getISODate(new Date()) })
-  }, [])
   function handleInputOnChange(key, value) {
     const param = {}
     param[key] = value
