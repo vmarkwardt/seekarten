@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import CertificateCard from './CertificateCard'
+import uid from 'uid'
 
 const StyledCertificateList = styled.section`
   margin: auto;
@@ -14,7 +15,7 @@ export default function CertificateList({ certificateList }) {
   return (
     <StyledCertificateList>
       {certificateList.map(cert => (
-        <CertificateCard key={cert.title} {...cert} />
+        <CertificateCard key={uid()} {...cert} />
       ))}
     </StyledCertificateList>
   )
