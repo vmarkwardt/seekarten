@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-const StyledCertificateCard = styled.li``
+const StyledCertificateCard = styled.section`
+  border: 1px solid darkgray;
+`
 
 export default function CertificateCard({ title, subject, date, comment }) {
   return (
@@ -10,8 +13,15 @@ export default function CertificateCard({ title, subject, date, comment }) {
         <em>{subject}</em>
         <span>{date}</span>
       </>
-      <h3>{title}</h3>
+      <h4>{title}</h4>
       <p>{comment}</p>
     </StyledCertificateCard>
   )
+}
+
+CertificateCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  subject: PropTypes.string,
+  date: PropTypes.string.isRequired,
+  comment: PropTypes.string,
 }

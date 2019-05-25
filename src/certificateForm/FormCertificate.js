@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import styled from 'styled-components'
 import ButtonSubmit from '../commons/ButtonSubmit'
 import InputText from '../commons/InputText'
 import InputDate from '../commons/InputDate'
+import { getISODate } from '../utils'
 
 const StyledForm = styled.form`
   display: grid;
@@ -14,8 +15,11 @@ const StyledForm = styled.form`
 export default function FormCertificate({ onFormSubmit, history }) {
   const [certificate, setCertificate] = useState({})
 
+  //save DefaultValue in state, in order to be able to send it later via submit
+  useEffect(() => {
+    setCertificate({ ...certificate, date: getISODate(new Date()) })
+  },[])
   function handleInputOnChange(key, value) {
-    console.log(key, value)
     const param = {}
     param[key] = value
     setCertificate({ ...certificate, ...param })

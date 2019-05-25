@@ -8,6 +8,7 @@ import mockData from './mockdata'
 import ChartPage from './chartPage/ChartPage'
 import { setLocal, getLocal } from './utils'
 import CertificateFormPage from './certificateForm/CertificateFormPage'
+import PageCertificateOverview from './certificateOverview/PageCertificateOverview'
 
 function App() {
   const [chartList, setChartList] = useState(
@@ -44,9 +45,17 @@ function App() {
   }
 
   function handleFormCertificateSubmit(newEntry, history) {
-    setCertificateList([newEntry, ...certificateList])
+    console.log(newEntry)
+    const copy = certificateList.slice()
+    console.log(copy)
+    copy.push(newEntry)
+    console.log(copy)
 
-    history.push('/')
+    // setCertificateList([newEntry, ...certificateList])
+    setCertificateList(copy)
+
+    history.push('/certificateList')
+    console.log(certificateList)
   }
 
   useEffect(() => {
@@ -110,6 +119,12 @@ function App() {
                 onFormSubmit={handleFormCertificateSubmit}
                 {...props}
               />
+            )}
+          />
+          <Route
+            path={'/certificateList'}
+            render={props => (
+              <PageCertificateOverview certificateList={certificateList} />
             )}
           />
           <Route path="/" component={PageAreaOverview} />
