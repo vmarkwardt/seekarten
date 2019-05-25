@@ -18,10 +18,11 @@ export default function FormCertificate({ onFormSubmit, history }) {
   //save DefaultValue in state, in order to be able to send it later via submit
   useEffect(() => {
     setCertificate({ ...certificate, date: getISODate(new Date()) })
-  },[])
+  }, [])
   function handleInputOnChange(key, value) {
     const param = {}
     param[key] = value
+    console.log('all: ', { ...certificate, ...param })
     setCertificate({ ...certificate, ...param })
   }
 
@@ -34,23 +35,27 @@ export default function FormCertificate({ onFormSubmit, history }) {
     <StyledForm onSubmit={handleOnSubmit}>
       <label htmlFor="title">Titel:</label>
       <InputText
+        value={certificate.title}
         name="title"
         onChange={event => handleInputOnChange('title', event.target.value)}
         required={true}
       />
       <label htmlFor={'subject'}>Fach / Thema:</label>
       <InputText
+        value={certificate.subject}
         name="subject"
         onChange={event => handleInputOnChange('subject', event.target.value)}
         required={true}
       />
       <label htmlFor="date">Datum:</label>
       <InputDate
+        value={certificate.date}
         name="date"
         onChange={event => handleInputOnChange('date', event.target.value)}
       />
       <label htmlFor="comment">Bemerkung:</label>
       <textarea
+        value={certificate.comment}
         name="comment"
         rows="5"
         cols="33"
