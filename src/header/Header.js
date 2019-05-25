@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import NavLink from './NavLink'
 import PropTypes from 'prop-types'
+import NavIcons from './NavIcons'
 
 const StyledHeader = styled.header`
   background: #b6e1dd;
@@ -18,20 +18,7 @@ function Header({ linkList }) {
   return (
     <StyledHeader>
       <Navigation>
-        {linkList.map(link => (
-          <NavLink
-            to={'/' + link.name.toLowerCase()}
-            name={link.name}
-            btnColor={link.color}
-            key={link.name}
-          />
-        ))}
-        <NavLink
-          to={'/certificate'}
-          name={'Zertifikat'}
-          btnColor={'darkgrey'}
-          key={'certificate'}
-        />
+        <NavIcons />
       </Navigation>
     </StyledHeader>
   )
