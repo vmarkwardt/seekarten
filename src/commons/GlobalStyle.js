@@ -18,6 +18,10 @@ const StyledGlobalStyle = createGlobalStyle`
     padding: 5px;
     width:100vw;
   }
+
+  main{
+    margin:10px;
+  }
 `
 
 export default function GlobalStyle() {

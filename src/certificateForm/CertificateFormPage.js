@@ -3,9 +3,7 @@ import { H2 } from '../commons/headings'
 import FormCertificate from './FormCertificate'
 import styled from 'styled-components'
 
-const StyledMain = styled.main`
-  margin: 10px;
-`
+const StyledMain = styled.main``
 
 export default function CertificateFormPage(props) {
   return (

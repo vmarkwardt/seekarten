@@ -5,7 +5,6 @@ import uid from 'uid'
 
 const StyledCertificateList = styled.section`
   margin: auto;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
