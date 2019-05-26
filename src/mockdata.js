@@ -49,10 +49,10 @@ const mockData = {
         {
           name: 'Mathe',
           skillList: [
+            { name: 'Grundrechenarten', progress: 30 },
             { name: 'Bruchrechnen', progress: 70 },
             { name: 'Dreisatz', progress: 80 },
-            { name: 'Zeitmanagement', progress: 30 },
-            { name: 'Projekte planen', progress: 40 },
+            { name: 'Mengenlehre', progress: 40 },
           ],
         },
         {
