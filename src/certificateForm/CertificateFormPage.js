@@ -1,12 +1,17 @@
 import React from 'react'
 import { H2 } from '../commons/headings'
 import FormCertificate from './FormCertificate'
+import styled from 'styled-components'
 
-export default function CertificateFormPage() {
+const StyledMain = styled.main`
+  margin: 10px;
+`
+
+export default function CertificateFormPage(props) {
   return (
-    <main>
+    <StyledMain>
       <H2 title={'Zertifikat eintragen'} />
-      <FormCertificate />
-    </main>
+      <FormCertificate onSubmit={props.onFormSubmit} {...props} />
+    </StyledMain>
   )
 }

@@ -1,73 +1,58 @@
 import React, { useState } from 'react'
-import { getISODate } from '../utils'
 
-export default function FormCertificate() {
-  const today = getISODate(new Date())
+import styled from 'styled-components'
+import ButtonSubmit from '../commons/ButtonSubmit'
+import InputText from '../commons/InputText'
+import InputDate from '../commons/InputDate'
+
+const StyledForm = styled.form`
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 3fr;
+`
+
+export default function FormCertificate({ onFormSubmit, history }) {
   const [certificate, setCertificate] = useState({})
 
-  function handleTitleOnChange(event) {
-    setCertificate({ title: event.target.value })
-  }
-
-  function handleDateOnChange(event) {
-    setCertificate({ date: event.target.value })
-  }
-  function handleCommentOnChange(event) {
-    setCertificate({ comment: event.target.value })
+  function handleInputOnChange(key, value) {
+    console.log(key, value)
+    const param = {}
+    param[key] = value
+    setCertificate({ ...certificate, ...param })
   }
 
   function handleOnSubmit(event) {
     event.preventDefault()
-    /*
-     function handleFormSubmit(newEntry, history) {
-    setNewsList([newEntry, ...newsList]);
-    history.push('/');
-  }
-
-  <Route
-              path="/create"
-              render={props => (
-                <CreatePage
-                  onFormSubmit={handleFormSubmit}
-                  history={props.history}
-                />
-    */
+    onFormSubmit(certificate, history)
   }
 
   return (
-    <form onSubmit={handleOnSubmit}>
-      <label>
-        Titel:
-        <input
-          type="text"
-          onChange={handleTitleOnChange}
-          name="title"
-          required
-        />
-      </label>
-      <label>
-        Fach / Thema:
-        <input type="text" name="subject" required />
-      </label>
-      <label>
-        Datum:
-        <input
-          type="date"
-          value={today} //YYYY-MM-DD
-          onChange={handleDateOnChange}
-          name="date"
-        />
-      </label>
-      <label>
-        Bemerkung:
-        <textarea
-          name="comment"
-          rows="5"
-          cols="33"
-          onChange={handleCommentOnChange}
-        />
-      </label>
-      <button type="submit" />
-    </form>
+    <StyledForm onSubmit={handleOnSubmit}>
+      <label htmlFor="title">Titel:</label>
+      <InputText
+        name="title"
+        onChange={event => handleInputOnChange('title', event.target.value)}
+        required={true}
+      />
+      <label htmlFor={'subject'}>Fach / Thema:</label>
+      <InputText
+        name="subject"
+        onChange={event => handleInputOnChange('subject', event.target.value)}
+        required={true}
+      />
+      <label htmlFor="date">Datum:</label>
+      <InputDate
+        name="date"
+        onChange={event => handleInputOnChange('date', event.target.value)}
+      />
+      <label htmlFor="comment">Bemerkung:</label>
+      <textarea
+        name="comment"
+        rows="5"
+        cols="33"
+        onChange={event => handleInputOnChange('comment', event.target.value)}
+      />
+      <ButtonSubmit text={'Speichern'} />
+    </StyledForm>
   )
 }
