@@ -21,12 +21,36 @@ const Icon = styled(RRDNavlink)`
     background: whitesmoke;
   }
 `
-export default function NavIcons() {
+
+const NavButton = styled.a`
+  background: #b6e1dd;
+  color: #2a9d8f;
+  border: 2px solid #2a9d8f;
+  border-radius: 3px;
+  text-decoration: none;
+  margin: 5px;
+  padding: 2px;
+
+  &:hover {
+    background: #f4a261;
+  }
+
+  &.active {
+    background: whitesmoke;
+  }
+`
+
+export default function NavIcons({toggleChartMenu}) {
+  function handleNavButtonOnClick(event) {
+    event.preventDefault()
+    toggleChartMenu()
+
+  }
   return (
     <>
-      <Icon to={'/charts'}>
+      <NavButton onClick={handleNavButtonOnClick}>
         <DirectionsBoat title={'Seekarten'} size={35} />
-      </Icon>
+      </NavButton>
       <Icon to={'/certificateList'}>
         <Trophy title={'Zertifikate'} size={35} />
       </Icon>

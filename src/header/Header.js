@@ -18,7 +18,7 @@ function Header({ linkList }) {
   return (
     <StyledHeader>
       <Navigation>
-        <NavIcons />
+        <NavIcons toggleChartMenu={() => {}} />
       </Navigation>
     </StyledHeader>
   )
