@@ -17,7 +17,6 @@ export default function FormCertificate({
   editCertificate,
   history,
 }) {
-  console.log('editCert: ', editCertificate)
   const [certificate, setCertificate] = useState(
     editCertificate || {
       date: getISODate(new Date()),
@@ -28,7 +27,6 @@ export default function FormCertificate({
   function handleInputOnChange(key, value) {
     const param = {}
     param[key] = value
-    console.log('all: ', { ...certificate, ...param })
     setCertificate({ ...certificate, ...param })
   }
 

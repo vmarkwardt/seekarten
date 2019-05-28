@@ -25,7 +25,9 @@ export default function CertificateCard({
   date,
   comment,
   id,
-  onDelete,
+  onDeleteCertificate,
+  onEditCertificate,
+  history,
 }) {
   return (
     <StyledCertificateCard>
@@ -33,7 +35,10 @@ export default function CertificateCard({
         <em>{subject}</em>
         <span>{date}</span>
         <span>{id}</span>
-        <button onClick={() => onDelete(id)}>X</button>
+        <button onClick={() => onEditCertificate(id, history)}>
+          bearbeiten
+        </button>
+        <button onClick={() => onDeleteCertificate(id)}>X</button>
       </Header>
       <Content>
         <h4>{title}</h4>

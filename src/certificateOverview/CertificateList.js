@@ -10,14 +10,11 @@ const StyledCertificateList = styled.section`
   flex-wrap: wrap;
 `
 
-export default function CertificateList({
-  certificateList,
-  onDeleteCertificate,
-}) {
+export default function CertificateList(props) {
   return (
     <StyledCertificateList>
-      {certificateList.map(cert => (
-        <CertificateCard key={uid()} {...cert} onDelete={onDeleteCertificate} />
+      {props.certificateList.map(cert => (
+        <CertificateCard key={uid()} {...cert} {...props} />
       ))}
     </StyledCertificateList>
   )
