@@ -19,6 +19,8 @@ function App() {
     getLocal('certificateList') || mockCertificates || []
   )
 
+  const [editCertificate, setEditCertificate] = useState('')
+
   useEffect(() => {
     setLocal('certificateList', certificateList)
   }, [certificateList])
@@ -62,15 +64,21 @@ function App() {
 
   function handleDeleteCertificate(id) {
     let certListCopy = certificateList.slice()
-    const index = certListCopy.map(cert => cert.id).indexOf(id)
-
+    const index = getIndexOfCertificate(id)
     certListCopy = [
       ...certListCopy.slice(0, index),
       ...certListCopy.slice(index + 1),
     ]
-    console.log('certListCopy after: ', certListCopy)
 
     setCertificateList(certListCopy)
+  }
+
+  function getIndexOfCertificate(id) {
+    return certificateList.map(cert => cert.id).indexOf(id)
+  }
+  function handleEditCertificate(id, history) {
+    setEditCertificate(certificateList[getIndexOfCertificate(id)])
+    history.push('/certificate')
   }
 
   const navLinkList = [
@@ -124,6 +132,7 @@ function App() {
             render={props => (
               <CertificateFormPage
                 onFormSubmit={handleFormCertificateSubmit}
+                editCertificate={editCertificate}
                 {...props}
               />
             )}
@@ -134,6 +143,8 @@ function App() {
               <PageCertificateOverview
                 certificateList={certificateList}
                 onDeleteCertificate={handleDeleteCertificate}
+                onEditCertificate={handleEditCertificate}
+                history={props.history}
               />
             )}
           />
