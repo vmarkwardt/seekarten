@@ -25,14 +25,17 @@ export default function FormCertificate({
   )
 
   function handleInputOnChange(key, value) {
+    console.log(key, value)
     const param = {}
     param[key] = value
     setCertificate({ ...certificate, ...param })
+    console.log(certificate)
   }
 
   function handleOnSubmit(event) {
     event.preventDefault()
     onFormSubmit(certificate, history)
+    setCertificate('')
   }
 
   return (

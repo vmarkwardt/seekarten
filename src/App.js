@@ -57,7 +57,14 @@ function App() {
   }
 
   function handleFormCertificateSubmit(newEntry, history) {
-    setCertificateList([newEntry, ...certificateList])
+    const indexNewEntry = getIndexOfCertificate(newEntry.id)
+    if (indexNewEntry < 0) {
+      setCertificateList([newEntry, ...certificateList])
+    } else {
+      const certListCopy = certificateList.slice()
+      certListCopy[indexNewEntry] = newEntry
+      setCertificateList(certListCopy)
+    }
 
     history.push('/certificateList')
   }
