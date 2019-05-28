@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import NavIcons from './NavIcons'
+import SubNavChartMenu from './SubNavChartMenu'
 
 const StyledHeader = styled.header`
   background: #b6e1dd;
@@ -15,11 +16,17 @@ const Navigation = styled.nav`
 
 // <NavLink exact to="/" name={'Home'} btnColor={''} />
 function Header({ linkList }) {
+  const [isChartsMenuOpen, setIsChartsMenuOpen] = useState(false)
+
+  function handleChartMenu() {
+    setIsChartsMenuOpen(!isChartsMenuOpen)
+  }
   return (
     <StyledHeader>
       <Navigation>
-        <NavIcons toggleChartMenu={() => {}} />
+        <NavIcons toggleChartMenu={handleChartMenu} />
       </Navigation>
+      <SubNavChartMenu isOpen={isChartsMenuOpen} />
     </StyledHeader>
   )
 }

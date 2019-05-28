@@ -1,25 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
+import { NavLink as RRDNavlink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-const StyledLink = styled.button`
+const StyledLink = styled(RRDNavlink)`
   border: 2px solid ${props => (props.btncolor ? props.btncolor : '#2a9d8f')};
   border-radius: 3px;
   color: ${props => props.btncolor || '#2a9d8f'};
   display: inline-block;
-  margin: 1em;
+  margin: 3px;
   padding: 0.25em 1em;
   text-decoration: none;
+
+  &:hover {
+    background: whitesmoke;
+  }
+
+  &.active {
+    background: whitesmoke;
+  }
 `
 
-export default function AreaLink({ name, btnColor, path }) {
+export default function ChartLink({ name, btnColor, path }) {
   return (
-    <StyledLink as="a" href={path} btncolor={btnColor}>
+    <StyledLink to={path} btncolor={btnColor}>
       {name}
     </StyledLink>
   )
 }
 
-AreaLink.propTypes = {
+ChartLink.propTypes = {
   name: PropTypes.string.isRequired,
 }
