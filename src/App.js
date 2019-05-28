@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import GlobalStyle from './commons/GlobalStyle'
 import Header from './header/Header'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
-import mockData from './mockdata'
+import { mockData, mockCertificates } from './mockdata'
 import ChartPage from './chartPage/ChartPage'
 import { setLocal, getLocal } from './utils'
 import CertificateFormPage from './certificateForm/CertificateFormPage'
@@ -16,7 +16,7 @@ function App() {
   )
 
   const [certificateList, setCertificateList] = useState(
-    getLocal('certificateList') || []
+    getLocal('certificateList') || mockCertificates || []
   )
 
   function handleProgressChange({

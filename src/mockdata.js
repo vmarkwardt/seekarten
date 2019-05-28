@@ -1,4 +1,4 @@
-const mockData = {
+export const mockData = {
   chartList: [
     {
       title: 'Ich',
@@ -70,4 +70,12 @@ const mockData = {
   ],
 }
 
-export default mockData
+export const mockCertificates = [
+  { date: '2018-08-03', title: 'Liesmal 4', subject: 'Deutsch ' },
+  { date: '2018-11-16', title: 'Liesmal 3', subject: 'Deutsch ' },
+  { date: '2018-03-06', title: 'Liesmal 2', subject: 'Deutsch ' },
+  { date: '2018-08-03', title: 'Liesmal 1 ', subject: 'Deutsch ' },
+  { date: '2018-04-13', title: 'Blitzheft 1', subject: 'Rechnen ' },
+  { date: '2018-09-20', title: 'Tinto ', subject: 'Deutsch ' },
+  { date: '2018-09-14', title: 'Schreibschriftheft ', subject: 'Deutsch ' },
+]
