@@ -9,15 +9,15 @@ const StyledNavLink = styled(RRDNavlink)`
   border: 2px solid ${props => props.btncolor || '#2a9d8f'};
   border-radius: 3px;
   text-decoration: none;
-  margin: 1em;
+  margin: 5px;
   padding: 0.25em 1em;
 
   &:hover {
-    background: #e76f51;
+    background: white;
   }
 
   &.active {
-    background: lightgrey;
+    background: white;
   }
 `
 export default function NavLink({ name, btnColor, to }) {

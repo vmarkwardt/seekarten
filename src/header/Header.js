@@ -26,6 +26,12 @@ function Header({ linkList }) {
             key={link.name}
           />
         ))}
+        <NavLink
+          to={'/certificate'}
+          name={'Zertifikat'}
+          btnColor={'darkgrey'}
+          key={'certificate'}
+        />
       </Navigation>
     </StyledHeader>
   )

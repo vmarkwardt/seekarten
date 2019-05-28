@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { getISODate } from '../utils'
 
 const StyledInput = styled.input`
   padding: 5px;
@@ -13,13 +12,13 @@ export default function InputDate({
   name,
   onChange,
   isRequired = false,
-  defaultValue = getISODate(new Date()),
+  value,
 }) {
   return (
     <StyledInput
       type="date"
       name={name}
-      value={defaultValue}
+      value={value}
       onChange={event => onChange(event)}
       required={isRequired ? 'required' : ''}
     />

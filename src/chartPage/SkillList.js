@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Skill from './Skill'
+import uid from 'uid'
 
 const StyledSkillList = styled.ul`
   justify-content: space-between;
@@ -14,7 +15,7 @@ export default function SkillList({ skillList, onProgressChange }) {
     <StyledSkillList>
       {skillList.map((skill, index) => (
         <Skill
-          key={skill.name}
+          key={uid()}
           name={skill.name}
           progress={skill.progress}
           onProgressChange={params =>

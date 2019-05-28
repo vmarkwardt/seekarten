@@ -8,13 +8,16 @@ import mockData from './mockdata'
 import ChartPage from './chartPage/ChartPage'
 import { setLocal, getLocal } from './utils'
 import CertificateFormPage from './certificateForm/CertificateFormPage'
+import PageCertificateOverview from './certificateOverview/PageCertificateOverview'
 
 function App() {
   const [chartList, setChartList] = useState(
     getLocal('chartList') || mockData.chartList || []
   )
 
-  const [certificateList, setCertificateList] = useState([])
+  const [certificateList, setCertificateList] = useState(
+    getLocal('certificateList') || []
+  )
 
   function handleProgressChange({
     chartIndex,
@@ -46,7 +49,7 @@ function App() {
   function handleFormCertificateSubmit(newEntry, history) {
     setCertificateList([newEntry, ...certificateList])
 
-    history.push('/')
+    history.push('/certificateList')
   }
 
   useEffect(() => {
@@ -110,6 +113,12 @@ function App() {
                 onFormSubmit={handleFormCertificateSubmit}
                 {...props}
               />
+            )}
+          />
+          <Route
+            path={'/certificateList'}
+            render={props => (
+              <PageCertificateOverview certificateList={certificateList} />
             )}
           />
           <Route path="/" component={PageAreaOverview} />
