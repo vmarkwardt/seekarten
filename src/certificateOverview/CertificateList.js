@@ -12,12 +12,12 @@ const StyledCertificateList = styled.section`
 
 export default function CertificateList({
   certificateList,
-  onCertificateDelete,
+  onDeleteCertificate,
 }) {
   return (
     <StyledCertificateList>
       {certificateList.map(cert => (
-        <CertificateCard key={uid()} {...cert} onDelete={onCertificateDelete} />
+        <CertificateCard key={uid()} {...cert} onDelete={onDeleteCertificate} />
       ))}
     </StyledCertificateList>
   )

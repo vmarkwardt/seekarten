@@ -24,6 +24,7 @@ export default function CertificateCard({
   subject,
   date,
   comment,
+  id,
   onDelete,
 }) {
   return (
@@ -31,7 +32,8 @@ export default function CertificateCard({
       <Header>
         <em>{subject}</em>
         <span>{date}</span>
-        <button onClick={onDelete}>X</button>
+        <span>{id}</span>
+        <button onClick={() => onDelete(id)}>X</button>
       </Header>
       <Content>
         <h4>{title}</h4>

@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     setLocal('chartList', chartList)
   }, [chartList])
-  
+
   function handleProgressChange({
     chartIndex,
     categoryIndex,
@@ -60,10 +60,18 @@ function App() {
     history.push('/certificateList')
   }
 
-  function handleCertificateDelete(id){
-    
-  }
+  function handleDeleteCertificate(id) {
+    let certListCopy = certificateList.slice()
+    const index = certListCopy.map(cert => cert.id).indexOf(id)
 
+    certListCopy = [
+      ...certListCopy.slice(0, index),
+      ...certListCopy.slice(index + 1),
+    ]
+    console.log('certListCopy after: ', certListCopy)
+
+    setCertificateList(certListCopy)
+  }
 
   const navLinkList = [
     {
@@ -123,7 +131,10 @@ function App() {
           <Route
             path={'/certificateList'}
             render={props => (
-              <PageCertificateOverview certificateList={certificateList} />
+              <PageCertificateOverview
+                certificateList={certificateList}
+                onDeleteCertificate={handleDeleteCertificate}
+              />
             )}
           />
           <Route path="/" component={PageAreaOverview} />

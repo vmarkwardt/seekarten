@@ -5,13 +5,19 @@ import { H2 } from '../commons/headings'
 
 const StyledPageCertificateOverview = styled.main``
 
-export default function PageCertificateOverview({ certificateList }) {
+export default function PageCertificateOverview({
+  certificateList,
+  onDeleteCertificate,
+}) {
   return (
     <StyledPageCertificateOverview>
       <header className="App-header">
         <H2 title="Zertifikate" />
       </header>
-      <CertificateList certificateList={certificateList} />
+      <CertificateList
+        certificateList={certificateList}
+        onDeleteCertificate={onDeleteCertificate}
+      />
     </StyledPageCertificateOverview>
   )
 }
