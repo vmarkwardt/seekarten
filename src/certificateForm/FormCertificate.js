@@ -12,10 +12,16 @@ const StyledForm = styled.form`
   grid-template-columns: 1fr 3fr;
 `
 
-export default function FormCertificate({ onFormSubmit, history }) {
-  const [certificate, setCertificate] = useState({
-    date: getISODate(new Date()),
-  })
+export default function FormCertificate({
+  onFormSubmit,
+  editCertificate,
+  history,
+}) {
+  const [certificate, setCertificate] = useState(
+    editCertificate || {
+      date: getISODate(new Date()),
+    }
+  )
 
   function handleInputOnChange(key, value) {
     const param = {}

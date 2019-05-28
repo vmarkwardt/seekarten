@@ -19,6 +19,14 @@ function App() {
     getLocal('certificateList') || mockCertificates || []
   )
 
+  useEffect(() => {
+    setLocal('certificateList', certificateList)
+  }, [certificateList])
+
+  useEffect(() => {
+    setLocal('chartList', chartList)
+  }, [chartList])
+  
   function handleProgressChange({
     chartIndex,
     categoryIndex,
@@ -52,13 +60,10 @@ function App() {
     history.push('/certificateList')
   }
 
-  useEffect(() => {
-    setLocal('certificateList', certificateList)
-  }, [certificateList])
+  function handleCertificateDelete(id){
+    
+  }
 
-  useEffect(() => {
-    setLocal('chartList', chartList)
-  }, [chartList])
 
   const navLinkList = [
     {

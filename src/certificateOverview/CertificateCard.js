@@ -19,12 +19,19 @@ const Content = styled.section`
   padding: 5px;
 `
 
-export default function CertificateCard({ title, subject, date, comment }) {
+export default function CertificateCard({
+  title,
+  subject,
+  date,
+  comment,
+  onDelete,
+}) {
   return (
     <StyledCertificateCard>
       <Header>
         <em>{subject}</em>
         <span>{date}</span>
+        <button onClick={onDelete}>X</button>
       </Header>
       <Content>
         <h4>{title}</h4>
