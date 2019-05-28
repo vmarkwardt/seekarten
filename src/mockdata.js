@@ -1,3 +1,5 @@
+import uid from 'uid'
+
 export const mockData = {
   chartList: [
     {
@@ -71,11 +73,46 @@ export const mockData = {
 }
 
 export const mockCertificates = [
-  { date: '2018-08-03', title: 'Liesmal 4', subject: 'Deutsch ' },
-  { date: '2018-11-16', title: 'Liesmal 3', subject: 'Deutsch ' },
-  { date: '2018-03-06', title: 'Liesmal 2', subject: 'Deutsch ' },
-  { date: '2018-08-03', title: 'Liesmal 1 ', subject: 'Deutsch ' },
-  { date: '2018-04-13', title: 'Blitzheft 1', subject: 'Rechnen ' },
-  { date: '2018-09-20', title: 'Tinto ', subject: 'Deutsch ' },
-  { date: '2018-09-14', title: 'Schreibschriftheft ', subject: 'Deutsch ' },
+  {
+    date: '2018-08-03',
+    title: 'Liesmal 4',
+    subject: 'Deutsch ',
+    id: uid(),
+  },
+  {
+    date: '2018-11-16',
+    title: 'Liesmal 3',
+    subject: 'Deutsch ',
+    id: uid(),
+  },
+  {
+    date: '2018-03-06',
+    title: 'Liesmal 2',
+    subject: 'Deutsch ',
+    id: uid(),
+  },
+  {
+    date: '2018-08-03',
+    title: 'Liesmal 1 ',
+    subject: 'Deutsch ',
+    id: uid(),
+  },
+  {
+    date: '2018-04-13',
+    title: 'Blitzheft 1',
+    subject: 'Rechnen ',
+    id: uid(),
+  },
+  {
+    date: '2018-09-20',
+    title: 'Tinto ',
+    subject: 'Deutsch ',
+    id: uid(),
+  },
+  {
+    date: '2018-09-14',
+    title: 'Schreibschriftheft ',
+    subject: 'Deutsch ',
+    id: uid(),
+  },
 ]

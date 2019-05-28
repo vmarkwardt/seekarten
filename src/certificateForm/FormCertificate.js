@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import uid from 'uid'
 import styled from 'styled-components'
 import ButtonSubmit from '../commons/ButtonSubmit'
 import InputText from '../commons/InputText'
@@ -20,6 +20,7 @@ export default function FormCertificate({
   const [certificate, setCertificate] = useState(
     editCertificate || {
       date: getISODate(new Date()),
+      id: uid(),
     }
   )
 
