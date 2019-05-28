@@ -66,6 +66,7 @@ function App() {
       setCertificateList(certListCopy)
     }
 
+    setEditCertificate('')
     history.push('/certificateList')
   }
 

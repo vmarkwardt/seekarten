@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import uid from 'uid'
 import styled from 'styled-components'
 import ButtonSubmit from '../commons/ButtonSubmit'
@@ -18,24 +18,30 @@ export default function FormCertificate({
   history,
 }) {
   const [certificate, setCertificate] = useState(
-    editCertificate || {
-      date: getISODate(new Date()),
-      id: uid(),
-    }
+    editCertificate || getNewCertificate()
   )
 
+  function getNewCertificate() {
+    return {
+      date: getISODate(new Date()),
+      id: uid(),
+      title: '',
+      subject: '',
+      comment: '',
+    }
+  }
+
   function handleInputOnChange(key, value) {
-    console.log(key, value)
     const param = {}
     param[key] = value
     setCertificate({ ...certificate, ...param })
-    console.log(certificate)
   }
 
   function handleOnSubmit(event) {
+    const newEntry = certificate
     event.preventDefault()
-    onFormSubmit(certificate, history)
-    setCertificate('')
+    setCertificate(getNewCertificate())
+    onFormSubmit(newEntry, history)
   }
 
   return (
