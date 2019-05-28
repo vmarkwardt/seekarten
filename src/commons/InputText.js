@@ -7,11 +7,17 @@ const StyledInput = styled.input`
   font-size: 1em;
 `
 
-export default function InputText({ name, onChange, isRequired = false }) {
+export default function InputText({
+  name,
+  value,
+  onChange,
+  isRequired = false,
+}) {
   return (
     <StyledInput
       type="text"
       name={name}
+      value={value}
       onChange={event => onChange(event)}
       required={isRequired ? 'required' : ''}
     />
