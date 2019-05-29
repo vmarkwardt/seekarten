@@ -37,7 +37,7 @@ export function getAllSkillEvents(chartList) {
   )
 
   function addHistoryEntry(date, name) {
-    skillEntries.push({ title: name, date: date })
+    skillEntries.push({ title: name, date: date, type: 'skill' })
   }
 
   function addSkills(skillList) {
