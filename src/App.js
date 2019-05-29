@@ -6,7 +6,7 @@ import Header from './header/Header'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
 import { mockData, mockCertificates } from './mockdata'
 import ChartPage from './chartPage/ChartPage'
-import { setLocal, getLocal, getAllSkillEvents } from './utils'
+import { setLocal, getLocal, getAllSkillEvents, getFormatedDate } from './utils'
 import CertificateFormPage from './certificateForm/CertificateFormPage'
 import PageCertificateOverview from './certificateOverview/PageCertificateOverview'
 import PageTimeLine from './timeLine/PageTimeLine'
@@ -31,11 +31,11 @@ function App() {
   }, [chartList])
 
   getAllEvents({ certificateList, chartList })
+
   function getAllEvents({ certificateList, chartList }) {
     const allEvents = [...certificateList]
-
     allEvents.push(...getAllSkillEvents(chartList))
-    console.log('allEvents: ', allEvents)
+    return allEvents
   }
 
   function handleProgressChange({
@@ -53,13 +53,25 @@ function App() {
 
     // update changeDate
     if (skill.changeHistory) {
-      skill.changeHistory.push({
-        changeDate: Date.now(),
-        progress: Number(progress),
-      })
+      //changeHistory key already exists now check date
+      const history = skill.changeHistory
+      const historyDates = history.map(entry => entry.changeDate)
+      const today = getFormatedDate(new Date())
+      const indexToday = historyDates.indexOf(today)
+      if (indexToday < 0) {
+        // there are dates, but not today
+        skill.changeHistory.push({
+          changeDate: today,
+          progress: Number(progress),
+        })
+      } else {
+        // there is an entry for today already
+        skill.changeHistory[indexToday].progress = Number(progress)
+      }
     } else {
+      // changeHistory key does not exist
       skill.changeHistory = [
-        { changeDate: Date.now(), progress: Number(progress) },
+        { changeDate: getFormatedDate(new Date()), progress: Number(progress) },
       ]
     }
     setChartList(chartListCopy)
@@ -167,7 +179,11 @@ function App() {
           />
           <Route
             path="/timeLine"
-            render={() => <PageTimeLine eventList={certificateList} />}
+            render={() => (
+              <PageTimeLine
+                eventList={getAllEvents({ chartList, certificateList })}
+              />
+            )}
           />
           <Route path="/" component={PageAreaOverview} />
         </Switch>
