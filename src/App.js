@@ -6,7 +6,7 @@ import Header from './header/Header'
 import PageAreaOverview from './areaOverview/PageAreaOverview'
 import { mockData, mockCertificates } from './mockdata'
 import ChartPage from './chartPage/ChartPage'
-import { setLocal, getLocal } from './utils'
+import { setLocal, getLocal, getAllSkillEvents } from './utils'
 import CertificateFormPage from './certificateForm/CertificateFormPage'
 import PageCertificateOverview from './certificateOverview/PageCertificateOverview'
 import PageTimeLine from './timeLine/PageTimeLine'
@@ -29,6 +29,14 @@ function App() {
   useEffect(() => {
     setLocal('chartList', chartList)
   }, [chartList])
+
+  getAllEvents({ certificateList, chartList })
+  function getAllEvents({ certificateList, chartList }) {
+    const allEvents = [...certificateList]
+
+    allEvents.push(...getAllSkillEvents(chartList))
+    console.log('allEvents: ', allEvents)
+  }
 
   function handleProgressChange({
     chartIndex,
