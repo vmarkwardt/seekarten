@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import GlobalStyle from './commons/GlobalStyle'
 import Header from './header/Header'
-import PageAreaOverview from './areaOverview/PageAreaOverview'
 import { mockData, mockCertificates } from './mockdata'
 import ChartPage from './chartPage/ChartPage'
 import { setLocal, getLocal, getAllSkillEvents, getFormatedDate } from './utils'
@@ -108,6 +107,7 @@ function App() {
   function getIndexOfCertificate(id) {
     return certificateList.map(cert => cert.id).indexOf(id)
   }
+
   function handleEditCertificate(id, history) {
     setEditCertificate(certificateList[getIndexOfCertificate(id)])
     history.push('/certificate')
@@ -146,7 +146,7 @@ function App() {
           {chartList.map((chart, index) => (
             <Route
               key={chart.title}
-              path={'/' + chart.title.toLowerCase()}
+              path={'/charts/' + chart.title.toLowerCase()}
               render={props => (
                 <ChartPage
                   title={chart.title}
@@ -188,7 +188,7 @@ function App() {
               />
             )}
           />
-          <Route path="/" component={PageAreaOverview} />
+          <Route path="/" render={() => <Redirect to="/charts/ich" />} />
         </Switch>
       </BrowserRouter>
     </div>
