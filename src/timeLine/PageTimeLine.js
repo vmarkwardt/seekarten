@@ -1,18 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { H2 } from '../commons/headings'
+import EventList from './EventList'
 
-const StyledPageTimeLine = styled.main``
+const StyledPageTimeLine = styled.main`
+  margin: 5px;
+`
 
 export default function PageTimeLine({ eventList }) {
-  console.log('PageTimeLine.js EventList: ', eventList)
-
-  /*const firstList = eventList.map(event => ({
-    date: event.date,
-    title: event.title,
-    id
-  }))
-  */
   const firstList = eventList.slice()
   firstList.sort((a, b) => (a.date < b.date ? 1 : -1))
 
@@ -22,13 +17,7 @@ export default function PageTimeLine({ eventList }) {
       <header>
         <H2 title="Zeitleiste" />
       </header>
-      <ul>
-        {filteredEventList.map(event => (
-          <li key={event.title}>
-            {event.date} {event.title}
-          </li>
-        ))}
-      </ul>
+      <EventList eventList={filteredEventList} />
     </StyledPageTimeLine>
   )
 }
