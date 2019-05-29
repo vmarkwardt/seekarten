@@ -8,7 +8,14 @@ export const mockData = {
         {
           name: 'Organisation',
           skillList: [
-            { name: 'Arbeitshaltung', progress: 70 },
+            {
+              name: 'Arbeitshaltung',
+              progress: 70,
+              changeHistory: [
+                { changeDate: '2019-02-05', progress: 50 },
+                { changeDate: '2019-04-01', progress: 70 },
+              ],
+            },
             { name: 'Pünktlichkeit', progress: 80 },
             { name: 'Zeitmanagement', progress: 30 },
             { name: 'Projekte planen', progress: 40 },
