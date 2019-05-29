@@ -26,34 +26,18 @@ const Icon = styled(RRDNavlink)`
   }
 `
 
-const NavButton = styled.a`
-  background: #b6e1dd;
-  color: #2a9d8f;
-  border: 2px solid #2a9d8f;
-  border-radius: 3px;
-  text-decoration: none;
-  margin: 5px;
-  padding: 2px;
-
-  &:hover {
-    background: #f4a261;
-  }
-
-  &.active {
-    background: whitesmoke;
-  }
-`
-
 export default function NavIcons({ toggleChartMenu }) {
-  function handleNavButtonOnClick(event) {
-    event.preventDefault()
-    toggleChartMenu()
+  function handleNavButtonOnClick(event, isChartMenuOpen = false) {
+    toggleChartMenu(event, isChartMenuOpen)
   }
   return (
     <>
-      <NavButton onClick={handleNavButtonOnClick}>
+      <Icon
+        to={'/charts'}
+        onClick={event => handleNavButtonOnClick(event, true)}
+      >
         <DirectionsBoat title={'Seekarten'} size={35} />
-      </NavButton>
+      </Icon>
       <Icon to={'/certificateList'}>
         <Trophy title={'Zertifikate'} size={35} />
       </Icon>

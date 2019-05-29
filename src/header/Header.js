@@ -14,16 +14,16 @@ const Navigation = styled.nav`
   justify-content: center;
 `
 
-// <NavLink exact to="/" name={'Home'} btnColor={''} />
-function Header({ linkList }) {
+function Header() {
   const [isChartsMenuOpen, setIsChartsMenuOpen] = useState(false)
 
-  function handleChartMenu() {
-    setIsChartsMenuOpen(!isChartsMenuOpen)
+  function handleChartMenu(event, isChartsMenuOpen = false) {
+    event.stopPropagation()
+    setIsChartsMenuOpen(isChartsMenuOpen)
   }
   return (
     <StyledHeader>
-      <Navigation>
+      <Navigation onClick={handleChartMenu}>
         <NavIcons toggleChartMenu={handleChartMenu} />
       </Navigation>
       <SubNavChartMenu isOpen={isChartsMenuOpen} />
@@ -32,7 +32,3 @@ function Header({ linkList }) {
 }
 
 export default Header
-
-Header.propTypes = {
-  linkList: PropTypes.array.isRequired,
-}
