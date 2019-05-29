@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import ButtonSubmit from '../commons/ButtonSubmit'
 import InputText from '../commons/InputText'
 import InputDate from '../commons/InputDate'
-import { getISODate } from '../utils'
+import { getFormatedDate } from '../utils'
 
 const StyledForm = styled.form`
   display: grid;
@@ -23,7 +23,7 @@ export default function FormCertificate({
 
   function getNewCertificate() {
     return {
-      date: getISODate(new Date()),
+      date: getFormatedDate(new Date()),
       id: uid(),
       title: '',
       subject: '',
