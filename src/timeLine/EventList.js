@@ -14,7 +14,7 @@ export default function EventList({ eventList }) {
     <StyledEventList>
       {eventList.map(event => (
         <EventListItem
-          key={event.title}
+          key={event.date + '-' + event.title}
           date={event.date}
           title={event.title}
         />
