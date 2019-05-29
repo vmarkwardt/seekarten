@@ -33,7 +33,10 @@ function App() {
   getAllEvents({ certificateList, chartList })
 
   function getAllEvents({ certificateList, chartList }) {
-    const allEvents = [...certificateList]
+    const allEvents = [...certificateList].map(certificate => ({
+      ...certificate,
+      type: 'certificate',
+    }))
     allEvents.push(...getAllSkillEvents(chartList))
     return allEvents
   }
