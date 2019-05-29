@@ -9,24 +9,33 @@ const StyledPageTimeLine = styled.main`
 `
 
 export default function PageTimeLine({ eventList }) {
+  const [filter, setFilter] = useState('all')
+
   const firstList = eventList.slice()
   firstList.sort((a, b) => (a.date < b.date ? 1 : -1))
 
-  const [filteredEventList, setFilteredEventList] = useState(firstList)
+  let typeList = firstList.map(event => event.type)
+  typeList = [...new Set(typeList)] //unique values
+  typeList.unshift('all')
+
+  let filteredEventList = firstList
+  if (filter !== 'all') {
+    filteredEventList = firstList.filter(item => item.type === filter)
+  }
 
   function handleFilterOnClick({ type }) {
-    console.log(firstList)
-    setFilteredEventList(firstList)
+    setFilter(type)
   }
 
   return (
     <StyledPageTimeLine>
       <header>
-        <H2 title="Zeitleiste" />
         <EventFilter
-          eventList={filteredEventList}
+          typeList={typeList}
+          filter={filter}
           onFilterClick={handleFilterOnClick}
         />
+        <H2 title="Zeitleiste" />
       </header>
       <EventList eventList={filteredEventList} />
     </StyledPageTimeLine>

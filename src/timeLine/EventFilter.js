@@ -1,20 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
-import { EventFilterButton } from './EventFilterButton';
+import { EventFilterButton } from './EventFilterButton'
 
+const StyledEventFilter = styled.section`
+  background: #b6e1dd;
+  margin: 5px;
+  padding: 5px;
+`
 
-
-const StyledEventFilter = styled.section``
-
-export function EventFilter({eventList, onFilterClick}){
-
+export function EventFilter({ typeList, filter, onFilterClick }) {
   return (
     <StyledEventFilter>
-      {eventList
-        .map(event => event.type)
-        .map(type => (
-          <EventFilterButton name={type} onClick={onFilterClick} />
-        ))}
+      {typeList.map(type => (
+        <EventFilterButton
+          key={type}
+          type={type}
+          isActive={type === filter}
+          onClick={onFilterClick}
+        />
+      ))}
     </StyledEventFilter>
   )
 }
