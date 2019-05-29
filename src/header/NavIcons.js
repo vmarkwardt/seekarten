@@ -7,8 +7,6 @@ import {
   FormatListBulleted,
 } from 'styled-icons/material'
 import { Trophy } from 'styled-icons/icomoon'
-// styled-icons/icomoon/List2
-//styled-icons/material/
 
 const Icon = styled(RRDNavlink)`
   background: #b6e1dd;
