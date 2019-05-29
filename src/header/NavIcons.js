@@ -1,8 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink as RRDNavlink } from 'react-router-dom'
-import { DirectionsBoat, AddBox } from 'styled-icons/material'
+import {
+  DirectionsBoat,
+  AddBox,
+  FormatListBulleted,
+} from 'styled-icons/material'
 import { Trophy } from 'styled-icons/icomoon'
+// styled-icons/icomoon/List2
+//styled-icons/material/
 
 const Icon = styled(RRDNavlink)`
   background: #b6e1dd;
@@ -40,11 +46,10 @@ const NavButton = styled.a`
   }
 `
 
-export default function NavIcons({toggleChartMenu}) {
+export default function NavIcons({ toggleChartMenu }) {
   function handleNavButtonOnClick(event) {
     event.preventDefault()
     toggleChartMenu()
-
   }
   return (
     <>
@@ -56,6 +61,9 @@ export default function NavIcons({toggleChartMenu}) {
       </Icon>
       <Icon to={'/certificate'}>
         <AddBox title={'Zertifikat eintragen'} size={35} />
+      </Icon>
+      <Icon to={'/timeLine'}>
+        <FormatListBulleted title={'Zeitleiste'} size={35} />
       </Icon>
     </>
   )
