@@ -5,17 +5,16 @@ import uid from 'uid'
 
 const StyledCertificateList = styled.section`
   margin: auto;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 `
 
-export default function CertificateList({ certificateList }) {
+export default function CertificateList(props) {
   return (
     <StyledCertificateList>
-      {certificateList.map(cert => (
-        <CertificateCard key={uid()} {...cert} />
+      {props.certificateList.map(cert => (
+        <CertificateCard key={uid()} {...cert} {...props} />
       ))}
     </StyledCertificateList>
   )

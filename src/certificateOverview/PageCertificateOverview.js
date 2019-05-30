@@ -1,19 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import CertificateList from './CertificateList'
+import { H2 } from '../commons/headings'
 
-const StyledPageCertificateOverview = styled.main`
-  margin: 5px;
-  padding: 10px;
-`
+const StyledPageCertificateOverview = styled.main``
 
-export default function PageCertificateOverview({ certificateList }) {
+export default function PageCertificateOverview(props) {
   return (
     <StyledPageCertificateOverview>
       <header className="App-header">
-        <h1>Zertifikate</h1>
+        <H2 title="Zertifikate" />
       </header>
-      <CertificateList certificateList={certificateList} />
+      <CertificateList {...props} />
     </StyledPageCertificateOverview>
   )
 }

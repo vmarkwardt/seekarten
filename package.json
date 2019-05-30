@@ -35,6 +35,7 @@
     "react-router-dom": "5.0.0",
     "react-scripts": "3.0.1",
     "styled-components": "4.2.0",
+    "styled-icons": "^8.0.0",
     "uid": "0.0.2"
   },
   "proxy": "http://localhost:4000",

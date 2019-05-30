@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
-
+import React, { useState } from 'react'
+import uid from 'uid'
 import styled from 'styled-components'
 import ButtonSubmit from '../commons/ButtonSubmit'
 import InputText from '../commons/InputText'
 import InputDate from '../commons/InputDate'
-import { getISODate } from '../utils'
+import { getFormatedDate } from '../utils'
 
 const StyledForm = styled.form`
   display: grid;
@@ -12,21 +12,36 @@ const StyledForm = styled.form`
   grid-template-columns: 1fr 3fr;
 `
 
-export default function FormCertificate({ onFormSubmit, history }) {
-  const [certificate, setCertificate] = useState({
-    date: getISODate(new Date()),
-  })
+export default function FormCertificate({
+  onFormSubmit,
+  editCertificate,
+  history,
+}) {
+  const [certificate, setCertificate] = useState(
+    editCertificate || getNewCertificate()
+  )
+
+  function getNewCertificate() {
+    return {
+      date: getFormatedDate(new Date()),
+      id: uid(),
+      title: '',
+      subject: '',
+      comment: '',
+    }
+  }
 
   function handleInputOnChange(key, value) {
     const param = {}
     param[key] = value
-    console.log('all: ', { ...certificate, ...param })
     setCertificate({ ...certificate, ...param })
   }
 
   function handleOnSubmit(event) {
+    const newEntry = certificate
     event.preventDefault()
-    onFormSubmit(certificate, history)
+    setCertificate(getNewCertificate())
+    onFormSubmit(newEntry, history)
   }
 
   return (

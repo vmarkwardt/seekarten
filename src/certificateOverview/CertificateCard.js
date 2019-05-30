@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Button from '../commons/Button'
 
 const StyledCertificateCard = styled.section`
   border: 1px solid lightgray;
@@ -19,12 +20,29 @@ const Content = styled.section`
   padding: 5px;
 `
 
-export default function CertificateCard({ title, subject, date, comment }) {
+export default function CertificateCard({
+  title,
+  subject,
+  date,
+  comment,
+  id,
+  onDeleteCertificate,
+  onEditCertificate,
+  history,
+}) {
   return (
     <StyledCertificateCard>
       <Header>
         <em>{subject}</em>
         <span>{date}</span>
+        <span>{id}</span>
+        <div>
+          <Button
+            text={'bearbeiten'}
+            onClick={() => onEditCertificate(id, history)}
+          />
+          <Button text={'X'} onClick={() => onDeleteCertificate(id)} />
+        </div>
       </Header>
       <Content>
         <h4>{title}</h4>

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import NavLink from './NavLink'
 import PropTypes from 'prop-types'
+import NavIcons from './NavIcons'
+import SubNavChartMenu from './SubNavChartMenu'
 
 const StyledHeader = styled.header`
   background: #b6e1dd;
@@ -13,32 +14,21 @@ const Navigation = styled.nav`
   justify-content: center;
 `
 
-// <NavLink exact to="/" name={'Home'} btnColor={''} />
-function Header({ linkList }) {
+function Header() {
+  const [isChartsMenuOpen, setIsChartsMenuOpen] = useState(false)
+
+  function handleChartMenu(event, isChartsMenuOpen = false) {
+    event.stopPropagation()
+    setIsChartsMenuOpen(isChartsMenuOpen)
+  }
   return (
     <StyledHeader>
-      <Navigation>
-        {linkList.map(link => (
-          <NavLink
-            to={'/' + link.name.toLowerCase()}
-            name={link.name}
-            btnColor={link.color}
-            key={link.name}
-          />
-        ))}
-        <NavLink
-          to={'/certificate'}
-          name={'Zertifikat'}
-          btnColor={'darkgrey'}
-          key={'certificate'}
-        />
+      <Navigation onClick={handleChartMenu}>
+        <NavIcons toggleChartMenu={handleChartMenu} />
       </Navigation>
+      <SubNavChartMenu isOpen={isChartsMenuOpen} />
     </StyledHeader>
   )
 }
 
 export default Header
-
-Header.propTypes = {
-  linkList: PropTypes.array.isRequired,
-}
