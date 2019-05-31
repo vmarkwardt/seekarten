@@ -25,6 +25,7 @@
     "docz-theme-default": "1.2.0",
     "dotenv": "8.0.0",
     "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.2",
     "express": "4.17.0",
     "mongoose": "5.5.10",
     "nodemon": "1.19.0",
