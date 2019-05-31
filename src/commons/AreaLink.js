@@ -22,4 +22,6 @@ export default function AreaLink({ name, btnColor, path }) {
 
 AreaLink.propTypes = {
   name: PropTypes.string.isRequired,
+  btnColor: PropTypes.string,
+  path: PropTypes.string.isRequired,
 }

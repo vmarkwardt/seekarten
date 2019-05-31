@@ -7,6 +7,7 @@ import {
   FormatListBulleted,
 } from 'styled-icons/material'
 import { Trophy } from 'styled-icons/icomoon'
+import PropTypes from 'prop-types'
 
 const Icon = styled(RRDNavlink)`
   background: #b6e1dd;
@@ -49,4 +50,8 @@ export default function NavIcons({ toggleChartMenu }) {
       </Icon>
     </>
   )
+}
+
+NavIcons.propType = {
+  toggleChartMenu: PropTypes.func.isRequired,
 }

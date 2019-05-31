@@ -57,4 +57,8 @@ CertificateCard.propTypes = {
   subject: PropTypes.string,
   date: PropTypes.string.isRequired,
   comment: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  onDeleteCertificate: PropTypes.func.isRequired,
+  onEditCertificate: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 }

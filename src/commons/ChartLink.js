@@ -31,4 +31,6 @@ export default function ChartLink({ name, btnColor, path }) {
 
 ChartLink.propTypes = {
   name: PropTypes.string.isRequired,
+  btnColor: PropTypes.string,
+  path: PropTypes.string.isRequired,
 }

@@ -17,7 +17,7 @@ const StyledEventFilterButton = styled.button`
   }
 `
 
-export function EventFilterButton({ type, onClick, isActive }) {
+export function EventFilterButton({ type, onClick, isActive = false }) {
   return (
     <StyledEventFilterButton
       onClick={() => onClick({ type })}
@@ -30,4 +30,6 @@ export function EventFilterButton({ type, onClick, isActive }) {
 
 EventFilterButton.propTypes = {
   type: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  isActive: PropTypes.bool,
 }

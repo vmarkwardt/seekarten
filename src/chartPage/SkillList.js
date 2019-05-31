@@ -29,6 +29,7 @@ export default function SkillList({ skillList, onProgressChange }) {
 
 SkillList.propTypes = {
   skillList: PropTypes.array.isRequired,
+  onProgressChange: PropTypes.func.isRequired,
 }
 SkillList.defaultProps = {
   skillList: [],

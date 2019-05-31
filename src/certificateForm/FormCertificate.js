@@ -5,6 +5,7 @@ import ButtonSubmit from '../commons/ButtonSubmit'
 import InputText from '../commons/InputText'
 import InputDate from '../commons/InputDate'
 import { getFormatedDate, getTrimmedEntry } from '../utils'
+import PropTypes from 'prop-types'
 
 const StyledForm = styled.form`
   display: grid;
@@ -13,7 +14,7 @@ const StyledForm = styled.form`
 `
 
 export default function FormCertificate({
-  onFormSubmit,
+  onSubmit,
   editCertificate,
   history,
 }) {
@@ -42,7 +43,7 @@ export default function FormCertificate({
     event.preventDefault()
     if (isCertificateValid(newEntry)) {
       setCertificate(getNewCertificate())
-      onFormSubmit(getTrimmedCertificate(newEntry), history)
+      onSubmit(getTrimmedCertificate(newEntry), history)
     } else {
       window.alert('Bitte einen Titel eingeben.')
     }
@@ -57,7 +58,6 @@ export default function FormCertificate({
     Object.keys(certCopy).forEach(
       key => (certCopy[key] = getTrimmedEntry(certCopy[key]))
     )
-    console.log('getTrimmedCertificate: ', certCopy)
     return certCopy
   }
 
@@ -94,4 +94,10 @@ export default function FormCertificate({
       <ButtonSubmit text={'Speichern'} />
     </StyledForm>
   )
+}
+
+FormCertificate.propType = {
+  onSubmit: PropTypes.func.isRequired,
+  editCertificate: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 }

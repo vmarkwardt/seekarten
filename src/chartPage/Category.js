@@ -49,6 +49,7 @@ export default function Category({ name, skillList, onProgressChange }) {
 Category.propTypes = {
   name: PropTypes.string.isRequired,
   skillList: PropTypes.array.isRequired,
+  onProgressChange: PropTypes.func.isRequired,
 }
 Category.defaultProps = {
   skillList: [],

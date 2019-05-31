@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const StyledSlider = styled.input`
   border-radius: 5px;
@@ -18,9 +19,14 @@ export default function Slider({ progress, onProgressChange }) {
       type="range"
       min="0"
       max="100"
-      step="10"
+      step="5"
       value={progress}
       onChange={event => onProgressChange(event.target.value)}
     />
   )
+}
+
+Slider.propTypes = {
+  progress: PropTypes.number.isRequired,
+  onProgressChange: PropTypes.func.isRequired,
 }

@@ -165,7 +165,7 @@ function App() {
               <CertificateFormPage
                 onFormSubmit={handleFormCertificateSubmit}
                 editCertificate={editCertificate}
-                {...props}
+                history={props.history}
               />
             )}
           />

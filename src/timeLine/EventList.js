@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import EventListItem from './EventListItem'
+import PropTypes from 'prop-types'
 
 const StyledEventList = styled.ul`
   display: flex;
@@ -21,4 +22,8 @@ export default function EventList({ eventList }) {
       ))}
     </StyledEventList>
   )
+}
+
+EventList.propType = {
+  eventList: PropTypes.array.isRequired,
 }
