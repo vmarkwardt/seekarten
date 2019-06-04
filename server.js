@@ -1,7 +1,10 @@
 const setupServer = require('./setup-server')
 const app = setupServer()
+//const mongoose = require('mongoose')
+const Charts = require('./models/Charts')
 
-// add your api here
 app.get('/test', (req, res) => {
-  res.json({ success: true })
+  Charts.find()
+    .then(data => res.json(data))
+    .catch(err => err.json({ errors: [err] }))
 })
