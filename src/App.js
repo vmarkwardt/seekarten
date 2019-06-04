@@ -9,6 +9,7 @@ import { setLocal, getLocal, getAllSkillEvents, getFormatedDate } from './utils'
 import CertificateFormPage from './certificateForm/CertificateFormPage'
 import PageCertificateOverview from './certificateOverview/PageCertificateOverview'
 import PageTimeLine from './timeLine/PageTimeLine'
+import { navLinkList } from './commons/constants'
 
 function App() {
   const [chartList, setChartList] = useState(
@@ -28,8 +29,6 @@ function App() {
   useEffect(() => {
     setLocal('chartList', chartList)
   }, [chartList])
-
-  getAllEvents({ certificateList, chartList })
 
   function getAllEvents({ certificateList, chartList }) {
     const allEvents = [...certificateList].map(certificate => ({
@@ -112,21 +111,6 @@ function App() {
     setEditCertificate(certificateList[getIndexOfCertificate(id)])
     history.push('/certificate')
   }
-
-  const navLinkList = [
-    {
-      name: 'Ich',
-      color: '#e76f51',
-    },
-    {
-      name: 'Wir',
-      color: '#f4a261',
-    },
-    {
-      name: 'Welt',
-      color: '#2a9d8f',
-    },
-  ]
 
   return (
     <div className="App">
