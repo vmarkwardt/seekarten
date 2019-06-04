@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { chartWorldColor } from '../commons/constants'
 
 const StyledButton = styled.button`
   background: whitesmoke;
-  border: 2px solid ${props => props.btncolor || '#2a9d8f'};
+  border: 2px solid ${props => props.btncolor || chartWorldColor};
   border-radius: 3px;
-  color: ${props => props.btncolor || '#2a9d8f'};
+  color: ${props => props.btncolor || chartWorldColor};
   margin: 5px;
   padding: 0.5em 1em;
   text-decoration: none;

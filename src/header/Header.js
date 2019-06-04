@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import NavIcons from './NavIcons'
 import SubNavChartMenu from './SubNavChartMenu'
+import { backgroundColor } from '../commons/constants'
 
 const StyledHeader = styled.header`
-  background: #b6e1dd;
+  background: ${backgroundColor};
   padding: 5px;
 `
 
