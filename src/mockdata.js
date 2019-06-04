@@ -22,13 +22,22 @@ export const mockData = {
           ],
         },
         {
-          name: 'Texte verstehen',
+          name: ' Umgang mit Medien ',
           skillList: [
             {
-              name: 'Sinnerfassend lesen',
+              name: 'kritisches Denken',
               progress: 80,
             },
-            { name: 'Texte interpretieren', progress: 80 },
+            { name: 'Computer Bedienung', progress: 80 },
+            { name: 'Kreativität ', progress: 80 },
+          ],
+        },
+        {
+          name: 'persönliches',
+          skillList: [
+            { name: 'Verantwortung', progress: 80 },
+            { name: 'mit Rückschlägen umgehen', progress: 40 },
+            { name: 'Neugier', progress: 50 },
           ],
         },
       ],
@@ -38,14 +47,22 @@ export const mockData = {
       categories: [
         {
           name: 'Kommunikation',
-          skillList: [{ name: 'Konflikt klären', progress: 80 }],
+          skillList: [
+            { name: 'Konflikt klären', progress: 0 },
+            {
+              name: 'respektvoller Umgang',
+              progress: 0,
+            },
+            { name: 'Empatie', progress: 0 },
+          ],
         },
         {
           name: 'Kooperation',
           skillList: [
             { name: 'Absprache', progress: 70 },
+            { name: 'Zuhören', progress: 71 },
             {
-              name: 'test',
+              name: 'Investition in den Unterricht',
               progress: 80,
             },
           ],
@@ -68,10 +85,39 @@ export const mockData = {
           name: 'Deutsch',
           skillList: [
             {
-              name: 'Sinnerfassend lesen',
+              name: 'Texte verstehen',
               progress: 80,
             },
             { name: 'Texte interpretieren', progress: 80 },
+            { name: 'Grammatik', progress: 0 },
+            { name: 'Richtig Schreiben', progress: 0 },
+            { name: 'Berichten und Beschreiben', progress: 0 },
+            { name: 'Nachschlagen', progress: 0 },
+            { name: 'Nacherzählen', progress: 0 },
+          ],
+        },
+        {
+          name: 'Englisch',
+          skillList: [
+            {
+              name: 'Sprechen',
+              progress: 20,
+            },
+            { name: 'Hörverstehen', progress: 10 },
+            { name: 'Lesen', progress: 10 },
+            { name: 'Texte schreiben', progress: 10 },
+          ],
+        },
+        {
+          name: 'Gesellschaft',
+          skillList: [
+            {
+              name: 'Erdkunde',
+              progress: 20,
+            },
+            { name: 'Politik', progress: 10 },
+            { name: 'Geschichte', progress: 10 },
+            { name: 'Wirtschaft', progress: 10 },
           ],
         },
       ],
