@@ -18,6 +18,7 @@ export default function EventList({ eventList }) {
           key={event.date + '-' + event.title}
           date={event.date}
           title={event.title}
+          type={event.type}
         />
       ))}
     </StyledEventList>
