@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { H2 } from '../commons/headings'
+import { PageHeadline } from '../commons/headings'
 import EventList from './EventList'
 import { EventFilter } from './EventFilter'
 import PropTypes from 'prop-types'
@@ -36,7 +36,7 @@ export default function PageTimeLine({ eventList }) {
           filter={filter}
           onFilterClick={handleFilterOnClick}
         />
-        <H2 title="Zeitleiste" />
+        <PageHeadline title="Zeitleiste" />
       </header>
       <EventList eventList={filteredEventList} />
     </StyledPageTimeLine>

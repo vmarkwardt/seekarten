@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const StyledH2 = styled.h2`
   padding: 5px;
 `
-export function H2({ title }) {
+export function PageHeadline({ title }) {
   return <StyledH2>{title}</StyledH2>
 }
 

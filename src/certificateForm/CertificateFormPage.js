@@ -1,5 +1,5 @@
 import React from 'react'
-import { H2 } from '../commons/headings'
+import { PageHeadline } from '../commons/headings'
 import FormCertificate from './FormCertificate'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
@@ -13,7 +13,7 @@ export default function CertificateFormPage({
 }) {
   return (
     <StyledMain>
-      <H2 title={'Zertifikat eintragen'} />
+      <PageHeadline title={'Zertifikat eintragen'} />
       <FormCertificate
         onSubmit={onFormSubmit}
         editCertificate={editCertificate}

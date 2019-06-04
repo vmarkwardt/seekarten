@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import CertificateList from './CertificateList'
-import { H2 } from '../commons/headings'
+import { PageHeadline } from '../commons/headings'
 import PropTypes from 'prop-types'
 
 const StyledPageCertificateOverview = styled.main``
@@ -15,7 +15,7 @@ export default function PageCertificateOverview({
   return (
     <StyledPageCertificateOverview>
       <header className="App-header">
-        <H2 title="Zertifikate" />
+        <PageHeadline title="Zertifikate" />
       </header>
       <CertificateList
         certificateList={certificateList}
