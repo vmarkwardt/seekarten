@@ -7,4 +7,4 @@ const certificateSchema = new mongoose.Schema({
   comment: String,
 })
 
-module.exports = mongoose.model('Charts', chartsSchema)
+module.exports = mongoose.model('Certificates', certificateSchema)

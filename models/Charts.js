@@ -18,6 +18,7 @@ const chartsSchema = new mongoose.Schema({
       ],
     },
   ],
+  userId: String,
 })
 
 module.exports = mongoose.model('Charts', chartsSchema)
