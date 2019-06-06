@@ -1,6 +1,7 @@
 import uid from 'uid'
 
 export const mockData = {
+  userId: 'Thea',
   chartList: [
     {
       title: 'Ich',
