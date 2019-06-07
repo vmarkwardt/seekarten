@@ -106,7 +106,7 @@ function App() {
   }
 
   function handleFormCertificateSubmit(newEntry, history) {
-    const indexNewEntry = getIndexOfCertificate(newEntry.id)
+    const indexNewEntry = getIndexOfCertificate(newEntry._id)
     if (indexNewEntry < 0) {
       setCertificateList([newEntry, ...certificateList])
     } else {
@@ -120,7 +120,7 @@ function App() {
   }
 
   function handleDeleteCertificate(id) {
-    let certListCopy = certificateList.slice()
+    let certListCopy = [...certificateList]
     const index = getIndexOfCertificate(id)
     certListCopy = [
       ...certListCopy.slice(0, index),
@@ -131,7 +131,7 @@ function App() {
   }
 
   function getIndexOfCertificate(id) {
-    return certificateList.map(cert => cert.id).indexOf(id)
+    return certificateList.map(cert => cert._id).indexOf(id)
   }
 
   function handleEditCertificate(id, history) {
