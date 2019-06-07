@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Button from '../commons/Button'
 import { backgroundColor } from '../commons/constants'
+import { DeleteForever, Edit } from 'styled-icons/material/'
 
 const StyledCertificateCard = styled.section`
   border: 1px solid lightgray;
@@ -19,6 +19,10 @@ const Header = styled.div`
 `
 const Content = styled.section`
   padding: 5px;
+`
+const StyledIcon = styled.button`
+  color: #2a9d8f;
+  margin: 2px;
 `
 
 export default function CertificateCard({
@@ -38,11 +42,12 @@ export default function CertificateCard({
         <span>{date}</span>
         <span>{_id}</span>
         <div>
-          <Button
-            text={'bearbeiten'}
-            onClick={() => onEditCertificate(_id, history)}
-          />
-          <Button text={'X'} onClick={() => onDeleteCertificate(_id)} />
+          <StyledIcon onClick={() => onEditCertificate(_id, history)}>
+            <Edit title={'bearbeiten'} size={22} />
+          </StyledIcon>
+          <StyledIcon onClick={() => onDeleteCertificate(_id)}>
+            <DeleteForever title={'löschen'} size={22} />
+          </StyledIcon>
         </div>
       </Header>
       <Content>
