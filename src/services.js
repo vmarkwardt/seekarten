@@ -46,6 +46,16 @@ export async function getCertificates() {
   }
 }
 
+export async function getCertificatesOfUser(userId) {
+  try {
+    const res = await fetch('/certificates/' + userId)
+    return await res.json()
+  } catch (e) {
+    console.log('getCertificates() at services.js: ', e)
+    return e
+  }
+}
+
 export async function postCertificates(certificates) {
   console.log('postCharts in services.js ', JSON.stringify(certificates))
   const res = await fetch('/certificates', {

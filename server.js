@@ -11,7 +11,6 @@ app.get('/chartList', (req, res) => {
 
 app.get('/chartList/:id', (req, res) => {
   const { id } = req.params
-  console.log('app.get(/chartList/:id: ', id)
   Charts.find({ userId: id })
     .then(data => res.json(data))
     .catch(err => err.json({ errors: [err] }))
@@ -31,21 +30,32 @@ app.post('/chartList', (req, res) => {
     .catch(err => res.status(500).json({ erorrs: [err] }))
 })
 
+// CERTIFICATES    ------------------------------------------------
+
 app.get('/certificates', (req, res) => {
   Certificates.find()
     .then(data => res.json(data))
     .catch(err => err.json({ errors: [err] }))
 })
 
+app.get('/certificates/:id', (req, res) => {
+  const { id } = req.params
+  Certificates.find({ userId: id })
+    .then(data => res.json(data))
+    .catch(err => err.json({ errors: [err] }))
+})
+
+/*
 app.patch('/certificates/:id', (req, res) => {
   const { id } = req.params
   const newCertificates = req.body
-  Certificates.findByIdAndUpdate({ _id: id }, newCertificates, { new: true }) // to get the updated Obj back
+  Certificates.find({ userId: id }, newCertificates, { new: true }) // to get the updated Obj back
     .then(certificates => res.json(certificates))
     .catch(err =>
       console.log('Something went wrong while updating certificates!')
     )
 })
+*/
 
 app.post('/certificates', (req, res) => {
   Certificates.create(req.body)
