@@ -25,7 +25,7 @@ export default function FormCertificate({
   function getNewCertificate() {
     return {
       date: getFormatedDate(new Date()),
-      id: uid(),
+      _id: uid(),
       title: '',
       subject: '',
       comment: '',

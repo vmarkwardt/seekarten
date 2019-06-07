@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import CertificateCard from './CertificateCard'
-import uid from 'uid'
 import PropTypes from 'prop-types'
 
 const StyledCertificateList = styled.section`
