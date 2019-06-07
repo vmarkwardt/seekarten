@@ -35,7 +35,7 @@ function App() {
   useEffect(() => {
     fetchChartsOfUser(userId).then(charts => setChartList(charts[0].chartList))
     fetchCertificatesOfUser(userId).then(certificates =>
-      setCertificateList(certificates)
+      setCertificateList(certificates[0].certificateList)
     )
   }, [])
 

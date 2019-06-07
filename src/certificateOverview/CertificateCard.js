@@ -26,7 +26,7 @@ export default function CertificateCard({
   subject,
   date,
   comment,
-  id,
+  _id,
   onDeleteCertificate,
   onEditCertificate,
   history,
@@ -36,13 +36,13 @@ export default function CertificateCard({
       <Header>
         <em>{subject}</em>
         <span>{date}</span>
-        <span>{id}</span>
+        <span>{_id}</span>
         <div>
           <Button
             text={'bearbeiten'}
-            onClick={() => onEditCertificate(id, history)}
+            onClick={() => onEditCertificate(_id, history)}
           />
-          <Button text={'X'} onClick={() => onDeleteCertificate(id)} />
+          <Button text={'X'} onClick={() => onDeleteCertificate(_id)} />
         </div>
       </Header>
       <Content>
@@ -58,7 +58,7 @@ CertificateCard.propTypes = {
   subject: PropTypes.string,
   date: PropTypes.string.isRequired,
   comment: PropTypes.string,
-  id: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
   onDeleteCertificate: PropTypes.func.isRequired,
   onEditCertificate: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,

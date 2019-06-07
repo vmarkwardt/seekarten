@@ -21,7 +21,7 @@ export default function CertificateList({
     <StyledCertificateList>
       {certificateList.map(cert => (
         <CertificateCard
-          key={uid()}
+          key={cert._id}
           {...cert}
           onDeleteCertificate={onDeleteCertificate}
           onEditCertificate={onEditCertificate}
