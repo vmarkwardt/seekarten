@@ -6,6 +6,16 @@ import PropTypes from 'prop-types'
 
 const StyledPageCertificateOverview = styled.main``
 
+const Sum = styled.p`
+  align-self: center;
+  padding-right: 10px;
+`
+
+const PageHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+`
+
 export default function PageCertificateOverview({
   certificateList,
   onDeleteCertificate,
@@ -14,9 +24,10 @@ export default function PageCertificateOverview({
 }) {
   return (
     <StyledPageCertificateOverview>
-      <header className="App-header">
+      <PageHeader className="App-header">
         <PageHeadline title="Zertifikate" />
-      </header>
+        <Sum>{certificateList.length}</Sum>
+      </PageHeader>
       <CertificateList
         certificateList={certificateList}
         onDeleteCertificate={onDeleteCertificate}
