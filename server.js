@@ -9,6 +9,14 @@ app.get('/chartList', (req, res) => {
     .catch(err => err.json({ errors: [err] }))
 })
 
+app.get('/chartList/:id', (req, res) => {
+  const { id } = req.params
+  console.log('app.get(/chartList/:id: ', id)
+  Charts.find({ userId: id })
+    .then(data => res.json(data))
+    .catch(err => err.json({ errors: [err] }))
+})
+
 app.patch('/chartList/:id', (req, res) => {
   const { id } = req.params
   const newCharts = req.body

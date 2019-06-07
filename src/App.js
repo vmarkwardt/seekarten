@@ -10,6 +10,13 @@ import CertificateFormPage from './certificateForm/CertificateFormPage'
 import PageCertificateOverview from './certificateOverview/PageCertificateOverview'
 import PageTimeLine from './timeLine/PageTimeLine'
 import { navLinkList } from './commons/constants'
+import {
+  getCharts,
+  postCharts,
+  getCertificates,
+  postCertificates,
+  getChartsOfUser,
+} from './services'
 
 function App() {
   const [chartList, setChartList] = useState(
@@ -21,6 +28,7 @@ function App() {
   )
 
   const [editCertificate, setEditCertificate] = useState('')
+  const [userId, setUserId] = useState('Thea')
 
   useEffect(() => {
     setLocal('certificateList', certificateList)
@@ -28,7 +36,40 @@ function App() {
 
   useEffect(() => {
     setLocal('chartList', chartList)
+    // console.log('state:', chartList)
   }, [chartList])
+
+  useEffect(() => {
+    getAllCertificates().then(certificates => setCertificateList(certificates))
+    fetchChartsOfUser(userId).then(charts => setChartList(charts[0].chartList))
+  }, [])
+
+  async function fetchChartsOfUser(userId) {
+    try {
+      const res = await getChartsOfUser(userId)
+      return res
+    } catch (e) {
+      return 'ERROR getChartsOfUser() at App.js: ' + e.message
+    }
+  }
+
+  async function getAllCharts() {
+    try {
+      const res = await getCharts()
+      return res
+    } catch (e) {
+      return 'ERROR getAllCharts() at App.js: ' + e.message
+    }
+  }
+
+  async function getAllCertificates() {
+    try {
+      const res = await getCertificates()
+      return res
+    } catch (e) {
+      return 'ERROR getAllCertificates() at App.js: ' + e.message
+    }
+  }
 
   function getAllEvents({ certificateList, chartList }) {
     const allEvents = [...certificateList].map(certificate => ({

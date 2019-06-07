@@ -8,6 +8,15 @@ export async function getCharts() {
   }
 }
 
+export async function getChartsOfUser(userId) {
+  try {
+    const res = await fetch('/chartList/' + userId)
+    return await res.json()
+  } catch (e) {
+    console.log('getCharts() at services.js: ', e)
+    return e
+  }
+}
 export async function postCharts(chartList) {
   console.log('postCharts in services.js ', JSON.stringify(chartList))
   const res = await fetch('/chartList', {
