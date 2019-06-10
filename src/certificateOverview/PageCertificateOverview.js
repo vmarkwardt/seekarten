@@ -3,12 +3,14 @@ import styled from 'styled-components'
 import CertificateList from './CertificateList'
 import { PageHeadline } from '../commons/headings'
 import PropTypes from 'prop-types'
+import { chartWorldColor } from '../commons/constants'
 
 const StyledPageCertificateOverview = styled.main``
 
 const Sum = styled.p`
   align-self: center;
   padding-right: 10px;
+  color: ${chartWorldColor};
 `
 
 const PageHeader = styled.header`

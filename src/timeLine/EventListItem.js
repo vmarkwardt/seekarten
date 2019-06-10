@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { backgroundColor } from '../commons/constants'
 import { DirectionsBoat } from 'styled-icons/material'
 import { Trophy } from 'styled-icons/icomoon'
-import { chartWorldColor } from '../commons/constants'
+import { chartWorldColor, backgroundColor } from '../commons/constants'
 
 const StyledEventListItem = styled.li`
   display: flex;
@@ -37,7 +36,7 @@ const StyledTitle = styled.span`
 `
 
 const StyledIcon = styled.div`
-  color: #2a9d8f;
+  color: chartWorldColor;
   margin: 2px;
 `
 
@@ -52,7 +51,7 @@ export default function EventListItem({ title, date, type }) {
         {type === 'certificate' ? (
           <Trophy title={'Zertifikate'} size={15} />
         ) : (
-          <DirectionsBoat  title={'Zertifikate'} size={15} />
+          <DirectionsBoat title={'Zertifikate'} size={15} />
         )}
       </StyledIcon>
     </StyledEventListItem>

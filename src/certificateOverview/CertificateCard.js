@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { backgroundColor } from '../commons/constants'
+import { backgroundColor, chartWorldColor } from '../commons/constants'
 import { DeleteForever, Edit } from 'styled-icons/material/'
 
 const StyledCertificateCard = styled.section`
@@ -21,7 +21,10 @@ const Content = styled.section`
   padding: 5px;
 `
 const StyledIcon = styled.button`
-  color: #2a9d8f;
+  background: ${backgroundColor};
+  border: 2px solid ${chartWorldColor};
+  color: ${chartWorldColor};
+  border-radius: 3px;
   margin: 2px;
 `
 
