@@ -10,7 +10,13 @@ import CertificateFormPage from './certificateForm/CertificateFormPage'
 import PageCertificateOverview from './certificateOverview/PageCertificateOverview'
 import PageTimeLine from './timeLine/PageTimeLine'
 import { navLinkList } from './commons/constants'
-import { getChartsOfUser, getCertificatesOfUser } from './services'
+import {
+  getChartsOfUser,
+  getCertificatesOfUser,
+  patchCertificates,
+  postCertificates,
+  patchCharts,
+} from './services'
 
 function App() {
   const [chartList, setChartList] = useState(
@@ -103,20 +109,35 @@ function App() {
       ]
     }
     setChartList(chartListCopy)
+    updateChartList(userId, chartListCopy)
   }
 
   function handleFormCertificateSubmit(newEntry, history) {
     const indexNewEntry = getIndexOfCertificate(newEntry._id)
     if (indexNewEntry < 0) {
+      const entry = { ...newEntry }
+      delete entry._id
+      const newCertificateList = [entry, ...certificateList]
+      setCertificateList([...newCertificateList])
+      // post in DB
+      updateCertificates(userId, newCertificateList)
       setCertificateList([newEntry, ...certificateList])
     } else {
-      const certListCopy = certificateList.slice()
+      const certListCopy = [...certificateList]
       certListCopy[indexNewEntry] = newEntry
       setCertificateList(certListCopy)
+      updateCertificates(userId, certListCopy)
     }
 
     setEditCertificate('')
     history.push('/certificateList')
+  }
+
+  function updateCertificates(userId, certificateList) {
+    patchCertificates(userId, certificateList)
+  }
+  function updateChartList(userId, chartList) {
+    patchCharts(userId, chartList)
   }
 
   function handleDeleteCertificate(id) {
@@ -128,6 +149,7 @@ function App() {
     ]
 
     setCertificateList(certListCopy)
+    updateCertificates(userId, certListCopy)
   }
 
   function getIndexOfCertificate(id) {

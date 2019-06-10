@@ -27,8 +27,8 @@ export async function postCharts(chartList) {
   return await res.json()
 }
 
-export async function patchCharts(chartList) {
-  const res = await fetch(`/chartList/${chartList._id}`, {
+export async function patchCharts(userId, chartList) {
+  const res = await fetch(`/chartList/${userId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(chartList),
@@ -66,8 +66,9 @@ export async function postCertificates(certificates) {
   return await res.json()
 }
 
-export async function patchCertificates(certificates) {
-  const res = await fetch(`/certificates/${certificates._id}`, {
+export async function patchCertificates(userId, certificates) {
+  console.log(userId, certificates)
+  const res = await fetch(`/certificates/${userId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(certificates),

@@ -45,17 +45,16 @@ app.get('/certificates/:id', (req, res) => {
     .catch(err => err.json({ errors: [err] }))
 })
 
-/*
 app.patch('/certificates/:id', (req, res) => {
   const { id } = req.params
   const newCertificates = req.body
-  Certificates.find({ userId: id }, newCertificates, { new: true }) // to get the updated Obj back
+  console.log('app.patch(/certificates/:id', id, newCertificates)
+  Certificates.updateOne({ userId: id }, { certificateList: newCertificates }) // to get the updated Obj back
     .then(certificates => res.json(certificates))
     .catch(err =>
-      console.log('Something went wrong while updating certificates!')
+      console.log('Something went wrong while updating certificates!', err)
     )
 })
-*/
 
 app.post('/certificates', (req, res) => {
   Certificates.create(req.body)
