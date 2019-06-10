@@ -23,18 +23,18 @@ export const mockData = {
           ],
         },
         {
-          name: ' Umgang mit Medien ',
+          name: ' Medien ',
           skillList: [
             {
               name: 'kritisches Denken',
               progress: 80,
             },
-            { name: 'Computer Bedienung', progress: 80 },
+            { name: 'PC Bedienung', progress: 80 },
             { name: 'Kreativität ', progress: 80 },
           ],
         },
         {
-          name: 'persönliches',
+          name: 'Persönlichkeit',
           skillList: [
             { name: 'Verantwortung', progress: 80 },
             { name: 'mit Rückschlägen umgehen', progress: 40 },
