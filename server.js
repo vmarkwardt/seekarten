@@ -19,9 +19,11 @@ app.get('/chartList/:id', (req, res) => {
 app.patch('/chartList/:id', (req, res) => {
   const { id } = req.params
   const newCharts = req.body
-  Charts.findByIdAndUpdate({ _id: id }, newCharts, { new: true }) // to get the updated Obj back
+  Charts.updateOne({ userId: id }, newCharts, { new: true }) // to get the updated Obj back
     .then(charts => res.json(charts))
-    .catch(err => console.log('Something went wrong while updating charts!'))
+    .catch(err =>
+      console.log('Something went wrong while updating charts!', err)
+    )
 })
 
 app.post('/chartList', (req, res) => {
@@ -48,8 +50,8 @@ app.get('/certificates/:id', (req, res) => {
 app.patch('/certificates/:id', (req, res) => {
   const { id } = req.params
   const newCertificates = req.body
-  console.log('app.patch(/certificates/:id', id, newCertificates)
-  Certificates.updateOne({ userId: id }, { certificateList: newCertificates }) // to get the updated Obj back
+  console.log('SERVER: app.patch( / certificates ', newCertificates)
+  Certificates.updateOne({ userId: id }, newCertificates, { new: true }) // to get the updated Obj back
     .then(certificates => res.json(certificates))
     .catch(err =>
       console.log('Something went wrong while updating certificates!', err)
