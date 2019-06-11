@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { DirectionsBoat } from 'styled-icons/material'
 import { Trophy } from 'styled-icons/icomoon'
 import { chartWorldColor, backgroundColor } from '../commons/constants'
+import { getFormatedDate } from '../utils'
 
 const StyledEventListItem = styled.li`
   display: flex;
@@ -44,7 +45,7 @@ export default function EventListItem({ title, date, type }) {
   return (
     <StyledEventListItem type={type}>
       <div>
-        <StyledDate>{date}</StyledDate>
+        <StyledDate>{getFormatedDate(date)}</StyledDate>
         <StyledTitle>{title}</StyledTitle>
       </div>
       <StyledIcon>
