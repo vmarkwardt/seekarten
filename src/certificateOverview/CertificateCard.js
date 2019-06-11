@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { backgroundColor, chartWorldColor } from '../commons/constants'
 import { DeleteForever, Edit } from 'styled-icons/material/'
+import { getFormatedDate } from '../utils'
 
 const StyledCertificateCard = styled.section`
   border: 1px solid lightgray;
@@ -42,8 +43,7 @@ export default function CertificateCard({
     <StyledCertificateCard>
       <Header>
         <em>{subject}</em>
-        <span>{date}</span>
-        <span>{_id}</span>
+        <span>{getFormatedDate(date)}</span>
         <div>
           <StyledIcon onClick={() => onEditCertificate(_id, history)}>
             <Edit title={'bearbeiten'} size={22} />
