@@ -11,7 +11,6 @@ const StyledSlider = styled.input`
   padding: 5px;
   outline: none;
   transition: opacity 0.15s ease-in-out;
-  width: 50%;
 
   -webkit-appearance: none;
   background: transparent;
@@ -25,7 +24,7 @@ const StyledSlider = styled.input`
     border-radius: 99px;
   }
   &::-webkit-slider-runnable-track {
-    height: 5px;
+    height: 5px; 
     background: #ddd;
     border-radius: 15px;
   }
