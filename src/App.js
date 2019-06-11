@@ -14,9 +14,9 @@ import {
   getChartsOfUser,
   getCertificatesOfUser,
   patchCertificates,
-  postCertificates,
   patchCharts,
 } from './services'
+import MySunburst from './vis/MySunburst'
 
 function App() {
   const [chartList, setChartList] = useState(
@@ -221,6 +221,7 @@ function App() {
               />
             )}
           />
+          <Route path="/vis" render={() => <MySunburst data={chartList} />} />
           <Route path="/" render={() => <Redirect to="/charts/ich" />} />
         </Switch>
       </BrowserRouter>
