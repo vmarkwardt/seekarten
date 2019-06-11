@@ -13,7 +13,11 @@ export function getLocal(name) {
 // returns Date in Format: YYYY-MM-DD
 // useful vor <input type="date"> ->  in order to set value, which expects this format
 export function getFormatedDate(date) {
-  return date.toISOString().substring(0, 10)
+  if (date instanceof Date) {
+    return date.toISOString().substring(0, 10)
+  } else {
+    return date.substring(0, 10)
+  }
 }
 
 export function getAllSkillEvents(chartList) {
