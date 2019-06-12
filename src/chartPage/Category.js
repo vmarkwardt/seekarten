@@ -5,7 +5,6 @@ import SkillList from './SkillList'
 import ProgressBar from '../commons/ProgressBar'
 import { H3 } from '../commons/headings'
 import { backgroundColor } from '../commons/constants'
-import { getColorOfTitle } from '../utils'
 
 const StyledCategory = styled.li`
   list-style-type: none;

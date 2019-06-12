@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { chartWorldColor } from '../commons/constants'
 
 const StyledSlider = styled.input`
   opacity: 0.7;
