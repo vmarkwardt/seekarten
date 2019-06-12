@@ -1,3 +1,5 @@
+import { navLinkList } from './commons/constants'
+
 export function setLocal(name, data) {
   localStorage.setItem(name, JSON.stringify(data))
 }
@@ -57,4 +59,12 @@ export function getTrimmedEntry(entry) {
   } else {
     return entry
   }
+}
+
+export function getColorOfTitle(title) {
+  const index = navLinkList
+    .map(link => link.name.toLowerCase())
+    .indexOf(title.toLowerCase())
+
+  return navLinkList[index].color
 }
