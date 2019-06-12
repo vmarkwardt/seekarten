@@ -29,14 +29,14 @@ const Icon = styled(RRDNavlink)`
 `
 
 export default function NavIcons({ toggleChartMenu }) {
-  function handleNavButtonOnClick(event) {
-    toggleChartMenu(event)
+  function handleNavButtonOnClick(event, isChartBtn = false) {
+    toggleChartMenu(event, isChartBtn)
   }
   return (
     <>
       <Icon
         to={'/charts'}
-        onClick={event => handleNavButtonOnClick(event )}
+        onClick={event => handleNavButtonOnClick(event, true)}
       >
         <DirectionsBoat title={'Seekarten'} size={35} />
       </Icon>
