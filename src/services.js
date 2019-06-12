@@ -28,10 +28,12 @@ export async function postCharts(chartList) {
 }
 
 export async function patchCharts(userId, chartList) {
+  console.log('patchCharts PATCH', chartList)
+  const fullChartListObj = { userId, chartList }
   const res = await fetch(`/chartList/${userId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(chartList),
+    body: JSON.stringify(fullChartListObj),
   })
   return res.json
 }
@@ -56,22 +58,25 @@ export async function getCertificatesOfUser(userId) {
   }
 }
 
-export async function postCertificates(certificates) {
-  console.log('postCharts in services.js ', JSON.stringify(certificates))
+export async function postCertificates(userId, certificateList) {
+  const certificateObj = { userId, certificateList }
+  console.log('postCharts in services.js ', JSON.stringify(certificateObj))
   const res = await fetch('/certificates', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(certificates),
+    body: JSON.stringify(certificateObj),
   })
   return await res.json()
 }
 
-export async function patchCertificates(userId, certificates) {
-  console.log(userId, certificates)
+export async function patchCertificates(userId, certificateList) {
+  console.log(certificateList)
+  const fullCertificatesObj = { userId, certificateList }
+  console.log('fullCertificatesObj', fullCertificatesObj)
   const res = await fetch(`/certificates/${userId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(certificates),
+    body: JSON.stringify(fullCertificatesObj),
   })
   return res.json
 }
