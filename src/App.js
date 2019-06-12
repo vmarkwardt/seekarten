@@ -42,7 +42,6 @@ function App() {
   useEffect(() => {
     fetchChartsOfUser(userId).then(charts => setChartList(charts[0].chartList))
     fetchCertificatesOfUser(userId).then(res => {
-      console.log('useEff certis: ', res)
       res.length > 0
         ? setCertificateList(res[0].certificateList)
         : postCertificates(userId, mockCertificates)

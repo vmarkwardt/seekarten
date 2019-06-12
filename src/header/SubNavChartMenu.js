@@ -9,13 +9,22 @@ const SubNav = styled.section`
   margin: auto;
   height: auto;
 
+  position: absolute;
+  top: 65px;
+  left: -30px;
+  width: 100vw;
   opacity: 1;
-  transition: height 300ms, opacity 300ms;
+  transition: all 300ms ease-in-out;
 
   &.hide {
+    position: absolute;
+    top: 50px;
+    left: 140px;
+
     opacity: 0;
     height: 0px;
-    transition: height 100ms, opacity 100ms;
+    width: 35px;
+    transition: all 100ms ease-in-out;
   }
 `
 
