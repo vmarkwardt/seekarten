@@ -8,19 +8,14 @@ const StyledInput = styled.input`
   justify-self: start;
 `
 
-export default function InputDate({
-  name,
-  onChange,
-  isRequired = false,
-  value,
-}) {
+export default function InputDate({ name, onChange, required, value }) {
   return (
     <StyledInput
       type="date"
       name={name}
       value={value}
       onChange={event => onChange(event)}
-      required={isRequired ? 'required' : ''}
+      required={required}
     />
   )
 }

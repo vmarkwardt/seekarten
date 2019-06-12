@@ -6,12 +6,18 @@ const StyledInput = styled.input`
   padding: 5px;
   font-size: 1em;
 `
+/*
+&:placeholder-shown {
+    border: 1px solid #ff9999;
+  }
+*/
 
 export default function InputText({
   name,
   value,
   onChange,
-  isRequired = false,
+  required,
+  placeholder,
 }) {
   return (
     <StyledInput
@@ -19,7 +25,8 @@ export default function InputText({
       name={name}
       value={value}
       onChange={event => onChange(event)}
-      required={isRequired ? 'required' : ''}
+      required={required}
+      placeholder={placeholder}
     />
   )
 }
