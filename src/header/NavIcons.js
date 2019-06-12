@@ -7,6 +7,7 @@ import {
   FormatListBulleted,
 } from 'styled-icons/material'
 import { Trophy } from 'styled-icons/icomoon'
+import { DoughnutChart } from 'styled-icons/boxicons-solid'
 import PropTypes from 'prop-types'
 
 const Icon = styled(RRDNavlink)`
@@ -47,6 +48,9 @@ export default function NavIcons({ toggleChartMenu }) {
       </Icon>
       <Icon to={'/timeLine'}>
         <FormatListBulleted title={'Zeitleiste'} size={35} />
+      </Icon>
+      <Icon to={'/vis'}>
+        <DoughnutChart title={'Sunburst'} size={35} />
       </Icon>
     </>
   )
