@@ -10,7 +10,7 @@ const StyledSkillList = styled.ul`
   padding: 5px;
 `
 
-export default function SkillList({ skillList, onProgressChange }) {
+export default function SkillList({ skillList, onProgressChange, color }) {
   return (
     <StyledSkillList>
       {skillList.map((skill, index) => (
@@ -18,6 +18,7 @@ export default function SkillList({ skillList, onProgressChange }) {
           key={uid()}
           name={skill.name}
           progress={skill.progress}
+          color={color}
           onProgressChange={params =>
             onProgressChange({ ...params, skillIndex: index })
           }

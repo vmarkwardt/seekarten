@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 import SkillList from './SkillList'
 import ProgressBar from '../commons/ProgressBar'
 import { H3 } from '../commons/headings'
-import { backgroundColor, chartWorldColor } from '../commons/constants'
+import { backgroundColor } from '../commons/constants'
+import { getColorOfTitle } from '../utils'
 
 const StyledCategory = styled.li`
   list-style-type: none;
@@ -21,7 +22,7 @@ const StyledHeader = styled.header`
   padding: 8px;
 `
 
-export default function Category({ name, skillList, onProgressChange }) {
+export default function Category({ name, skillList, onProgressChange, color }) {
   return (
     <StyledCategory key={name}>
       <StyledHeader>
@@ -34,11 +35,12 @@ export default function Category({ name, skillList, onProgressChange }) {
               0
             ) / skillList.length
           }
-          color={chartWorldColor}
+          color={color}
         />
       </StyledHeader>
       <SkillList
         skillList={skillList}
+        color={color}
         onProgressChange={props =>
           onProgressChange({ ...props, category: name })
         }
