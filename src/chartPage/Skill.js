@@ -28,6 +28,7 @@ export default function Skill({ name, progress, onProgressChange }) {
 Skill.propTypes = {
   name: PropTypes.string.isRequired,
   progress: PropTypes.number.isRequired,
+  onProgressChange: PropTypes.func.isRequired,
 }
 Skill.defaultProps = {
   progress: 0,

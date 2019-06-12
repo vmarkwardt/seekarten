@@ -1,6 +1,7 @@
 import React from 'react'
 import ChartLink from '../commons/ChartLink'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const SubNav = styled.section`
   display: flex;
@@ -20,4 +21,8 @@ export default function SubNavChartMenu({ isOpen }) {
   } else {
     return null
   }
+}
+
+SubNavChartMenu.propType = {
+  isOpen: PropTypes.bool,
 }

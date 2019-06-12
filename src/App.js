@@ -9,6 +9,14 @@ import { setLocal, getLocal, getAllSkillEvents, getFormatedDate } from './utils'
 import CertificateFormPage from './certificateForm/CertificateFormPage'
 import PageCertificateOverview from './certificateOverview/PageCertificateOverview'
 import PageTimeLine from './timeLine/PageTimeLine'
+import { navLinkList } from './commons/constants'
+import {
+  getChartsOfUser,
+  getCertificatesOfUser,
+  patchCertificates,
+  postCertificates,
+  patchCharts,
+} from './services'
 
 function App() {
   const [chartList, setChartList] = useState(
@@ -20,6 +28,7 @@ function App() {
   )
 
   const [editCertificate, setEditCertificate] = useState('')
+  const [userId, setUserId] = useState('Thea')
 
   useEffect(() => {
     setLocal('certificateList', certificateList)
@@ -29,7 +38,30 @@ function App() {
     setLocal('chartList', chartList)
   }, [chartList])
 
-  getAllEvents({ certificateList, chartList })
+  useEffect(() => {
+    fetchChartsOfUser(userId).then(charts => setChartList(charts[0].chartList))
+    fetchCertificatesOfUser(userId).then(certificates =>
+      setCertificateList(certificates[0].certificateList)
+    )
+  }, [])
+
+  async function fetchChartsOfUser(userId) {
+    try {
+      const res = await getChartsOfUser(userId)
+      return res
+    } catch (e) {
+      return 'ERROR getChartsOfUser() at App.js: ' + e.message
+    }
+  }
+
+  async function fetchCertificatesOfUser(userId) {
+    try {
+      const res = await getCertificatesOfUser(userId)
+      return res
+    } catch (e) {
+      return 'ERROR getCertificatesOfUser() at App.js: ' + e.message
+    }
+  }
 
   function getAllEvents({ certificateList, chartList }) {
     const allEvents = [...certificateList].map(certificate => ({
@@ -77,24 +109,39 @@ function App() {
       ]
     }
     setChartList(chartListCopy)
+    updateChartList(userId, chartListCopy)
   }
 
   function handleFormCertificateSubmit(newEntry, history) {
-    const indexNewEntry = getIndexOfCertificate(newEntry.id)
+    const indexNewEntry = getIndexOfCertificate(newEntry._id)
     if (indexNewEntry < 0) {
+      const entry = { ...newEntry }
+      delete entry._id
+      const newCertificateList = [entry, ...certificateList]
+      setCertificateList([...newCertificateList])
+      // post in DB
+      updateCertificates(userId, newCertificateList)
       setCertificateList([newEntry, ...certificateList])
     } else {
-      const certListCopy = certificateList.slice()
+      const certListCopy = [...certificateList]
       certListCopy[indexNewEntry] = newEntry
       setCertificateList(certListCopy)
+      updateCertificates(userId, certListCopy)
     }
 
     setEditCertificate('')
     history.push('/certificateList')
   }
 
+  function updateCertificates(userId, certificateList) {
+    patchCertificates(userId, certificateList)
+  }
+  function updateChartList(userId, chartList) {
+    patchCharts(userId, chartList)
+  }
+
   function handleDeleteCertificate(id) {
-    let certListCopy = certificateList.slice()
+    let certListCopy = [...certificateList]
     const index = getIndexOfCertificate(id)
     certListCopy = [
       ...certListCopy.slice(0, index),
@@ -102,31 +149,17 @@ function App() {
     ]
 
     setCertificateList(certListCopy)
+    updateCertificates(userId, certListCopy)
   }
 
   function getIndexOfCertificate(id) {
-    return certificateList.map(cert => cert.id).indexOf(id)
+    return certificateList.map(cert => cert._id).indexOf(id)
   }
 
   function handleEditCertificate(id, history) {
     setEditCertificate(certificateList[getIndexOfCertificate(id)])
     history.push('/certificate')
   }
-
-  const navLinkList = [
-    {
-      name: 'Ich',
-      color: '#e76f51',
-    },
-    {
-      name: 'Wir',
-      color: '#f4a261',
-    },
-    {
-      name: 'Welt',
-      color: '#2a9d8f',
-    },
-  ]
 
   return (
     <div className="App">
@@ -165,7 +198,7 @@ function App() {
               <CertificateFormPage
                 onFormSubmit={handleFormCertificateSubmit}
                 editCertificate={editCertificate}
-                {...props}
+                history={props.history}
               />
             )}
           />

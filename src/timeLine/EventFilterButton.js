@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { backgroundColor, chartWorldColor } from '../commons/constants'
 
 const StyledEventFilterButton = styled.button`
-  background: ${props => (props.isactive ? 'whitesmoke' : '#b6e1dd ')};
-  color: #2a9d8f;
-  border: 2px solid #2a9d8f;
+  background: ${props => (props.isactive ? 'whitesmoke' : backgroundColor)};
+  color: ${chartWorldColor};
+  border: 2px solid ${chartWorldColor};
   border-radius: 3px;
   text-decoration: none;
   margin: 5px;
@@ -17,7 +18,7 @@ const StyledEventFilterButton = styled.button`
   }
 `
 
-export function EventFilterButton({ type, onClick, isActive }) {
+export function EventFilterButton({ type, onClick, isActive = false }) {
   return (
     <StyledEventFilterButton
       onClick={() => onClick({ type })}
@@ -30,4 +31,6 @@ export function EventFilterButton({ type, onClick, isActive }) {
 
 EventFilterButton.propTypes = {
   type: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  isActive: PropTypes.bool,
 }

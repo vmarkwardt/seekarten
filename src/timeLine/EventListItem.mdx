@@ -1,0 +1,17 @@
+---
+## name: EventListItem
+---
+
+import { getFormatedDate } from '.././utils.js'
+import { Playground, Props } from 'docz'
+import EventListItem from './EventListItem.js'
+
+# EventListItem
+
+EventListItem
+
+<Playground>
+  <EventListItem title={'Ereignis'} date={getFormattedDate(new Date())} />
+</Playground>
+
+<Props of={EventListItem} />

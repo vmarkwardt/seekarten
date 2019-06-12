@@ -2,11 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink as RRDNavlink } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { chartWorldColor, backgroundColor } from '../commons/constants'
 
 const StyledNavLink = styled(RRDNavlink)`
-  background: #b6e1dd;
-  color: ${props => props.btncolor || '#2a9d8f'};
-  border: 2px solid ${props => props.btncolor || '#2a9d8f'};
+  background: ${backgroundColor};
+  color: ${props => props.btncolor || chartWorldColor};
+  border: 2px solid ${props => props.btncolor || chartWorldColor};
   border-radius: 3px;
   text-decoration: none;
   margin: 5px;
@@ -22,7 +23,7 @@ const StyledNavLink = styled(RRDNavlink)`
 `
 export default function NavLink({ name, btnColor, to }) {
   return (
-    <StyledNavLink to={to} btncolor={btnColor || '#2a9d8f'}>
+    <StyledNavLink to={to} btncolor={btnColor || chartWorldColor}>
       {name || 'Home'}
     </StyledNavLink>
   )

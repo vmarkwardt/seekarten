@@ -1,11 +1,17 @@
 import React from 'react'
 import Category from './Category'
-import { H2 } from '../commons/headings'
+import { PageHeadline } from '../commons/headings'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
+const StyledChartHeader = styled.header``
 
 export default function ChartPage({ title, categoryList, onProgressChange }) {
   return (
     <main>
-      <H2 title={'Seekarte: ' + title} />
+      <StyledChartHeader>
+        <PageHeadline title={'Seekarte: ' + title.toUpperCase()} />
+      </StyledChartHeader>
       <ul>
         {categoryList.map((category, index) => (
           <Category
@@ -20,4 +26,10 @@ export default function ChartPage({ title, categoryList, onProgressChange }) {
       </ul>
     </main>
   )
+}
+
+ChartPage.propType = {
+  title: PropTypes.string.isRequired,
+  categoryList: PropTypes.array.isRequired,
+  onProgressChange: PropTypes.func.isRequired,
 }

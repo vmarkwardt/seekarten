@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { EventFilterButton } from './EventFilterButton'
+import PropTypes from 'prop-types'
 
 const StyledEventFilter = styled.section`
   background: #b6e1dd;
@@ -21,4 +22,10 @@ export function EventFilter({ typeList, filter, onFilterClick }) {
       ))}
     </StyledEventFilter>
   )
+}
+
+EventFilter.propType = {
+  typeList: PropTypes.array.isRequired,
+  filter: PropTypes.string.isRequired,
+  onFilterClick: PropTypes.func.isRequired,
 }

@@ -1,20 +1,30 @@
 import React from 'react'
-import { H2 } from '../commons/headings'
+import { PageHeadline } from '../commons/headings'
 import FormCertificate from './FormCertificate'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const StyledMain = styled.main``
 
-export default function CertificateFormPage(props) {
-  const { onFormSubmit, editCertificate  } = props
+export default function CertificateFormPage({
+  onFormSubmit,
+  editCertificate,
+  history,
+}) {
   return (
     <StyledMain>
-      <H2 title={'Zertifikat eintragen'} />
+      <PageHeadline title={'Zertifikat eintragen'} />
       <FormCertificate
         onSubmit={onFormSubmit}
         editCertificate={editCertificate}
-        {...props}
+        history={history}
       />
     </StyledMain>
   )
+}
+
+CertificateFormPage.propType = {
+  onFormSubmit: PropTypes.func.isRequired,
+  editCertificate: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 }

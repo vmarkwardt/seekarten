@@ -46,3 +46,11 @@ export function getAllSkillEvents(chartList) {
 
   return skillEntries
 }
+
+export function getTrimmedEntry(entry) {
+  if (entry && typeof entry === 'string') {
+    return entry.trim()
+  } else {
+    return entry
+  }
+}
