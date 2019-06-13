@@ -29,8 +29,8 @@ const Icon = styled(RRDNavlink)`
 `
 
 export default function NavIcons({ toggleChartMenu }) {
-  function handleNavButtonOnClick(event, isChartMenuOpen = false) {
-    toggleChartMenu(event, isChartMenuOpen)
+  function handleNavButtonOnClick(event, isChartBtn = false) {
+    toggleChartMenu(event, isChartBtn)
   }
   return (
     <>

@@ -7,6 +7,14 @@ import { backgroundColor } from '../commons/constants'
 const StyledHeader = styled.header`
   background: ${backgroundColor};
   padding: 5px;
+
+  height: 102px;
+  transition: height 200ms ease-in-out;
+
+  &.subNavClosed {
+    height: 62px;
+    transition: height 200ms ease-in-out;
+  }
 `
 
 const Navigation = styled.nav`
@@ -17,12 +25,12 @@ const Navigation = styled.nav`
 function Header() {
   const [isChartsMenuOpen, setIsChartsMenuOpen] = useState(false)
 
-  function handleChartMenu(event, isChartsMenuOpen = false) {
+  function handleChartMenu(event, isChartBtn) {
     event.stopPropagation()
-    setIsChartsMenuOpen(isChartsMenuOpen)
+    setIsChartsMenuOpen(isChartBtn ? !isChartsMenuOpen : false)
   }
   return (
-    <StyledHeader>
+    <StyledHeader className={isChartsMenuOpen ? '' : 'subNavClosed'}>
       <Navigation onClick={handleChartMenu}>
         <NavIcons toggleChartMenu={handleChartMenu} />
       </Navigation>
