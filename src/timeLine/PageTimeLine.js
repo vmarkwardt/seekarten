@@ -5,6 +5,7 @@ import EventList from './EventList'
 import { EventFilter } from './EventFilter'
 import PropTypes from 'prop-types'
 import { getFormatedDate } from '../utils'
+import { mapFilterTitle } from '../commons/constants'
 
 const StyledPageTimeLine = styled.main`
   margin: 5px;
@@ -12,6 +13,8 @@ const StyledPageTimeLine = styled.main`
 
 export default function PageTimeLine({ eventList }) {
   const [filter, setFilter] = useState('all')
+  const sortedEventList = getSortedEventList(eventList)
+  const filteredEventList = getFilteredEventList(sortedEventList)
 
   function getSortedEventList(eventList) {
     const firstList = [...eventList]
@@ -19,15 +22,20 @@ export default function PageTimeLine({ eventList }) {
   }
 
   // todo getTypeList in utils
-  let typeList = getSortedEventList(eventList).map(event => event.type)
-  typeList = [...new Set(typeList)] //unique values
-  typeList.unshift('all')
+  // mapFilterTitle
+  function getTypeTitleList() {
+    // let typeList = sortedEventList.map(event => event.type)
+    // typeList = [...new Set(typeList)] //unique values
+    // typeList.unshift('all')
+    return mapFilterTitle.map(filter => filter.title)
+  }
 
-  let filteredEventList = getSortedEventList(eventList)
-  if (filter !== 'all') {
-    filteredEventList = getSortedEventList(eventList).filter(
-      item => item.type === filter
-    )
+  function getFilteredEventList(eventList) {
+    if (filter === 'all') {
+      return eventList
+    } else {
+      return eventList.filter(item => item.type === filter)
+    }
   }
 
   function getOldestDate(eventList) {
@@ -48,7 +56,7 @@ export default function PageTimeLine({ eventList }) {
     <StyledPageTimeLine>
       <header>
         <EventFilter
-          typeList={typeList}
+          filterList={mapFilterTitle}
           filter={filter}
           onFilterClick={handleFilterOnClick}
         />
