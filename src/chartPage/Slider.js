@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { chartWorldColor } from '../commons/constants'
 
 const StyledSlider = styled.input`
   opacity: 0.7;
@@ -16,7 +15,7 @@ const StyledSlider = styled.input`
   background: transparent;
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    border: 2px solid ${chartWorldColor};
+    border: 2px solid ${props => props.color};
     background: #ddd;
     height: 18px;
     width: 18px;
@@ -30,7 +29,7 @@ const StyledSlider = styled.input`
   }
 `
 
-export default function Slider({ progress, onProgressChange }) {
+export default function Slider({ progress, onProgressChange, color }) {
   return (
     <StyledSlider
       type="range"
@@ -38,6 +37,7 @@ export default function Slider({ progress, onProgressChange }) {
       max="100"
       step="5"
       value={progress}
+      color={color}
       onChange={event => onProgressChange(event.target.value)}
     />
   )

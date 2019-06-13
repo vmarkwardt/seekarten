@@ -11,12 +11,13 @@ const StyledSkill = styled.li`
   padding: 5px;
 `
 
-export default function Skill({ name, progress, onProgressChange }) {
+export default function Skill({ name, progress, onProgressChange, color }) {
   return (
     <StyledSkill>
       <h4>{name + ' '}</h4>
       <Slider
         progress={progress}
+        color={color}
         onProgressChange={progress =>
           onProgressChange({ skillName: name, progress })
         }

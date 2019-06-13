@@ -3,6 +3,7 @@ import Category from './Category'
 import { PageHeadline } from '../commons/headings'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { getColorOfTitle } from '../utils'
 
 const StyledChartHeader = styled.header``
 
@@ -18,6 +19,7 @@ export default function ChartPage({ title, categoryList, onProgressChange }) {
             key={category.name}
             name={category.name}
             skillList={category.skillList}
+            color={getColorOfTitle(title)}
             onProgressChange={props =>
               onProgressChange({ ...props, categoryIndex: index })
             }
