@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { EventFilterButton } from './EventFilterButton'
 import PropTypes from 'prop-types'
+import { backgroundColor } from '../commons/constants'
 
 const StyledEventFilter = styled.section`
-  background: #b6e1dd;
+  background: ${backgroundColor};
   margin: 5px;
   padding: 5px;
 `
