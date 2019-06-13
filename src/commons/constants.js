@@ -19,3 +19,11 @@ export const navLinkList = [
     color: chartWorldColor,
   },
 ]
+
+export const mapFilterTitle = [
+  {
+    type: 'skill',
+    title: 'Kompetenz',
+  },
+  { type: 'certificate', title: 'Zertifikat' },
+]
