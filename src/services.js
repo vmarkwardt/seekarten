@@ -28,12 +28,11 @@ export async function postCharts(chartList) {
 }
 
 export async function patchCharts(userId, chartList) {
-  console.log('patchCharts PATCH', chartList)
-  const fullChartListObj = { userId, chartList }
+  const chartListObj = { userId, chartList }
   const res = await fetch(`/chartList/${userId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(fullChartListObj),
+    body: JSON.stringify(chartListObj),
   })
   return res.json
 }
