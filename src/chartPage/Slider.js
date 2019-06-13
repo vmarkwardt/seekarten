@@ -10,7 +10,6 @@ const StyledSlider = styled.input`
   padding: 5px;
   outline: none;
   transition: opacity 0.15s ease-in-out;
-  width: 50%;
 
   -webkit-appearance: none;
   background: transparent;
