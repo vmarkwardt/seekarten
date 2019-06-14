@@ -18,13 +18,13 @@ const StyledEventFilterButton = styled.button`
   }
 `
 
-export function EventFilterButton({ type, onClick, isActive = false }) {
+export function EventFilterButton({ title, type, onClick, isActive = false }) {
   return (
     <StyledEventFilterButton
       onClick={() => onClick({ type })}
       isactive={isActive}
     >
-      {type}
+      {title}
     </StyledEventFilterButton>
   )
 }

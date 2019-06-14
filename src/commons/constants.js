@@ -21,9 +21,7 @@ export const navLinkList = [
 ]
 
 export const mapFilterTitle = [
-  {
-    type: 'skill',
-    title: 'Kompetenz',
-  },
+  { type: 'all', title: 'alle' },
+  { type: 'skill', title: 'Kompetenz' },
   { type: 'certificate', title: 'Zertifikat' },
 ]

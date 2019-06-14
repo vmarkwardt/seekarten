@@ -18,7 +18,6 @@ export async function getChartsOfUser(userId) {
   }
 }
 export async function postCharts(chartList) {
-  console.log('postCharts in services.js ', JSON.stringify(chartList))
   const res = await fetch('/chartList', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -59,7 +58,6 @@ export async function getCertificatesOfUser(userId) {
 
 export async function postCertificates(userId, certificateList) {
   const certificateObj = { userId, certificateList }
-  console.log('postCharts in services.js ', JSON.stringify(certificateObj))
   const res = await fetch('/certificates', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -69,9 +67,7 @@ export async function postCertificates(userId, certificateList) {
 }
 
 export async function patchCertificates(userId, certificateList) {
-  console.log(certificateList)
   const fullCertificatesObj = { userId, certificateList }
-  console.log('fullCertificatesObj', fullCertificatesObj)
   const res = await fetch(`/certificates/${userId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
