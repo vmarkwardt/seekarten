@@ -1,8 +1,8 @@
 const todaysDate = Cypress.moment().format('YYYY-MM-DD')
 const typedText = 'test text'
 
-describe('visit website', function() {
-  it('visit seekarten heroku website', function() {
+describe('seekarten test', function() {
+  it('visits seekarten heroku website', function() {
     cy.visit('https://seekarten.herokuapp.com')
     cy.get('h2').should('have.text', 'Seekarte: ICH')
   })
@@ -59,6 +59,8 @@ describe('visit website', function() {
     cy.contains('all').click() //.should('have.class', 'active')
     //Filter skill
     cy.contains('skill').click()
+    cy.get('[type=skill]').should('exist')
+    cy.get('[type=certificate]').should('not.exist')
 
     //cy.get('ul section li ')
     // .should('have.attr')
@@ -67,6 +69,8 @@ describe('visit website', function() {
     //cy.get('ul section li').should('have.text', 'Arbeitshaltung')
     //Filter certificate
     cy.contains('certificate').click()
+    cy.get('[type=certificate]').should('exist')
+    cy.get('[type=skill]').should('not.exist')
     cy.contains('Zertifikate')
     //svg title Zertifikate
   })
