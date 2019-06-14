@@ -49,32 +49,32 @@ describe('visit website', function() {
       .should('have.text', typedText)
   })
 
-  it('visit seekarten heroku website', function() {
+  it('open timeLine page', function() {
     // Page timeLine
     cy.contains('Zeitleiste').click()
     cy.url().should('include', '/timeLine')
+    cy.get('h2').should('have.text', 'Zeitleiste ')
 
     //Filter all
     cy.contains('all').click() //.should('have.class', 'active')
     //Filter skill
     cy.contains('skill').click()
-    cy.get('h2').should('have.text', 'Zeitleiste ')
 
     //cy.get('ul section li ')
     // .should('have.attr')
     // .should('have.type', 'skill')
     //cy.get('ul section').should('have.text', 'Arbeitshaltung')
     //cy.get('ul section li').should('have.text', 'Arbeitshaltung')
-
     //Filter certificate
     cy.contains('certificate').click()
+    cy.contains('Zertifikate')
+    //svg title Zertifikate
+  })
 
+  it('open sunburst visualisation page', function() {
     // visualisation page
     cy.contains('Sunburst').click()
     cy.url().should('include', '/vis')
     cy.get('.basic-sunburst-example-wrapper')
-
-    cy.contains('Seekarten').click()
-    cy.url().should('include', '/charts/ich')
   })
 })
