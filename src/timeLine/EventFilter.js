@@ -17,12 +17,12 @@ export function EventFilter({ filterList, filter, onFilterClick }) {
   return (
     <StyledEventFilter>
       <Filter title={'Filter:'} size={35} color={chartWorldColor} />
-      {filterList.map(filter => (
+      {filterList.map(filterItem => (
         <EventFilterButton
-          key={filter.type}
-          title={filter.title}
-          type={filter.type}
-          isActive={filter.type === filter}
+          key={filterItem.type}
+          title={filterItem.title}
+          type={filterItem.type}
+          isActive={filterItem.type === filter}
           onClick={onFilterClick}
         />
       ))}
