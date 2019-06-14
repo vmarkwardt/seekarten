@@ -67,10 +67,11 @@ export default function FormCertificate({
     <StyledForm onSubmit={handleOnSubmit}>
       <label htmlFor="title">Titel:</label>
       <InputText
+        autoFocus={'autoFocus'}
         value={certificate.title}
         name="title"
         onChange={event => handleInputOnChange('title', event.target.value)}
-        placeholder="Titel"
+        placeholder="ein Titel"
         required="required"
       />
       <label htmlFor={'subject'}>Fach / Thema:</label>

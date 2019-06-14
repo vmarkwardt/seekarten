@@ -18,6 +18,7 @@ export default function InputText({
   onChange,
   required,
   placeholder,
+  autoFocus,
 }) {
   return (
     <StyledInput
@@ -27,6 +28,7 @@ export default function InputText({
       onChange={event => onChange(event)}
       required={required}
       placeholder={placeholder}
+      autoFocus={autoFocus}
     />
   )
 }
