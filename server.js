@@ -2,6 +2,7 @@ const setupServer = require('./setup-server')
 const app = setupServer()
 const Charts = require('./models/Charts')
 const Certificates = require('./models/Certificate')
+const path = require('path')
 
 app.get('/chartList', (req, res) => {
   Charts.find()
@@ -58,4 +59,10 @@ app.post('/certificates', (req, res) => {
   Certificates.create(req.body)
     .then(certificates => res.status(201).json(certificates))
     .catch(err => res.status(500).json({ erorrs: [err] }))
+})
+
+// else
+app.get('/*', function(req, res) {
+  console.log('app.get(*..')
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
