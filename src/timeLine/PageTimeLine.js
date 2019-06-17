@@ -13,25 +13,19 @@ const StyledPageTimeLine = styled.main`
 
 export default function PageTimeLine({ eventList }) {
   const [filter, setFilter] = useState('all')
-  const sortedEventList = getSortedEventList(eventList)
 
   function getSortedEventList(eventList) {
     const firstList = [...eventList]
     return firstList.sort((a, b) => (a.date < b.date ? 1 : -1))
   }
 
-  function getTypeTitleList() {
-    return mapFilterTitle.map(filter => filter.title)
-  }
-
   function getFilteredEventList(eventList) {
-    console.log('filter: ', filter, eventList)
     if (filter === 'all') {
       return eventList
     } else {
-      const text = eventList.filter(item => item.type === filter)
-      console.log('filtered: ', text)
-      return text
+      const filteredList = eventList.filter(item => item.type === filter)
+      console.log('haeh: ', filteredList)
+      return filteredList
     }
   }
 
