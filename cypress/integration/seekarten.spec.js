@@ -4,10 +4,13 @@ const typedText = 'test text'
 describe('seekarten test', function() {
   it('visits seekarten heroku website', function() {
     cy.visit('https://seekarten.herokuapp.com')
+    cy.get('a')
+      .contains('Ich')
+      .its('height')
+      .should('be.gt', 0)
+
+    //.should('be.visible')
     cy.get('h2').should('have.text', 'Seekarte: ICH')
-    cy.get('section')
-      .contains('a')
-      .should('have.text', 'ich')
   })
 
   it('open page to add certifcate', () => {
@@ -61,7 +64,7 @@ describe('seekarten test', function() {
 
   it('filter timeLine page: all', function() {
     //Filter all
-    cy.contains('all').click() //.should('have.class', 'active')
+    cy.contains('all').click()
     cy.get('[type=skill]').should('exist')
     cy.get('[type=certificate]').should('exist')
   })
