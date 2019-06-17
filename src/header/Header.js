@@ -22,13 +22,7 @@ const Navigation = styled.nav`
   justify-content: center;
 `
 
-function Header() {
-  const [isChartsMenuOpen, setIsChartsMenuOpen] = useState(false)
-
-  function handleChartMenu(event, isChartBtn) {
-    event.stopPropagation()
-    setIsChartsMenuOpen(isChartBtn ? !isChartsMenuOpen : false)
-  }
+function Header({ isChartsMenuOpen, handleChartMenu }) {
   return (
     <StyledHeader className={isChartsMenuOpen ? '' : 'subNavClosed'}>
       <Navigation onClick={handleChartMenu}>
