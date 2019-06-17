@@ -24,7 +24,6 @@ export default function PageTimeLine({ eventList }) {
       return eventList
     } else {
       const filteredList = eventList.filter(item => item.type === filter)
-      console.log('haeh: ', filteredList)
       return filteredList
     }
   }
