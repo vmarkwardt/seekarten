@@ -1,13 +1,16 @@
 const todaysDate = Cypress.moment().format('YYYY-MM-DD')
-const typedText = 'test text'
+const typedText = 'test text ' + Cypress.moment()
+const herokuPath = 'https://seekarten.herokuapp.com'
+const localPath = 'http://localhost:3000'
+
+const baseURL = localPath
 
 describe('seekarten test', function() {
   it('visits seekarten heroku website', function() {
-    cy.visit('https://seekarten.herokuapp.com')
+    cy.visit(baseURL)
     cy.get('a')
       .contains('Ich')
-      .its('height')
-      .should('be.gt', 0)
+      .should('have.css', 'height', '33px')
 
     //.should('be.visible')
     cy.get('h2').should('have.text', 'Seekarte: ICH')
@@ -79,7 +82,9 @@ describe('seekarten test', function() {
 
   it('filter timeLine page: certificate', function() {
     //Filter certificate
-    cy.contains('Zertifikate').click()
+    cy.get('button')
+      .contains('Zertifikate')
+      .click()
     cy.get('[type=certificate]').should('exist')
     cy.get('[type=skill]').should('not.exist')
     //svg title Zertifikate
