@@ -16,7 +16,7 @@ const StyledForm = styled.form`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 3fr;
-  padding: 10px;
+  padding: 5px;
 `
 export default function FormCertificate({
   onSubmit,
