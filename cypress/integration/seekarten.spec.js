@@ -1,20 +1,23 @@
 const todaysDate = Cypress.moment().format('YYYY-MM-DD')
-const typedText = 'test text'
+const typedText = 'test text ' + Cypress.moment()
+const herokuPath = 'https://seekarten.herokuapp.com'
+const localPath = 'http://localhost:3000'
+
+const baseURL = localPath
 
 describe('seekarten test', function() {
   it('visits seekarten heroku website', function() {
-    cy.visit('https://seekarten.herokuapp.com')
+    cy.visit(baseURL)
+    cy.get('a')
+      .contains('Ich')
+      .should('have.css', 'height', '33px')
+
     cy.get('h2').should('have.text', 'Seekarte: ICH')
-    cy.get('section')
-      .contains('a')
-      .should('have.text', 'ich')
   })
 
   it('open page to add certifcate', () => {
     cy.contains('Zertifikat eintragen').click()
     cy.url().should('include', '/certificate')
-    // test form fields
-    //cy.focused()
   })
 
   it('fill from and save certificate', () => {
@@ -32,7 +35,6 @@ describe('seekarten test', function() {
       .type(typedText)
       .should('have.value', typedText)
 
-    // https://on.cypress.io/submit
     cy.get('form').submit()
     cy.contains('Zertifikate')
   })
@@ -53,20 +55,17 @@ describe('seekarten test', function() {
   })
 
   it('open timeLine page', function() {
-    // Page timeLine
     cy.contains('Zeitleiste').click()
     cy.url().should('include', '/timeLine')
     cy.get('h2').should('have.text', 'Zeitleiste ')
   })
 
   it('filter timeLine page: all', function() {
-    //Filter all
-    cy.contains('all').click() //.should('have.class', 'active')
+    cy.contains('all').click()
     cy.get('[type=skill]').should('exist')
     cy.get('[type=certificate]').should('exist')
   })
   it('filter timeLine page: skill', function() {
-    //Filter skill
     cy.get('button')
       .contains('Kompetenzen')
       .click()
@@ -75,15 +74,14 @@ describe('seekarten test', function() {
   })
 
   it('filter timeLine page: certificate', function() {
-    //Filter certificate
-    cy.contains('Zertifikate').click()
+    cy.get('button')
+      .contains('Zertifikate')
+      .click()
     cy.get('[type=certificate]').should('exist')
     cy.get('[type=skill]').should('not.exist')
-    //svg title Zertifikate
   })
 
   it('open sunburst visualisation page', function() {
-    // visualisation page
     cy.contains('Sunburst').click()
     cy.url().should('include', '/vis')
     cy.get('.basic-sunburst-example-wrapper')

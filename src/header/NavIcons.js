@@ -35,7 +35,7 @@ export default function NavIcons({ toggleChartMenu }) {
   return (
     <>
       <Icon
-        to={'/charts'}
+        to={'/charts/ich'}
         onClick={event => handleNavButtonOnClick(event, true)}
       >
         <DirectionsBoat title={'Seekarten'} size={35} />

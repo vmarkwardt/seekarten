@@ -31,6 +31,13 @@ function App() {
   const [editCertificate, setEditCertificate] = useState('')
   const [userId, setUserId] = useState('Thea')
 
+  const [isChartsMenuOpen, setIsChartsMenuOpen] = useState(false)
+
+  function handleChartMenu(event, isChartBtn) {
+    event.stopPropagation()
+    setIsChartsMenuOpen(isChartBtn ? !isChartsMenuOpen : false)
+  }
+
   useEffect(() => {
     setLocal('certificateList', certificateList)
   }, [certificateList])
@@ -177,7 +184,11 @@ function App() {
       </Helmet>
       <GlobalStyle />
       <BrowserRouter>
-        <Header linkList={navLinkList} />
+        <Header
+          linkList={navLinkList}
+          handleChartMenu={handleChartMenu}
+          isChartsMenuOpen={isChartsMenuOpen}
+        />
         <Switch>
           {chartList.map((chart, index) => (
             <Route
@@ -225,7 +236,14 @@ function App() {
             )}
           />
           <Route path="/vis" render={() => <MySunburst data={chartList} />} />
-          <Route path="/" render={() => <Redirect to="/charts/ich" />} />
+          <Route
+            exact
+            path="/"
+            render={() => {
+              setIsChartsMenuOpen(true)
+              return <Redirect to="/charts/ich" />
+            }}
+          />
         </Switch>
       </BrowserRouter>
     </div>

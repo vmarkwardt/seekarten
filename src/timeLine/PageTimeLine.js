@@ -13,28 +13,18 @@ const StyledPageTimeLine = styled.main`
 
 export default function PageTimeLine({ eventList }) {
   const [filter, setFilter] = useState('all')
-  const sortedEventList = getSortedEventList(eventList)
-  const filteredEventList = getFilteredEventList(sortedEventList)
 
   function getSortedEventList(eventList) {
     const firstList = [...eventList]
     return firstList.sort((a, b) => (a.date < b.date ? 1 : -1))
   }
 
-  // todo getTypeList in utils
-  // mapFilterTitle
-  function getTypeTitleList() {
-    // let typeList = sortedEventList.map(event => event.type)
-    // typeList = [...new Set(typeList)] //unique values
-    // typeList.unshift('all')
-    return mapFilterTitle.map(filter => filter.title)
-  }
-
   function getFilteredEventList(eventList) {
     if (filter === 'all') {
       return eventList
     } else {
-      return eventList.filter(item => item.type === filter)
+      const filteredList = eventList.filter(item => item.type === filter)
+      return filteredList
     }
   }
 
@@ -63,12 +53,14 @@ export default function PageTimeLine({ eventList }) {
         <PageHeadline title={'Zeitleiste '} />
         <h4>
           {'von ' +
-            getOldestDate(filteredEventList) +
+            getOldestDate(getFilteredEventList(eventList)) +
             ' bis ' +
-            getNewestDate(filteredEventList)}
+            getNewestDate(getFilteredEventList(eventList))}
         </h4>
       </header>
-      <EventList eventList={filteredEventList} />
+      <EventList
+        eventList={getSortedEventList(getFilteredEventList(eventList))}
+      />
     </StyledPageTimeLine>
   )
 }
