@@ -5,6 +5,9 @@ describe('seekarten test', function() {
   it('visits seekarten heroku website', function() {
     cy.visit('https://seekarten.herokuapp.com')
     cy.get('h2').should('have.text', 'Seekarte: ICH')
+    cy.get('section')
+      .contains('a')
+      .should('have.text', 'ich')
   })
 
   it('open page to add certifcate', () => {
@@ -54,24 +57,28 @@ describe('seekarten test', function() {
     cy.contains('Zeitleiste').click()
     cy.url().should('include', '/timeLine')
     cy.get('h2').should('have.text', 'Zeitleiste ')
+  })
 
+  it('filter timeLine page: all', function() {
     //Filter all
     cy.contains('all').click() //.should('have.class', 'active')
+    cy.get('[type=skill]').should('exist')
+    cy.get('[type=certificate]').should('exist')
+  })
+  it('filter timeLine page: skill', function() {
     //Filter skill
-    cy.contains('skill').click()
+    cy.get('button')
+      .contains('Kompetenzen')
+      .click()
     cy.get('[type=skill]').should('exist')
     cy.get('[type=certificate]').should('not.exist')
+  })
 
-    //cy.get('ul section li ')
-    // .should('have.attr')
-    // .should('have.type', 'skill')
-    //cy.get('ul section').should('have.text', 'Arbeitshaltung')
-    //cy.get('ul section li').should('have.text', 'Arbeitshaltung')
+  it('filter timeLine page: certificate', function() {
     //Filter certificate
-    cy.contains('certificate').click()
+    cy.contains('Zertifikate').click()
     cy.get('[type=certificate]').should('exist')
     cy.get('[type=skill]').should('not.exist')
-    cy.contains('Zertifikate')
     //svg title Zertifikate
   })
 
