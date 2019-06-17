@@ -99,9 +99,17 @@ function App() {
     if (skill.changeHistory) {
       //changeHistory key already exists now check date
       const history = skill.changeHistory
-      const historyDates = history.map(entry => entry.changeDate)
+      const historyDates = history.map(entry => getFormatedDate(entry.changeDate))
       const today = getFormatedDate(new Date())
       const indexToday = historyDates.indexOf(today)
+      console.log(
+        'indexToday: ',
+        indexToday,
+        'historyDates: ',
+        historyDates,
+        'today: ',
+        today
+      )
       if (indexToday < 0) {
         // there are dates, but not today
         skill.changeHistory.push({
