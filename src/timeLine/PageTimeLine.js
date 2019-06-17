@@ -23,8 +23,7 @@ export default function PageTimeLine({ eventList }) {
     if (filter === 'all') {
       return eventList
     } else {
-      const filteredList = eventList.filter(item => item.type === filter)
-      return filteredList
+      return eventList.filter(item => item.type === filter)
     }
   }
 
