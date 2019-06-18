@@ -10,7 +10,7 @@ describe('seekarten test', function() {
     cy.visit(baseURL)
     cy.get('a')
       .contains('Ich')
-      .should('have.css', 'height', '33px')
+      .should('have.css', 'height', '43px')
 
     cy.get('h2').should('have.text', 'Seekarte: ICH')
   })
