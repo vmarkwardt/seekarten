@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import { backgroundColor, chartWorldColor } from '../commons/constants'
 
 const StyledEventFilterButton = styled.button`
-  background: ${props => (props.isactive ? 'whitesmoke' : backgroundColor)};
+  background: ${props => (props.isactive ? backgroundColor : 'whitesmoke')};
   color: ${chartWorldColor};
   border: 2px solid ${chartWorldColor};
   border-radius: 3px;
   text-decoration: none;
-  margin: 5px;
+  margin-left: 5px;
   padding: 5px;
   font-size: 1em;
 
