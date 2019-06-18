@@ -8,7 +8,7 @@ const StyledHeader = styled.header`
   background: ${backgroundColor};
   padding: 5px;
 
-  height: 102px;
+  height: 108px;
   transition: height 200ms ease-in-out;
 
   &.subNavClosed {
