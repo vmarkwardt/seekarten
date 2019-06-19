@@ -1,16 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { backgroundColor } from './constants'
 
 const StyledInput = styled.input`
   padding: 5px;
   font-size: 1em;
+  border: none;
+  border: 1px solid ${backgroundColor};
 `
-/*
-&:placeholder-shown {
-    border: 1px solid #ff9999;
-  }
-*/
 
 export default function InputText({
   name,
