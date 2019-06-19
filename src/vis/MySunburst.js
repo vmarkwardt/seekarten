@@ -20,7 +20,7 @@ const LABEL_STYLE = {
  */
 function getKeyPath(node) {
   if (!node.parent) {
-    return ['root']
+    return ['Seekarte']
   }
 
   return [(node.data && node.data.name) || node.name].concat(
