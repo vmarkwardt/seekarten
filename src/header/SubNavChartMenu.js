@@ -8,6 +8,7 @@ import {
   chartWorldColor,
 } from '../commons/constants'
 
+// left: -53px;
 const SubNav = styled.section`
   display: flex;
   justify-content: center;
@@ -16,7 +17,7 @@ const SubNav = styled.section`
 
   position: absolute;
   top: 58px;
-  left: -53px;
+  left: -14%;
   width: 100vw;
   opacity: 1;
   transition: all 300ms ease-in-out;
@@ -30,6 +31,7 @@ const SubNav = styled.section`
     height: 0;
     width: 0;
     transition: all 100ms ease-in-out;
+    overflow: hidden;
 
     &.hidden {
       display: none;
