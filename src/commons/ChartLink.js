@@ -17,6 +17,7 @@ const StyledLink = styled(RRDNavlink)`
   text-decoration: none;
   text-align: center;
   padding-top: 8px;
+  transition: all 300ms ease-in-out;
 
   &:hover {
     border-color: whitesmoke;
