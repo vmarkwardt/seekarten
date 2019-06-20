@@ -6,6 +6,7 @@ import InputText from '../commons/InputText'
 import InputDate from '../commons/InputDate'
 import { getFormatedDate, getTrimmedEntry } from '../utils'
 import PropTypes from 'prop-types'
+import { backgroundColor } from '../commons/constants'
 
 const StyledButtonSubmit = styled(ButtonSubmit)`
   margin: 0;
@@ -18,6 +19,11 @@ const StyledForm = styled.form`
   grid-template-columns: 1fr 3fr;
   padding: 5px;
 `
+const StyledTextarea = styled.textarea`
+  border: none;
+  border: 1px solid ${backgroundColor};
+`
+
 export default function FormCertificate({
   onSubmit,
   editCertificate,
@@ -74,7 +80,7 @@ export default function FormCertificate({
         placeholder="ein Titel"
         required="required"
       />
-      <label htmlFor={'subject'}>Fach / Thema:</label>
+      <label htmlFor={'subject'}>Thema:</label>
       <InputText
         value={certificate.subject}
         name="subject"
@@ -90,7 +96,7 @@ export default function FormCertificate({
         required="required"
       />
       <label htmlFor="comment">Bemerkung:</label>
-      <textarea
+      <StyledTextarea
         value={certificate.comment}
         name="comment"
         rows="5"

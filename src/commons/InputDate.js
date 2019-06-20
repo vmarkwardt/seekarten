@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { backgroundColor } from './constants'
 
 const StyledInput = styled.input`
   padding: 5px;
   font-size: 1em;
   justify-self: start;
+  border: none;
+  border: 1px solid ${backgroundColor};
 `
 
 export default function InputDate({ name, onChange, required, value }) {

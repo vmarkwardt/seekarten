@@ -5,22 +5,35 @@ const localPath = 'http://localhost:3000'
 
 const baseURL = localPath
 
-describe('seekarten test', function() {
-  it('visits seekarten heroku website', function() {
+describe('Seekarten App', function() {
+  it('visits seekarten on: ' + baseURL, function() {
     cy.visit(baseURL)
+  })
+})
+describe('Page Charts', function() {
+  it('checks navigation', function() {
+    cy.get('a:first')
+      .should('have.css', 'background-color')
+      .and('eq', 'rgb(245, 245, 245)')
+
     cy.get('a')
       .contains('Ich')
-      .should('have.css', 'height', '33px')
-
-    cy.get('h2').should('have.text', 'Seekarte: ICH')
+      .should('have.css', 'height', '43px')
+      .and('have.css', 'border-color')
+      .and('eq', 'rgb(245, 245, 245)')
   })
 
-  it('open page to add certifcate', () => {
+  it('checks header', function() {
+    cy.get('h2').should('have.text', 'Seekarte: ICH')
+  })
+})
+describe('Page Add Certificate', function() {
+  it('opens page to add a certifcate', () => {
     cy.contains('Zertifikat eintragen').click()
     cy.url().should('include', '/certificate')
   })
 
-  it('fill from and save certificate', () => {
+  it('fill form and save certificate', () => {
     cy.get('form')
       .find('[name="title"]')
       .type(typedText)
@@ -53,7 +66,8 @@ describe('seekarten test', function() {
       .first()
       .should('have.text', typedText)
   })
-
+})
+describe('Page TimeLine', function() {
   it('open timeLine page', function() {
     cy.contains('Zeitleiste').click()
     cy.url().should('include', '/timeLine')
@@ -65,6 +79,7 @@ describe('seekarten test', function() {
     cy.get('[type=skill]').should('exist')
     cy.get('[type=certificate]').should('exist')
   })
+
   it('filter timeLine page: skill', function() {
     cy.get('button')
       .contains('Kompetenzen')
@@ -80,7 +95,8 @@ describe('seekarten test', function() {
     cy.get('[type=certificate]').should('exist')
     cy.get('[type=skill]').should('not.exist')
   })
-
+})
+describe('Page Sunburst Visualisation', function() {
   it('open sunburst visualisation page', function() {
     cy.contains('Sunburst').click()
     cy.url().should('include', '/vis')

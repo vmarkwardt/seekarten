@@ -16,7 +16,8 @@
     "eject": "react-scripts eject",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "jest": "jest"
   },
   "dependencies": {
     "@craco/craco": "5.2.0",
