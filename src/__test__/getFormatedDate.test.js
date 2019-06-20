@@ -1,7 +1,7 @@
 import { getFormatedDate } from '../utils'
 
 describe('test works for empty string', () => {
-  test('works for empty list', () => {
+  test('works for empty string', () => {
     expect(getFormatedDate('')).toEqual('')
   })
 
