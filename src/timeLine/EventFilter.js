@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import { chartWorldColor } from '../commons/constants'
 import { Filter } from 'styled-icons/typicons'
 
-// background: ${backgroundColor};
 const StyledEventFilter = styled.section`
   padding: 5px;
   display: flex;
