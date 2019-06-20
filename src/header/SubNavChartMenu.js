@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import ChartLink from '../commons/ChartLink'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
@@ -8,7 +8,6 @@ import {
   chartWorldColor,
 } from '../commons/constants'
 
-// left: -53px;
 const SubNav = styled.section`
   display: flex;
   justify-content: center;
@@ -40,37 +39,13 @@ const SubNav = styled.section`
 `
 
 export default function SubNavChartMenu({ isOpen }) {
-  const [hidden, setHidden] = useState(false)
-  useEffect(() => {
-    return () => {
-      console.log(hidden)
-    }
-  }, [hidden])
-  function getClassName(isOpen) {
-    if (isOpen) {
-      return ''
-    } else if (hidden) {
-      return 'hide, hidden'
-    } else {
-      return 'hide'
-    }
-  }
-
-  function handleAnimationEnd() {
-    // console.log('transition END =isOpen:', isOpen)
-    // setHidden(!isOpen)
-  }
-  // onAnimationEnd={setHidden(!isOpen)}
   return (
-    <SubNav
-      className={isOpen ? '' : 'hide'}
-      onTransitionEnd={handleAnimationEnd()}
-    >
+    <SubNav className={isOpen ? '' : 'hide'}>
       <ChartLink
         name="Ich"
         btnColor={chartIColor}
         path="/charts/ich"
-        className={getClassName(isOpen)}
+        className={isOpen ? '' : 'hide'}
       />
       <ChartLink
         name="Wir"
